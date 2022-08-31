@@ -1,13 +1,13 @@
-package com.d210.alpagom;
+package com.d210.alphagom;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AlpagomApplication {
+public class AlphagomApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AlpagomApplication.class, args);
+		SpringApplication.run(AlphagomApplication.class, args);
 	}
 
 }

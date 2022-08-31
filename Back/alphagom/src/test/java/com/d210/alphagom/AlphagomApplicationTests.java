@@ -1,10 +1,10 @@
-package com.d210.alpagom;
+package com.d210.alphagom;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AlpagomApplicationTests {
+class AlphagomApplicationTests {
 
 	@Test
 	void contextLoads() {
