@@ -10,3 +10,4 @@ alphagom
 #### 0901 박경열 commit 완료
 #### 0901 배근혜 commit 완료
 
+#### 0902 이미현 commit 완료
