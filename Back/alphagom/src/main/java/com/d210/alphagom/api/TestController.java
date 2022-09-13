@@ -6,12 +6,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/test")
 public class TestController {
     @GetMapping("/")
-    private ResponseEntity test() {
-        return ResponseEntity.ok().body(LocalDate.now());
+    private ResponseEntity<?> test() {
+        Map<String, Object> result = new HashMap<>();
+        result.put("time", LocalDate.now());
+        return ResponseEntity.ok().body(result);
     }
 }
