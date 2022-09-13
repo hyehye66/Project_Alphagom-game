@@ -1,0 +1,42 @@
+spring:
+  profiles:
+    active:
+      on-profile: aws
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://j7d210.p.ssafy.io:3306/alphagom?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false
+    username: alphagom
+    password: dkfvkrha210@
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 1000
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+
+springdoc:
+  api-docs:
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    displayRequestDuration: true
+    groups-order: DESC
+
+server:
+  tomcat:
+    max-http-form-post-size: 20MB
+
+logging:
+  level:
+    #    root: debug
+    org.hibernate.SQL: debug
+    org.springframework.web: debug
+    #    org.hibernate.type: trace
+    com.ssafy.alpagom: debug
