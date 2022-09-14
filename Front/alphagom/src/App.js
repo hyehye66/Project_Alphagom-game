@@ -1,5 +1,8 @@
+import { StatusBar } from 'expo-status-bar';
 import React from "react";
-import { Text, View, Button } from 'react-native';
+import { View } from 'react-native';
+
+import HomePage from './components/otherpage/HomePage'
 
 const App = () => {
     return (
@@ -10,8 +13,8 @@ const App = () => {
             justifyContent: 'center',
         }}
         >
-        <Text style={{ fontSize: 30, marginBottom: 10}}>Props</Text>
-        <Button title="Button" />
+        <HomePage />
+        <StatusBar style="auto" />
         </View>
     );
 };
