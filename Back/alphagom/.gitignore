@@ -37,7 +37,7 @@ out/
 .vscode/
 
 ### CYC ###
-application.yml
+#application.yml
 application.properties
-application-aws.yml
-application-oauth.yml
+#application-aws.yml
+#application-oauth.yml
