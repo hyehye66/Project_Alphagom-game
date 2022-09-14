@@ -1,14 +1,13 @@
 spring:
   profiles:
-    active: local
+    active: aws
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/alphagom?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false
-    username: admin
-    password: 1234
+    url: jdbc:mysql://j7d210.p.ssafy.io:3306/alphagom?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false
+    username: alphagom
+    password: dkfvkrha210@
   jpa:
     open-in-view: false
-    generate-ddl: false
     hibernate:
       ddl-auto: update
     properties:
