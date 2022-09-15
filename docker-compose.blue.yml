@@ -1,11 +1,11 @@
 # 프로젝트 Root 폴더
-# 프로젝트Root/docker-compose.yml
+# 프로젝트Root/docker-compose.blue.yml
 version: '3.7'
 
 services:
   backend:
-    container_name: "alphagom_backend"
-    image: alphagom_backend:0.1
+    container_name: "alphagom_backend-blue"
+    image: alphagom_backend:0.1-blue
     build:
       context: Back/alphagom/
       dockerfile: Dockerfile
