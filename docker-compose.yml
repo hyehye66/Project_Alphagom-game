@@ -10,7 +10,7 @@ services:
       context: Back/alphagom/
       dockerfile: Dockerfile
     ports:
-      - "8081:8081"
+      - "8080:8081"
     # [인증서 파일 저장 경로]:/root
     volumes:
       - /etc/letsencrypt/live/j7d210.p.ssafy.io/:/root
