@@ -26,7 +26,6 @@ EXIST_AFTER=$(docker-compose -p ${DOCKER_APP_NAME}-${AFTER_COMPOSE_COLOR} -f doc
 if [ -n "$EXIST_AFTER" ]; then
     # nginx.config를 컨테이너에 맞게 변경해주고 reload 한다
     sudo cp /var/jenkins_home/inc/service-url.inc.${AFTER_COMPOSE_COLOR} /var/jenkins_home/inc/service-url.inc
-    nginx -s reload
     
     # 이전 컨테이너 종료
     docker-compose -p ${DOCKER_APP_NAME}-${BEFORE_COMPOSE_COLOR} -f docker-compose.${BEFORE_COMPOSE_COLOR}.yml down
