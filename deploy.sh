@@ -25,7 +25,7 @@ sleep 10
 EXIST_AFTER=$(docker-compose -p ${DOCKER_APP_NAME}-${AFTER_COMPOSE_COLOR} -f docker-compose.${AFTER_COMPOSE_COLOR}.yml ps | grep Up)
 if [ -n "$EXIST_AFTER" ]; then
     # nginx.config를 컨테이너에 맞게 변경해주고 reload 한다
-    cp /etc/nginx/nginx.${AFTER_COMPOSE_COLOR}.conf /etc/nginx/nginx.conf
+    sudo cp /etc/nginx/conf.d/service-url.inc.${AFTER_COMPOSE_COLOR} /etc/nginx/conf.d/service-url.inc
     nginx -s reload
     
     # 이전 컨테이너 종료
