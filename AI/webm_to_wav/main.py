@@ -27,7 +27,7 @@ for folder_name in folder_names:
     startIdx = int(startIdx)
     endIdx = int(endIdx)
     
-    print(f'[{title}] 데이터 {startIdx}~{endIdx}(총 {endIdx - startIdx + 1}개)의 변환(webm to wav)을 시작할까요?')
+    print('[{}] 데이터 {}~{}(총 {}개)의 변환(webm to wav)을 시작할까요?'.format(title, startIdx, endIdx, endIdx - startIdx + 1))
     confirm = input('[y/n] : ')
     
     if not (confirm == 'y' or confirm == 'yes' or confirm == 'Y'):
@@ -41,16 +41,16 @@ for folder_name in folder_names:
 
     for file_name in file_names:
         if file_name.endswith('webm'):
-            file_path = f'{data_dir}/{folder_name}/{file_name}'
+            file_path = '{}/{}/{}'.format(data_dir,folder_name,file_name)
             audioSegment = AudioSegment.from_file(file_path, 'webm')
             chunk_length_ms = 1000 #1밀리 초
             chunks = make_chunks(audioSegment, chunk_length_ms)
             for i, chunk in enumerate(chunks):
                 if len(chunk) < 1000:
                     continue
-                new_file_path = f'{data_dir}/{folder_name}/{title}{startIdx+file_cnt}.wav'
+                new_file_path = '{}/{}/{}{}.wav'.format(data_dir, folder_name, title, startIdx+file_cnt)
                 chunk.export(new_file_path, format='wav')
             file_cnt += 1
             print('.', end=' ')
-    print(f'\n{file_cnt}개의 파일 변환이 완료되었습니다!\n')
+    print('\n{}개의 파일 변환이 완료되었습니다!\n'.format(file_cnt))
     
