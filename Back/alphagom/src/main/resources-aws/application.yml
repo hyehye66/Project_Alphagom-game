@@ -3,7 +3,7 @@ spring:
     active: aws
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://j7d210.p.ssafy.io:3306/alphagom?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://j7d210.p.ssafy.io:5000/alphagom?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false
     username: alphagom
     password: dkfvkrha210@
   jpa:
