@@ -1,6 +1,8 @@
 import { View } from 'react-native';
 import 'react-native-gesture-handler';
-import React from "react";
+import React, { useEffect } from 'react';
+import { StatusBar } from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 
 import HomePage from './screen/otherpage/HomePage';
 import Map from './screen/otherpage/Map';
@@ -18,14 +20,16 @@ import CaveRank from './screen/ranking/CaveRank'
 import SkyRank from './screen/ranking/SkyRank'
 import MyPageRecord from './screen/otherpage/MyPageRecord'
 
-import { NavigationContainer } from '@react-navigation/stack';
-import { createNativeStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
 function App () {
+
     return (
     <NavigationContainer>
+        <StatusBar hidden />
         <Stack.Navigator initialRouteName='HomePage' screenOptions={{ headerShown: false}}>
             <Stack.Screen name='HomePage' component={HomePage} />
             <Stack.Screen name='Map' component={Map} />

@@ -1,0 +1,41 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Batang_Bold.ttf",
+      "sha1": "1fdba804f742e80fb519a25b2c580f2e83d2aeb1"
+    },
+    {
+      "path": "src/assets/fonts/Batang_Regular.ttf",
+      "sha1": "dd5e9b9710144b180d9357ba870aa52dd524acc7"
+    },
+    {
+      "path": "src/assets/fonts/SSShinb7Regular.ttf",
+      "sha1": "b10c76eb75ab71d2142532b20adcfbc8075a0f1a"
+    },
+    {
+      "path": "src/assets/fonts/TitleV.ttf",
+      "sha1": "3c7fd4368a63d29172f181e0cc053915e8fd88be"
+    },
+    {
+      "path": "src/assets/fonts/Title_Bold.ttf",
+      "sha1": "e0aea7e8ffdde7521bf5e4fc670a0ffabf3a90ab"
+    },
+    {
+      "path": "src/assets/fonts/Title_Light.otf",
+      "sha1": "123b75b7f661f073bd7e7fe00d6f64095cff9360"
+    },
+    {
+      "path": "src/assets/fonts/Title_Light.ttf",
+      "sha1": "dba484a0d56d7e9aaa0e976bc89a2311d0b660dd"
+    },
+    {
+      "path": "src/assets/fonts/Title_Medium.otf",
+      "sha1": "29bc9a48a8b1c0fd5201b8e127bfe4c96936608e"
+    },
+    {
+      "path": "src/assets/fonts/Title_Medium.ttf",
+      "sha1": "35137f98c40586f7c9f515723b07d739cf835415"
+    }
+  ]
+}

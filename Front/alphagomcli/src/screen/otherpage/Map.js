@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, Button, ImageBackground, ScrollView } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Button, ImageBackground, ScrollView, Text, Image } from 'react-native';
 
 import Footer from '../../Footer';
 
@@ -9,42 +9,58 @@ function Map () {
 
     const navigation = useNavigation();
 
+// 요소들 정렬하기
+// 아이콘 전체를 눌렀을 때 게임 페이지 이동
+// 폰트 생각해보기
+//"탐험 지도" 같이 제목 적당히 넣기
+
     return (
-        <ScrollView horizontal={true}>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <ImageBackground 
-            // style={{ width: 1200, height: '100%'}}
             style={ styles.background }
-            source={require('../../assets/image/하늘_배경.png')}>
+            source={require('../../assets/image/지도_배경_사진_필터_low.png')}>
         <SafeAreaView style={styles.container}>
-            
-        <View style={styles.button}>
-        <Button
-            title="마법의 성"
-            onPress={() => navigation.navigate('MagicStartPage')}
-        />
-        </View>
-            
-        <View style={styles.button}>
-        <Button
-            title="늪"
-            onPress={() => navigation.navigate('SwampStartPage')}
-        />
+
+        <View>
+        <Image
+        style={{ width:260, height: 200}}
+        source={require('../../assets/image/마법의_성.png')} />
+        <Text style={styles.button}
+            onPress={() => navigation.navigate('MagicStartPage')}>
+            마법의 성
+        </Text>
+      </View>
+        
+        <View>
+        <Image
+        style={{ width:500, height: 200}}
+        source={require('../../assets/image/늪.png')} />
+        <Text style={styles.button}
+            onPress={() => navigation.navigate('SwampStartPage')}>
+            늪
+        </Text>
         </View>
 
-        <View style={styles.button}>
-        <Button
-            title="어둠의 동굴"
-            onPress={() => navigation.navigate('CaveStartPage')}
-        />
+        <View>
+        <Image
+        style={{ width:300, height: 200}}
+        source={require('../../assets/image/어둠의_동굴.png')} />
+        <Text style={styles.button}
+            onPress={() => navigation.navigate('CaveStartPage')}>
+            어둠의 동굴
+        </Text>
         </View>
 
-        <View style={styles.button}>
-        <Button
-            title="밤하늘"
-            onPress={() => navigation.navigate('SkyStartPage')}
-        />
+        <View>
+            <Image
+        style={{ width:600, height: 200}}
+        source={require('../../assets/image/하늘.png')} />
+        <Text style={styles.button}
+            onPress={() => navigation.navigate('SkyStartPage')}>
+            밤하늘
+            </Text>
         </View>
-            
+
         </SafeAreaView>
             <Footer />
         </ImageBackground>
@@ -58,29 +74,16 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-around',
-      marginHorizontal: 16,
-    },
-    title: {
-      textAlign: 'center',
-      marginVertical: 8,
-    },
-    fixToText: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-    },
-    separator: {
-      marginVertical: 8,
-      borderBottomColor: '#737373',
-      borderBottomWidth: StyleSheet.hairlineWidth,
     },
     background: {
-        width: 1200,
-        height: '100%'
+        width: 2000,
+        height: '100%',
     },
     button: {
-        width:100,
-        height:200,
-    }
+        fontSize: 50,
+        color: 'white',
+        fontFamily: 'Title_Light',
+    },
   });
 
 
