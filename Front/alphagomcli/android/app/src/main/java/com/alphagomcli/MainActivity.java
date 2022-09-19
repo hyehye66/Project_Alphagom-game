@@ -1,8 +1,13 @@
 package com.alphagomcli;
 
+import android.os.Bundle;
+import org.devio.rn.splashscreen.SplashScreen;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
+
+import android.view.View;
+import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
 
@@ -14,6 +19,27 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "alphagomcli";
   }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    hideNavigationBar();
+  }
+
+  @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            hideNavigationBar();
+        }
+    }
+
+    private void hideNavigationBar() {
+        getWindow().getDecorView().setSystemUiVisibility(
+            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+    }
 
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. There the RootView is created and
