@@ -19,6 +19,7 @@ import SwampRank from './screen/ranking/SwampRank'
 import CaveRank from './screen/ranking/CaveRank'
 import SkyRank from './screen/ranking/SkyRank'
 import MyPageRecord from './screen/otherpage/MyPageRecord'
+import SwampDialogMain from './screen/swamp/SwampDialogMain';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -46,6 +47,7 @@ function App () {
             <Stack.Screen name='CaveRank' component={CaveRank} />
             <Stack.Screen name='SkyRank' component={SkyRank} />
             <Stack.Screen name='MyPageRecord' component={MyPageRecord} />
+            <Stack.Screen name='SwampDialogMain' component={SwampDialogMain} />
         </Stack.Navigator>
     </NavigationContainer>
     );
