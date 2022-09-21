@@ -15,7 +15,7 @@ public class GameStatus {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private boolean status;
+    private int status;
 
     @Enumerated(EnumType.STRING)
     private GameTag gameTag;
@@ -24,8 +24,7 @@ public class GameStatus {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public GameStatus(Long id, boolean status, GameTag gameTag, User user) {
-        this.id = id;
+    public GameStatus(int status, GameTag gameTag, User user) {
         this.status = status;
         this.gameTag = gameTag;
         this.user = user;

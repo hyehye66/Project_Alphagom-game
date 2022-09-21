@@ -24,8 +24,7 @@ public class User extends BaseTimeEntity {
 
     private LocalDate birth;
 
-    public User(Long id, String name, String email, String nickname, LocalDate birth) {
-        this.id = id;
+    public User(String name, String email, String nickname, LocalDate birth) {
         this.name = name;
         this.email = email;
         this.nickname = nickname;
