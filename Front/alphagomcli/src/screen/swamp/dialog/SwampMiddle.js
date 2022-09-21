@@ -2,7 +2,7 @@ import { withTheme } from '@rneui/themed';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Animated, SafeAreaView, View, Image, ImageBackground, Text } from 'react-native';
 
-function SwampDialog3 () {
+function SwampMiddle () {
     return (
         <View>
             <Text style={ styles.dialogtext }>
@@ -22,4 +22,4 @@ const styles = StyleSheet.compose({
     },
 })
 
-export default SwampDialog3;
+export default SwampMiddle;
