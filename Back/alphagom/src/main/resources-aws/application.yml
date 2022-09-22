@@ -1,6 +1,7 @@
 spring:
   profiles:
     active: aws
+    include: oauth
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://j7d210.p.ssafy.io:5000/alphagom?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false

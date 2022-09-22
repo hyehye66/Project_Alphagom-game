@@ -1,6 +1,7 @@
 spring:
   profiles:
     active: dev
+    include: oauth
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/alphagom?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false
