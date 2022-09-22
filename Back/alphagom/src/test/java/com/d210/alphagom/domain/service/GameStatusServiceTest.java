@@ -2,6 +2,7 @@ package com.d210.alphagom.domain.service;
 
 import com.d210.alphagom.domain.entity.GameStatus;
 import com.d210.alphagom.domain.entity.GameTag;
+import com.d210.alphagom.domain.entity.Role;
 import com.d210.alphagom.domain.entity.User;
 import com.d210.alphagom.domain.repository.GameStatusRepository;
 import com.d210.alphagom.domain.repository.UserRepository;
@@ -39,7 +40,7 @@ class GameStatusServiceTest {
     @Test
     void saveScoreTest() {
         // given
-        User user = new User("김성준", "test123@ssafy.com", "개미", LocalDate.now());
+        User user = new User("김성준", "test123@ssafy.com", "개미", Role.USER);
         userRepository.save(user);
         em.persist(user);
 
