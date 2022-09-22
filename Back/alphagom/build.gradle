@@ -29,6 +29,9 @@ dependencies {
 
 	// springdoc 설정
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.11'
+
+	// 스프링 시큐리티
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 }
 
 tasks.named('test') {
