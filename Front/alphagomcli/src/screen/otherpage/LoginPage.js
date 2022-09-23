@@ -28,27 +28,22 @@ function HomePage ({navigation}) {
       말해봐요 알파곰
     </Text>
     <View style={styles.menu}>
-
+    {/* onPress 화살표 뒤에 콜백함수 넣으면 됨! */}
     <Text style={styles.button}
-        onPress={() => navigation.navigate('Map')}
-      >탐험하기
+        onPress={() => }
+      >구글로 로그인
     </Text>
 
       <Text style={styles.button}
-        onPress={() => navigation.navigate('Ranking')}
-      >순위보기
+        onPress={() => }
+      >카카오로 로그인
       </Text>
       
 
       <Text style={styles.button}
-        onPress={() => navigation.navigate('LoginPage')}
-      >로그인/임시
+        onPress={() => }
+      >네이버로 로그인
         </Text>
-
-      <Text style={styles.button}
-        onPress={() => navigation.navigate('MyPage')}
-      >나의 여정
-      </Text>
 
     </View>
     </View>
