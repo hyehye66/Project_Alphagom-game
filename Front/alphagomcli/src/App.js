@@ -19,8 +19,10 @@ import SwampRank from './screen/ranking/SwampRank'
 import CaveRank from './screen/ranking/CaveRank'
 import SkyRank from './screen/ranking/SkyRank'
 import MyPageRecord from './screen/otherpage/MyPageRecord'
-import SwampDialogMain from './screen/swamp/dialog/SwampDialogMain';
+import SwampMain from './screen/swamp/SwampMain';
 import ChaseMain from './screen/swamp/chasegame/ChaseMain';
+import SkyMain from './screen/sky/SkyMain';
+import LoginPage from './screen/otherpage/LoginPage';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -48,8 +50,10 @@ function App () {
             <Stack.Screen name='CaveRank' component={CaveRank} />
             <Stack.Screen name='SkyRank' component={SkyRank} />
             <Stack.Screen name='MyPageRecord' component={MyPageRecord} />
-            <Stack.Screen name='SwampDialogMain' component={SwampDialogMain} />
+            <Stack.Screen name='SwampMain' component={SwampMain} />
             <Stack.Screen name='ChaseMain' component={ChaseMain} />
+            <Stack.Screen name='SkyMain' component={SkyMain} />
+            <Stack.Screen name='LoginPage' component={LoginPage} />
         </Stack.Navigator>
     </NavigationContainer>
     );
