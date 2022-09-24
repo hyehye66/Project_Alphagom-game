@@ -1,11 +1,15 @@
-import React from 'react';
-import { StyleSheet, ImageBackground, Button, View, SafeAreaView, Alert, Image, Text } from 'react-native';
+import * as React from 'react';
+import { StyleSheet, ImageBackground, View, SafeAreaView, Alert, Image, Text, Dimensions, TouchableOpacity } from 'react-native';
 
 import Footer from '../../Footer';
 
 // 로그아웃 / 종료버튼 만들어야 한다
 // Drawer 로 네브바 만들기
-// 
+
+// const width = useWindowDimensions().width;
+// const height = useWindowDimensions().height;
+const width = Dimensions.get('screen').width;
+const height = Dimensions.get('screen').height;
 
 function HomePage ({navigation}) {
   
@@ -19,40 +23,94 @@ function HomePage ({navigation}) {
       
       <View style={styles.alphagom}>
       <Image
-        style={{ width:160, height: 350}}
+        // style={{ width:160, height: 350}}
+        style={{
+          resizeMode: "cover",
+          width: width - 700,
+          height: height - 100
+        }}
+        
         source={require('../../assets/image/알파곰_전신_인사.png')} />
       </View>
 
     <View style={styles.position}>
-    <Text style={styles.main}>
-      말해봐요 알파곰
-    </Text>
-    <View style={styles.menu}>
+      <Image 
+        style={{
+          marginBottom: 20,
+          width: width - 325,
+          height: height - 310,
+        }}
+        source={require('../../assets/image/타이틀.png')}/>
+      {/* <Text style={styles.main}>
+        말해봐요 알파곰
+      </Text> */}
+      <View style={styles.menu}>
+        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity 
+            style={styles.buttonShape}
+            onPress={() => navigation.navigate('Map')}>
+            <View 
+              activeOpacity={0.8}
+              style={styles.buttonView}
+            >
+              <Text style={styles.buttonText}>탐험하기</Text>
+            </View>
+          </TouchableOpacity>
+          {/* <Text style={styles.buttonText}
+              onPress={() => navigation.navigate('Map')}
+            >탐험하기
+          </Text> */}
+          
+          <TouchableOpacity
+            style={styles.buttonShape}
+            onPress={() => navigation.navigate('Ranking')}>
+            <View 
+              activeOpacity={0.8}
+              style={styles.buttonView}
+            >
+              <Text style={styles.buttonText}>순위보기</Text>
+            </View>
+          </TouchableOpacity>
+          {/* <Text style={styles.buttonText}
+            onPress={() => navigation.navigate('Ranking')}
+          >순위보기
+          </Text> */}
+        </View>
+        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity 
+            style={styles.buttonShape}
+            onPress={goAlert}>
+            <View 
+              activeOpacity={0.8}
+              style={styles.buttonView}
+            >
+              <Text style={styles.buttonText}>이야기 보따리</Text>
+            </View>
+          </TouchableOpacity>
+          {/* <Text style={styles.buttonText}
+            onPress={goAlert}
+          >이야기 보따리
+          </Text> */}
 
-    <Text style={styles.button}
-        onPress={() => navigation.navigate('Map')}
-      >탐험하기
-    </Text>
+          <TouchableOpacity
+            style={styles.buttonShape}
+            onPress={() => navigation.navigate('MyPage')}>
+            <View 
+              activeOpacity={0.8}
+              style={styles.buttonView}
+            >
+              <Text style={styles.buttonText}>나의 여정</Text>
+            </View>
+          </TouchableOpacity>
+          {/* <Text style={styles.buttonText}
+            onPress={() => navigation.navigate('MyPage')}
+          >나의 여정
+          </Text> */}
+        </View>
 
-      <Text style={styles.button}
-        onPress={() => navigation.navigate('Ranking')}
-      >순위보기
-      </Text>
-      
-
-      <Text style={styles.button}
-        onPress={() => navigation.navigate('LoginPage')}
-      >로그인/임시
-        </Text>
-
-      <Text style={styles.button}
-        onPress={() => navigation.navigate('MyPage')}
-      >나의 여정
-      </Text>
-
+      </View>
     </View>
-    </View>
-    <Footer />
+    {/* <Footer /> */}
   </SafeAreaView>
   );
 };
@@ -61,37 +119,54 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    marginHorizontal: 20,
-    marginVertical: 5
+    alignItems: 'center', 
+    justifyContent: 'center',
+    // marginHorizontal: width / 20,
+    // marginVertical: height / 20,
   },
   alphagom : {
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft:10,
+    // marginLeft: width / 50,
+    // backgroundColor: 'red',
   },
-  button: {
-    fontSize: 25,
-    color: 'black',
+  buttonShape: {
+    margin: 8,
+  },
+  buttonView: {
+    width: width / 5,
+    height: height / 9,
+    backgroundColor: '#FFF170',
+    alignItems: 'center', 
+    justifyContent: 'center',
+    borderRadius: 15
+  },
+  buttonText: {
+    fontSize: 20,
+    // backgroundColor: 'black',
     fontFamily: 'Batang_Bold',
-    margin:15,
+    color: 'black',
   },
   main: {
     fontFamily: 'Title_Medium',
     fontSize: 85,
     color: 'black',
-    margin: 30,
+    marginBottom: 20,
   },
   menu : {
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
   },
   position : {
     alignItems:'flex-start',
     flexDirection:'column',
-    alignItems: 'center', 
+    marginLeft: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // backgroundColor: 'green',
   },
   background: {
-    width: 1000,
+    width: width,
     height: '100%',
 },
 });

@@ -21,8 +21,6 @@
 		1D4FD78FDD1D4C4DB649510C /* Title_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F7C05F50E81452387C24ACA /* Title_Bold.ttf */; };
 		DFE1132E7B684564B954B841 /* Title_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1452677EEC6B43E8A37D8D44 /* Title_Light.ttf */; };
 		05943E6286124533828EE3F0 /* Title_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDE9AB8AC3074BF38746D1FB /* Title_Medium.ttf */; };
-		7484FC3349824614814462F7 /* Title_Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA1A975A8C7542EE92AC2529 /* Title_Light.otf */; };
-		F0CDFAB5DB734690AB619A84 /* Title_Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8103D35C940140BCBA872D16 /* Title_Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +58,6 @@
 		1F7C05F50E81452387C24ACA /* Title_Bold.ttf */ = {isa = PBXFileReference; name = "Title_Bold.ttf"; path = "../src/assets/fonts/Title_Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		1452677EEC6B43E8A37D8D44 /* Title_Light.ttf */ = {isa = PBXFileReference; name = "Title_Light.ttf"; path = "../src/assets/fonts/Title_Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		FDE9AB8AC3074BF38746D1FB /* Title_Medium.ttf */ = {isa = PBXFileReference; name = "Title_Medium.ttf"; path = "../src/assets/fonts/Title_Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AA1A975A8C7542EE92AC2529 /* Title_Light.otf */ = {isa = PBXFileReference; name = "Title_Light.otf"; path = "../src/assets/fonts/Title_Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		8103D35C940140BCBA872D16 /* Title_Medium.otf */ = {isa = PBXFileReference; name = "Title_Medium.otf"; path = "../src/assets/fonts/Title_Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,8 +173,6 @@
 				1F7C05F50E81452387C24ACA /* Title_Bold.ttf */,
 				1452677EEC6B43E8A37D8D44 /* Title_Light.ttf */,
 				FDE9AB8AC3074BF38746D1FB /* Title_Medium.ttf */,
-				AA1A975A8C7542EE92AC2529 /* Title_Light.otf */,
-				8103D35C940140BCBA872D16 /* Title_Medium.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -287,8 +281,6 @@
 				1D4FD78FDD1D4C4DB649510C /* Title_Bold.ttf in Resources */,
 				DFE1132E7B684564B954B841 /* Title_Light.ttf in Resources */,
 				05943E6286124533828EE3F0 /* Title_Medium.ttf in Resources */,
-				7484FC3349824614814462F7 /* Title_Light.otf in Resources */,
-				F0CDFAB5DB734690AB619A84 /* Title_Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
