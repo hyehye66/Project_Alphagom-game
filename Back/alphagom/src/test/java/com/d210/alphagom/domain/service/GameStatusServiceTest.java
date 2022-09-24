@@ -44,7 +44,7 @@ class GameStatusServiceTest {
         userRepository.save(user);
         em.persist(user);
 
-        GameTag tag = GameTag.castle;
+        GameTag tag = GameTag.sky;
 
         // when
         Long gameStatusId = gameStatusService.saveScore(100, tag, user);

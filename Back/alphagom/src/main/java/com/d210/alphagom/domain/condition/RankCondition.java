@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class RankCondition {
     private String gameTag;
+    private Long curLastIdx = Long.MAX_VALUE;
+    private int limit = 10;
 }

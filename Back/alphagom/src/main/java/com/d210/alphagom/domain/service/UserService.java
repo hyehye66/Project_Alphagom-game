@@ -19,4 +19,8 @@ public class UserService {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 userId : " + userId + " 는 존재하지 않습니다."));
     }
+
+    public String findUserNickName(Long userId) {
+        return userRepository.findById(userId).get().getNickname();
+    }
 }
