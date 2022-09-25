@@ -7,7 +7,7 @@ import Footer from '../../Footer';
 // Drawer 로 네브바 만들기
 // 
 
-function HomePage ({navigation}) {
+function LoginPage ({navigation}) {
   
   const goAlert = () => 
       Alert.alert(
@@ -30,18 +30,18 @@ function HomePage ({navigation}) {
     <View style={styles.menu}>
     {/* onPress 화살표 뒤에 콜백함수 넣으면 됨! */}
     <Text style={styles.button}
-        onPress={() => }
+        onPress={() => {}}
       >구글로 로그인
     </Text>
 
       <Text style={styles.button}
-        onPress={() => }
+        onPress={() => {}}
       >카카오로 로그인
       </Text>
       
 
       <Text style={styles.button}
-        onPress={() => }
+        onPress={() => {}}
       >네이버로 로그인
         </Text>
 
@@ -91,4 +91,4 @@ const styles = StyleSheet.create({
 },
 });
 
-export default HomePage;
+export default LoginPage;

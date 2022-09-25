@@ -19,8 +19,7 @@ import SkyRank from '../ranking/SkyRank'
 import MyPageRecord from '../otherpage/MyPageRecord'
 import SwampMain from '../swamp/dialog/SwampDialogMain'
 import ChaseMain from '../swamp/chasegame/ChaseMain'
-import SkyMain from '../sky/SkyMain'
-import LoginPage from '../otherpage/LoginPage'
+import LoginPage from './LoginPage';
 
 const Stack = createStackNavigator();
 
@@ -44,7 +43,6 @@ const StackNavigator = () => {
       <Stack.Screen name='MyPageRecord' component={MyPageRecord} />
       <Stack.Screen name='SwampMain' component={SwampMain} />
       <Stack.Screen name='ChaseMain' component={ChaseMain} />
-      <Stack.Screen name='SkyMain' component={SkyMain} />
       <Stack.Screen name='LoginPage' component={LoginPage} />
   </Stack.Navigator>
   );
