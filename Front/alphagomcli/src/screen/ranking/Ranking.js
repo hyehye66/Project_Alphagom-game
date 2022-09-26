@@ -4,7 +4,6 @@ import { StyleSheet, View, Text, SafeAreaView } from 'react-native';
 //import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { useNavigation } from '@react-navigation/native';
 
-import Footer from '../../Footer';
 //import AllRank from './AllRank';
 //import MagicRank from './MagicRank';
 //import SwampRank from './SwampRank';
@@ -106,7 +105,6 @@ function Ranking () {
         </Text>
     </View>
     </View>
-    <Footer/>
   </SafeAreaView>
   );
 };

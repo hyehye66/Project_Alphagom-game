@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-import Footer from '../../Footer';
 
 function AllRank () {
 
@@ -10,7 +9,6 @@ function AllRank () {
         <Text>
             랭킹이 나올 겁니다.
         </Text>
-        <Footer />
     </View>
     );
 };
