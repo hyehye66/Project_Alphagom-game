@@ -6,6 +6,8 @@ import com.d210.alphagom.domain.entity.GameStatus;
 import com.d210.alphagom.domain.entity.User;
 import com.d210.alphagom.domain.service.GameStatusService;
 import com.d210.alphagom.domain.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -18,6 +20,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Tag(name = "Game", description = "Game api 입니다.")
 @Slf4j
 @RestController
 @RequestMapping("/api/be")
@@ -30,6 +33,7 @@ public class GameStatusApiController {
 
     private final RedisTemplate redisTemplate;
 
+    @Operation(summary = "점수 저장", description = "점수 저장 api 입니다.")
     @PostMapping("score/user/{userId}")
     public ResponseEntity<?> saveGameStatus(@PathVariable Long userId, @RequestBody GameStatusRequest request) {
         log.info("{}유저가 {}게임에 {}점수 저장", userId, request.getGameTag(), request.getScore());
@@ -38,6 +42,7 @@ public class GameStatusApiController {
         return ResponseEntity.ok(new ResponseDTO("점수가 저장되었습니다."));
     }
 
+    @Operation(summary = "순위 조회", description = "순위 조회 api 입니다.")
     @GetMapping("rank/{tag}")
     public ResponseEntity<?> getRank(@PathVariable String tag) {
         log.info("{} 게임의 순위 리스트", tag);
@@ -50,6 +55,7 @@ public class GameStatusApiController {
         return ResponseEntity.ok(collect);
     }
 
+    @Operation(summary = "게임별 순위 조회", description = "게임별 순위 조회 api 입니다.")
     @GetMapping("rank/user/{userId}/{tag}")
     public ResponseEntity<?> getUserRank(@PathVariable Long userId, @PathVariable String tag) {
         log.info("{} 게임의 {} 유저의 순위", tag, userId);
