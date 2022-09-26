@@ -24,6 +24,14 @@ spring:
     pathmatch:
       matching-strategy: ant-path-matcher
 
+  devtools:
+    # 코드나 리소스 변경되었을 경우 서버 수동으로 재시작
+    # 1. "Preferences - Build, Execution, Deployment - Compiler"에서 "Build project automatically" 체크
+    # 2. "Preferences - Advanced Settings"에서 Compiler - "Allow auto-make to start even if deployed application is currently running" 체크
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
 springdoc:
   api-docs:
     groups:

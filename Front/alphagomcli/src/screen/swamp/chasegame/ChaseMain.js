@@ -2,11 +2,12 @@ import { withTheme } from '@rneui/themed';
 import React, { useRef, useState, useEffect } from 'react';
 import { StyleSheet, Animated, SafeAreaView, View, Image, ImageBackground, Text } from 'react-native';
 
-function ChaseMain () {
+function ChaseMain ({setchaseGame}) {
     return (
         <View>
-            <Text style={ styles.text }>
-                안녕하세요
+            <Text style={ styles.text }
+            onPress={() => {setchaseGame(true)}}>
+                일단 눌러~
             </Text>
         </View>
     );

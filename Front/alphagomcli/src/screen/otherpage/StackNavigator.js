@@ -17,7 +17,7 @@ import SwampRank from '../ranking/SwampRank'
 import CaveRank from '../ranking/CaveRank'
 import SkyRank from '../ranking/SkyRank'
 import MyPageRecord from '../otherpage/MyPageRecord'
-import SwampMain from '../swamp/dialog/SwampDialogMain'
+import SwampMain from '../swamp/SwampMain'
 import ChaseMain from '../swamp/chasegame/ChaseMain'
 import LoginPage from './LoginPage';
 

@@ -31,6 +31,8 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false)
     private Role role;
 
+    private boolean isCastle = false;
+
     /*
      * 추가 정보
      */
@@ -44,6 +46,14 @@ public class User extends BaseTimeEntity {
         this.email = email;
         this.picture = picture;
         this.role = role;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void updateIsCastle(boolean isCastle) {
+        this.isCastle = isCastle;
     }
 
     public User update(String name, String picture){

@@ -29,8 +29,13 @@ function LoginPage ({navigation}) {
     </Text>
     <View style={styles.menu}>
     {/* onPress 화살표 뒤에 콜백함수 넣으면 됨! */}
+<<<<<<< Front/alphagomcli/src/screen/otherpage/LoginPage.js
     <Text style={styles.button}
         onPress={() => {}}
+=======
+    {/* <Text style={styles.button}
+        onPress={() => }
+>>>>>>> Front/alphagomcli/src/screen/otherpage/LoginPage.js
       >구글로 로그인
     </Text>
 
@@ -43,7 +48,7 @@ function LoginPage ({navigation}) {
       <Text style={styles.button}
         onPress={() => {}}
       >네이버로 로그인
-        </Text>
+        </Text> */}
 
     </View>
     </View>

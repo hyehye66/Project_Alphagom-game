@@ -3,11 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, Animated, SafeAreaView, View, Image, ImageBackground, Text } from 'react-native';
 
 import SwampLine from '../../../dialog/SwampLine.json';
-import { useNavigation } from '@react-navigation/native';
 
 function SwampPrologue ({fullLine, setbeforeGame, setfullLine }) {
-
-    const navigation = useNavigation();
 
     const fadeLine = useRef(new Animated.Value(0)).current
     const fadeImage = useRef(new Animated.Value(0)).current
@@ -21,7 +18,6 @@ function SwampPrologue ({fullLine, setbeforeGame, setfullLine }) {
     function checkDialog () {
         if (idx + 1 === SwampLine.prologue.length) {
             setbeforeGame(true)
-            navigation.navigate('ChaseMain');
             return
         } 
     }
@@ -75,6 +71,9 @@ function SwampPrologue ({fullLine, setbeforeGame, setfullLine }) {
 
     return (
         <View>
+        
+        <Animated.Text style={[styles.step, {opacity:fadeImage}]}
+        onPress={() => { setbeforeGame(true)} }>건너뛰기</Animated.Text>
            { charname === "토끼" ? <Animated.Image
                 style={ [styles.rabbit, {opacity:fadeImage}] }
                 source={require('../../../assets/image/토끼_전신.png')}/>
@@ -83,7 +82,7 @@ function SwampPrologue ({fullLine, setbeforeGame, setfullLine }) {
            source={require('../../../assets/image/자라_전신.png')}/>
             : charname === "용왕" ? <Animated.Image
             style={ [styles.rabbit, {opacity:fadeImage}] }
-            source={require('../../../assets/image/알파곰_전신.png')}/>
+            source={require('../../../assets/image/용왕_전신.png')}/>
             : charname === "알파곰" ? <Animated.Image
             style={ [styles.alphagom, {opacity:fadeImage}] }
             source={require('../../../assets/image/알파곰_전신.png')}/>
@@ -124,22 +123,15 @@ const styles = StyleSheet.create({
         fontFamily:'SSShinb7Regular',
         fontSize:50,
         color:'white',
-        marginTop:190,
-        marginLeft:100
+        marginTop:155,
+        marginLeft:90
     },
     dialogtext: {
         fontFamily:'Batang_Bold',
         fontSize:25,
         color:'black',
         marginLeft:100,
-        marginTop:25},
-
-    dialogtext2: {
-        fontFamily:'Batang_Bold',
-        fontSize:25,
-        color:'black',
-        marginLeft:100,
-        marginTop:10
+        marginTop:20
     },
     turtle: {
         position:'absolute',
@@ -172,8 +164,13 @@ const styles = StyleSheet.create({
         color:'black',
         fontSize:30,
         fontFamily:'SSShinb7Regular',
-        marginLeft:30
-
+        marginLeft:20
+    },
+    step: {
+        color:'black',
+        fontSize:30,
+        fontFamily:'SSShinb7Regular',
+        marginLeft:20
     },
     before: {
         color:'black',
