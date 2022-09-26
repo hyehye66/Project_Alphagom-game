@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, ImageBackground, View, SafeAreaView, Alert, Image, Text, Dimensions, TouchableOpacity } from 'react-native';
 
-import Footer from '../../Footer';
-
 // 로그아웃 / 종료버튼 만들어야 한다
 // Drawer 로 네브바 만들기
 
@@ -111,7 +109,6 @@ function HomePage ({navigation}) {
 
       </View>
     </View>
-    {/* <Footer /> */}
   </SafeAreaView>
   );
 };

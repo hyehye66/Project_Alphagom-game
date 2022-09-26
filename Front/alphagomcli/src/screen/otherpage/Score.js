@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 
-import Footer from '../../Footer';
 import { useNavigation } from '@react-navigation/native';
 
 function Score () {
@@ -14,7 +13,6 @@ function Score () {
         onPress={() => navigation.navigate('SkyStartPage')}>
             점수입니다.
         </Text>
-        <Footer />
     </View>
     );
 };

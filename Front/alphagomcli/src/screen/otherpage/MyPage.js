@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, SafeAreaView, Button, Alert } from 'react-native';
 
-import Footer from '../../Footer';
 import { useNavigation } from '@react-navigation/native';
 
 function MyPage () {
@@ -43,7 +42,6 @@ function MyPage () {
       />
     </View>
 
-    <Footer />
   </SafeAreaView>
 
     );

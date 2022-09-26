@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, SafeAreaView, View, ImageBackground, Text } from 'react-native';
 
-import Footer from '../../Footer';
 
 function SkyStartPage ({navigation}) {
 
@@ -29,7 +28,6 @@ function SkyStartPage ({navigation}) {
         </Text>
         </View>
         </View>
-        <Footer />
     </SafeAreaView>
     );
 };
