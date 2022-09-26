@@ -5,7 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomePage from './HomePage';
 import Map from './Map';
 import MyPage from './MyPage';
-import Settings from './Settings';
+import SettingPage from './SettingPage';
 import MagicStartPage from '../magiccastle/MagicStartPage'
 import SwampStartPage from '../swamp/SwampStartPage'
 import CaveStartPage from '../darkcave/CaveStartPage'
@@ -19,8 +19,7 @@ import SkyRank from '../ranking/SkyRank'
 import MyPageRecord from '../otherpage/MyPageRecord'
 import SwampMain from '../swamp/SwampMain'
 import ChaseMain from '../swamp/chasegame/ChaseMain'
-import SkyMain from '../sky/SkyMain'
-import LoginPage from '../otherpage/LoginPage'
+import LoginPage from './LoginPage';
 
 const Stack = createStackNavigator();
 
@@ -30,7 +29,7 @@ const StackNavigator = () => {
       <Stack.Screen name='HomePageStack' component={HomePage} />
       <Stack.Screen name='Map' component={Map} />
       <Stack.Screen name='MyPage' component={MyPage} />
-      <Stack.Screen name='Settings' component={Settings} />
+      <Stack.Screen name='SettingPage' component={SettingPage} />
       <Stack.Screen name='MagicStartPage' component={MagicStartPage} />
       <Stack.Screen name='SwampStartPage' component={SwampStartPage} />
       <Stack.Screen name='CaveStartPage' component={CaveStartPage} />
@@ -44,7 +43,6 @@ const StackNavigator = () => {
       <Stack.Screen name='MyPageRecord' component={MyPageRecord} />
       <Stack.Screen name='SwampMain' component={SwampMain} />
       <Stack.Screen name='ChaseMain' component={ChaseMain} />
-      <Stack.Screen name='SkyMain' component={SkyMain} />
       <Stack.Screen name='LoginPage' component={LoginPage} />
   </Stack.Navigator>
   );

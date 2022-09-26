@@ -4,7 +4,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { StackNavigator } from "./StackNavigator";
 
 import HomePage from "./HomePage";
-import Settings from "./Settings"
+import SettingPage from "./SettingPage";
 import CustomDrawer from "./CustomDrawer";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -32,7 +32,7 @@ const DrawerNavigator = () => {
           options={{ drawerLabel: '처음으로' }} />
         <Drawer.Screen 
           name='설정하기' 
-          component={Settings} 
+          component={SettingPage} 
           options={{ drawerLabel: '설정하기' }} />
       </Drawer.Navigator>
     </View>
