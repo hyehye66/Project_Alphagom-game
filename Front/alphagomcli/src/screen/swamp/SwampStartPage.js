@@ -11,7 +11,7 @@ function SwampStartPage ({navigation}) {
     useEffect(() => {
         if (timePassed === true) {
             clearTimeout(timer)
-            navigation.navigate('SwampDialogMain');
+            navigation.navigate('SwampMain');
         } else {
             timer
         }

@@ -29,7 +29,7 @@ function HomePage ({navigation}) {
     </Text>
     <View style={styles.menu}>
     {/* onPress 화살표 뒤에 콜백함수 넣으면 됨! */}
-    <Text style={styles.button}
+    {/* <Text style={styles.button}
         onPress={() => }
       >구글로 로그인
     </Text>
@@ -43,7 +43,7 @@ function HomePage ({navigation}) {
       <Text style={styles.button}
         onPress={() => }
       >네이버로 로그인
-        </Text>
+        </Text> */}
 
     </View>
     </View>
