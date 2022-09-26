@@ -6,6 +6,14 @@ import { StyleSheet, ImageBackground, Button, View, SafeAreaView, Alert, Image, 
 // 
 
 function LoginPage ({navigation}) {
+<<<<<<< Front/alphagomcli/src/screen/otherpage/LoginPage.js
+=======
+  
+  const goAlert = () => 
+      Alert.alert(
+          '아직 구현되지 않았습니다',
+          '기다리십시오');
+>>>>>>> Front/alphagomcli/src/screen/otherpage/LoginPage.js
 
   return (
     <SafeAreaView style={styles.container}>
@@ -23,19 +31,24 @@ function LoginPage ({navigation}) {
     </Text>
     <View style={styles.menu}>
     {/* onPress 화살표 뒤에 콜백함수 넣으면 됨! */}
+<<<<<<< Front/alphagomcli/src/screen/otherpage/LoginPage.js
+    <Text style={styles.button}
+        onPress={() => {}}
+=======
     {/* <Text style={styles.button}
         onPress={() => }
+>>>>>>> Front/alphagomcli/src/screen/otherpage/LoginPage.js
       >구글로 로그인
     </Text>
 
       <Text style={styles.button}
-        onPress={() => }
+        onPress={() => {}}
       >카카오로 로그인
       </Text>
       
 
       <Text style={styles.button}
-        onPress={() => }
+        onPress={() => {}}
       >네이버로 로그인
         </Text> */}
 

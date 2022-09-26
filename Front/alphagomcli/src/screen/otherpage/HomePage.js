@@ -23,7 +23,7 @@ function HomePage ({navigation}) {
       <Image
         // style={{ width:160, height: 350}}
         style={{
-          resizeMode: "cover",
+          resizeMode: "center",
           width: width - 700,
           height: height - 100
         }}
@@ -35,6 +35,7 @@ function HomePage ({navigation}) {
       <Image 
         style={{
           marginBottom: 20,
+          resizeMode: "center",
           width: width - 325,
           height: height - 310,
         }}
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     // marginLeft: width / 50,
-    // backgroundColor: 'red',
+    // backgroundColor: 'white',
   },
   buttonShape: {
     margin: 8,
