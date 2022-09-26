@@ -6,6 +6,7 @@ import { StackNavigator } from "./StackNavigator";
 import HomePage from "./HomePage";
 import SettingPage from "./SettingPage";
 import CustomDrawer from "./CustomDrawer";
+import LoginPage from "./LoginPage";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Drawer = createDrawerNavigator();
@@ -34,6 +35,10 @@ const DrawerNavigator = () => {
           name='설정하기' 
           component={SettingPage} 
           options={{ drawerLabel: '설정하기' }} />
+        <Drawer.Screen
+           name='로그인'
+           component={LoginPage}
+           options={{ drawerLabel: '로그인'}} />
       </Drawer.Navigator>
     </View>
   );
