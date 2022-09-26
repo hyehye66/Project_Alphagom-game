@@ -25,8 +25,9 @@ def index():
     transcript = ''
     while not transcript:
         with sr.Microphone() as source:
-            audio=r.listen(source)
-            transcript=r.recognize_google(audio, language="ko-KR")
+          r.adjust_for_ambient_noise(source)
+          audio=r.listen(source)
+          transcript=r.recognize_google(audio, language="ko-KR")
         
     return str(transcript)   
 
