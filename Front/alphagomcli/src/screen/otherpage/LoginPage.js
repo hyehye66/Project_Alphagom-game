@@ -26,7 +26,6 @@ function LoginPage ({navigation}) {
 
     {/* <Text style={styles.button}
         onPress={() => }
->>>>>>> Front/alphagomcli/src/screen/otherpage/LoginPage.js
       >구글로 로그인
     </Text>
 
