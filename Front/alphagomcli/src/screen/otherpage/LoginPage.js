@@ -1,18 +1,11 @@
 import React from 'react';
 import { StyleSheet, ImageBackground, Button, View, SafeAreaView, Alert, Image, Text } from 'react-native';
 
-import Footer from '../../Footer';
-
 // 로그아웃 / 종료버튼 만들어야 한다
 // Drawer 로 네브바 만들기
 // 
 
-function HomePage ({navigation}) {
-  
-  const goAlert = () => 
-      Alert.alert(
-          '아직 구현되지 않았습니다',
-          '기다리십시오');
+function LoginPage ({navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
@@ -24,8 +17,9 @@ function HomePage ({navigation}) {
       </View>
 
     <View style={styles.position}>
-    <Text style={styles.main}>
-      말해봐요 알파곰
+    <Text style={styles.main}
+    onPress={() => navigation.navigate('HomePage')}>
+      말해봐요 알파곰으로 가보자고!
     </Text>
     <View style={styles.menu}>
     {/* onPress 화살표 뒤에 콜백함수 넣으면 됨! */}
@@ -47,7 +41,6 @@ function HomePage ({navigation}) {
 
     </View>
     </View>
-    <Footer />
   </SafeAreaView>
   );
 };
@@ -72,7 +65,7 @@ const styles = StyleSheet.create({
   },
   main: {
     fontFamily: 'Title_Medium',
-    fontSize: 85,
+    fontSize: 60,
     color: 'black',
     margin: 30,
   },
@@ -91,4 +84,4 @@ const styles = StyleSheet.create({
 },
 });
 
-export default HomePage;
+export default LoginPage;

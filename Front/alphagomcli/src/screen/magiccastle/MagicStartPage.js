@@ -10,7 +10,6 @@ function MagicStartPage () {
         <Text>
             마법의 성 구간 시작 입니다.
         </Text>
-        <Footer />
     </View>
     );
 };

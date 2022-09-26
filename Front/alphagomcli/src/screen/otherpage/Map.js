@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, SafeAreaView, Button, ImageBackground, ScrollView, Text, Image } from 'react-native';
 
-import Footer from '../../Footer';
-
 import { useNavigation } from '@react-navigation/native';
 
 function Map () {
@@ -62,7 +60,6 @@ function Map () {
         </View>
 
         </SafeAreaView>
-            <Footer />
         </ImageBackground>
         </ScrollView>
     );
