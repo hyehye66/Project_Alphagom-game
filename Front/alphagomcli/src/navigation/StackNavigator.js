@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createStackNavigator } from "react-navigation-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import LoginScreen from '../screen/auth/LoginScreen';
 import DarkCaveLineScreen from '../screen/darkcave/DarkCaveLineScreen';
@@ -24,10 +24,10 @@ import MapScreen from '../screen/map/MapScreen';
 
 const Stack = createStackNavigator();
 
-function StackNavigator () {
+const StackNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName='LoginScreen' screenOptions={{ headerShown: false}}>
-            <Stack.Screen name='LoginScreen' component={LoginScreen} />
+        <Stack.Navigator initialRouteName='LoginScreenStack' screenOptions={{ headerShown: false}}>
+            <Stack.Screen name='LoginScreenStack' component={LoginScreen} />
             <Stack.Screen name='DarkCaveLineScreen' component={DarkCaveLineScreen} />
             <Stack.Screen name='DarkCaveStartScreen' component={DarkCaveStartScreen} />
             <Stack.Screen name='TongueTwisterGameScreen' component={TongueTwisterGameScreen} />
@@ -51,4 +51,4 @@ function StackNavigator () {
     );
 };
 
-export default StackNavigator;
+export { StackNavigator };
