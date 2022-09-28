@@ -2,14 +2,10 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
-
-function SwampStartScreen () {
+function SwampStartScreen ({navigation}) {
 
     const [ timePassed, settimePassed ] = useState([false])
     const timer = setTimeout(() => {settimePassed(true)}, 2500)
-
-    const navigation = useNavigation();
 
     useEffect(() => {
         if (timePassed === true) {

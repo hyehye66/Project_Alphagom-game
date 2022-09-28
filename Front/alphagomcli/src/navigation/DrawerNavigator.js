@@ -6,11 +6,13 @@ import HomeScreen from '../screen/home/HomeScreen';
 import SettingScreen from '../screen/setting/SettingScreen';
 import CustomDrawer from './CustomDrawer';
 import LoginScreen from '../screen/auth/LoginScreen';
+import StackNavigator from './StackNavigator'
 
 
 const Drawer = createDrawerNavigator();
 
-const DrawerNavigator = () => {
+
+function DrawerNavigator () {
   return (
     <View style={{flex: 1, flexDirection: 'row'}}>
       <Drawer.Navigator
