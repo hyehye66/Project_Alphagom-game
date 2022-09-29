@@ -1,12 +1,13 @@
 import { View } from 'react-native';
 import 'react-native-gesture-handler';
-import React, { useEffect } from 'react';
+import * as React from 'react';
+import { useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import DrawerNavigator from './src/screen/otherpage/DrawerNavigator';
+import DrawerNavigator from './src/navigation/DrawerNavigator';
 
 
 function App () {
