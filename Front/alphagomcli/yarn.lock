@@ -6413,6 +6413,11 @@
   "resolved" "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.4.0.tgz"
   "version" "0.4.0"
 
+"react-native-sound-level@^1.1.5":
+  "integrity" "sha512-H4dVYbif/PfzMOp9IpNjJUtbODYXeHk8tI0d9mWcJcBEB/ITcP4jSvDtAOH8B/Vcu4h4Owrvsuz/Y+UfS0biuw=="
+  "resolved" "https://registry.npmjs.org/react-native-sound-level/-/react-native-sound-level-1.1.5.tgz"
+  "version" "1.1.5"
+
 "react-native-sound@^0.11.2":
   "integrity" "sha512-LmGc8lgOK3qecYMVQpyHvww/C+wgT6sWeMpVbOe4NCRGC2yKd4fo4U0KBUo9PO7AqKESO3I/2GZg1/C0+bwiiA=="
   "resolved" "https://registry.npmjs.org/react-native-sound/-/react-native-sound-0.11.2.tgz"
