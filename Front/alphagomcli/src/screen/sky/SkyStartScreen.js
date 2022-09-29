@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
 
-function SkyStartScreen ({navigation}) {
+function SkyStartScreen () {
+
+    const navigation = useNavigation();    
 
     const [ timePassed, settimePassed ] = useState([false])
     const timer = setTimeout(() => {settimePassed(true)}, 2500)

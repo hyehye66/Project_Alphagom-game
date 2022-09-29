@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-function LoginComponent ({navigation}) {
+import { useNavigation } from '@react-navigation/native';
+
+function LoginComponent () {
+
+    const navigation = useNavigation();
 
     return (
         <View>

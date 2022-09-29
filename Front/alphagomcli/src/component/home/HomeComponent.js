@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-function HomeComponent ({navigation}) {  
+import { useNavigation } from '@react-navigation/native';
+
+function HomeComponent () {  
+
+    const navigation = useNavigation();
 
     return (
         <View>
