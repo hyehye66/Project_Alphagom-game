@@ -15,7 +15,7 @@
           class="menu-toggle"
           style="background-color: transparent; border: 0; outline: 0;"
           @click="ToggleMenu">
-          <Bars3Icon class="material-icons" style="height: 20px;"/>
+          <Bars3Icon class="material-icons toggle" style="height: 20px;"/>
         </button>
       </div>
 
@@ -87,11 +87,11 @@ console.log(username)
 
 <style lang="scss">
 :root {
-  --light: #483737;
-  --dark: #FDF8E2;
+  --dark-red: #483737;
+  --light-yellow: #FDF8E2;
   --primary: #94C178;
   --grey: #5E5E5E;
-  --dark-alt: #7D4D87;
+  --violet-alt: #7D4D87;
   --sidebar-width: 170px;
 
 }
@@ -107,7 +107,7 @@ aside {
   margin: 0px;
 
   background-color: transparent;
-  color: var(--light);
+  color: var(--dark-red);
 
   transition: 0.2s ease-out;
 
@@ -135,7 +135,7 @@ aside {
 
       .material-icons {
         font-size: 2rem;
-        color: var(--light);
+        color: var(--light-yellow);
         transform: 0.2s ease-out;
       }
 
@@ -175,19 +175,19 @@ aside {
       .material-icons {
         font-size: 2rem;
         height: 1.5rem;
-        color: var(--light);
+        color: var(--dark-red);
         transition: 0.2s ease-out;
         margin: 0.25rem;
         margin-left: 1rem;
       }
       .text {
-        color: var(--light);
+        color: var(--dark-red);
         transition: 0.2s ease-out;
         font-size: 0.85rem;
       }
 
       &:hover, ~&.router-link-exact-active {
-        background-color: var(--dark-alt);
+        background-color: var(--violet-alt);
         .material-icons, .text {
           color: var(--primary);
         }
@@ -202,7 +202,7 @@ aside {
   // 바 열림
   &.is-expanded {
     width: var(--sidebar-width);
-    background-color: var(--dark);
+    background-color: var(--light-yellow);
 
     .menu-toggle-wrap {
       // top: -3rem;
@@ -229,6 +229,9 @@ aside {
     }
       .menu-toggle {
         transform: rotate(-180deg);
+        .toggle {
+          color: var(--primary);
+        }
       }
     }
     h3, .button, .text, .user-info {

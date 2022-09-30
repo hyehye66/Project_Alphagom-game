@@ -1,19 +1,20 @@
 <template>
-  <div>
-    <div class="common">
-      <BackButton></BackButton>
+  <div class="container">
+    <BGMagicCastle />
+    <BackButton class="back-btn" />
+    <div class="game-title">
+      <div class="title">{{ stage.name }}</div>
+      <div class="subTitle">~프롤로그~</div>
     </div>
-    <div class="title">{{ stage.name }}</div>
-    <div class="subTitle">~프롤로그~</div>
-    <div class="common">
+    <div class="bottom-items">
       <PlayBar></PlayBar>
-      <Score></Score>
+      <Score style="margin-top: 3px;"></Score>
     </div>
   </div>
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
+import BGMagicCastle from "@/components/game/BGMagicCastle.vue";
 import BackButton from "@/components/BackButton.vue";
 import Score from "@/components/game/Score.vue";
 import PlayBar from "@/components/game/PlayBar.vue";
@@ -24,7 +25,7 @@ import router from "@/router";
 export default {
   name: "MagicCastleStartView",
   components: {
-    NavBar,
+    BGMagicCastle,
     BackButton,
     Score,
     PlayBar,
@@ -49,15 +50,47 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+}
+.game-title {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title, .subTitle {
+  color: #fff;
+  font-family: 'Noto Serif KR', serif;
+  font-weight: bold;
+}
 .title {
+  font-size: 50px;
 }
-
 .subTitle {
+  font-size: 32px;
 }
 
-.common {
+.back-btn {
+  position: absolute;
+  color: black;
+  top: 24px;
+  left: 884px;
+}
+.bottom-items {
+  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 95vw;
+  bottom: -20px;
+  margin: 30px;
 }
+
 </style>
