@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { useEffect } from 'react';
+import 'react-native-reanimated'
 import { StatusBar } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
