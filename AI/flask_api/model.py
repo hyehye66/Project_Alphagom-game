@@ -1,13 +1,15 @@
+import json
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import numpy as np
 import librosa
 import tensorflow as tf
-from flask_cors import CORS
-from flask import Flask, request
+from flask_cors import CORS, cross_origin
+from flask import Flask, request, Response, jsonify
+import moviepy.editor as moviepy
 import speech_recognition as sr
 # import main
-# import ffmpeg
+import ffmpeg
 import sklearn
 import warnings
 warnings.filterwarnings('ignore')
@@ -17,15 +19,25 @@ app.config['DEBUG'] = True
 CORS(app)
 
 
-@app.route('/api/ai/magiccastle/check', methods=["GET"])
+@app.route('/api/ai/check', methods=["POST"])
+@cross_origin()
 def magiccastle_check():
     # 저장된(학습된) 모델 가져오기
     model = tf.keras.models.load_model('../check_determine_model220927.h5')
 
-    # 받아온 오디오 데이터
-    wav_data = request.files['audio_data']
+    file = request.files['audio_data']
+    print(file)
+    path='./audio.wav'
+    file.save(path)
 
-    wav, sr= librosa.load(wav_data, sr=16000)
+    audio_input = ffmpeg.input('./audio.wav')
+    audio_cut = audio_input.audio.filter('atrim', duration=1)
+    audio_output = ffmpeg.output(audio_cut, './audio_output.wav')
+    ffmpeg.run(audio_output)
+
+    path='./audio_output.wav'
+
+    wav, sr= librosa.load(path, sr=16000)
 
     mfcc = librosa.feature.mfcc(wav, sr=16000, n_mfcc=100, n_fft=400, hop_length=160)
     # mfcc = sklearn.preprocessing.scale(mfcc, axis=1)
@@ -36,19 +48,32 @@ def magiccastle_check():
     result = model.predict(padded_mfcc)
 
     # 판별 완료된 음성 파일 삭제
-    # os.remove(wav_data)
+    os.remove('./audio.wav')
+    os.remove('./audio_output.wav')
 
     # 어떤 결과를 리턴시켜야 하나(응 : 0, 아니 : 1)
     return str(np.argmax(result))
 
-@app.route('/api/ai/swamp/word', methods=["GET"])
+@app.route('/api/ai/swamp/word', methods=["POST"])
+@cross_origin()
 def swamp_word():
     
     model = tf.keras.models.load_model('../word_determine_model220924.h5')
      # 받아온 오디오 데이터
-    wav_data = request.files['audio_data']
 
-    wav, sr= librosa.load(wav_data, sr=16000)
+    file = request.files['audio_data']
+    print(file)
+    path='./audio.wav'
+    file.save(path)
+
+    audio_input = ffmpeg.input('./audio.wav')
+    audio_cut = audio_input.audio.filter('atrim', duration=1)
+    audio_output = ffmpeg.output(audio_cut, './audio_output.wav')
+    ffmpeg.run(audio_output)
+
+    path='./audio_output.wav'
+
+    wav, sr= librosa.load(path, sr=16000)
 
     mfcc = librosa.feature.mfcc(wav, sr=16000, n_mfcc=100, n_fft=400, hop_length=160)
     # mfcc = sklearn.preprocessing.scale(mfcc, axis=1)
@@ -59,18 +84,32 @@ def swamp_word():
     result = model.predict(padded_mfcc)
 
     # 판별 완료된 음성 파일 삭제
-    # os.remove(wav_data)
+    os.remove('./audio.wav')
+    os.remove('./audio_output.wav')
 
     # 어떤 결과를 리턴시켜야 하나(냠냠 : 0, 드르륵 : 1, 보글보글 : 2, 사각사각 : 3, 송송 : 4, 주르륵 : 5, 탁탁 : 6, 툭툭 : 7, 팔팔 : 8, 풀풀 : 9, 휘휘 : 10)
+    # 팔팔 풀풀 잘 안됨
     return str(np.argmax(result))
 
 
-@app.route('/api/ai/sky/bird', methods=["GET"])
+@app.route('/api/ai/sky/bird', methods=["POST"])
+@cross_origin()
 def sky_bird():
     model = tf.keras.models.load_model('../bird_determine_model220928.h5')
-     # 받아온 오디오 데이터
-    wav_data = request.files['audio_data']
-    wav, sr = librosa.load(wav_data, sr=16000)
+    # 받아온 오디오 데이터
+    file = request.files['audio_data']
+    print(file)
+    path='./audio.wav'
+    file.save(path)
+
+    audio_input = ffmpeg.input('./audio.wav')
+    audio_cut = audio_input.audio.filter('atrim', duration=1)
+    audio_output = ffmpeg.output(audio_cut, './audio_output.wav')
+    ffmpeg.run(audio_output)
+
+    path='./audio_output.wav'
+    
+    wav, sr = librosa.load(path, sr=16000)
     
     mfcc = librosa.feature.mfcc(wav, sr=16000, n_mfcc=100, n_fft=400, hop_length=160)
     # mfcc = sklearn.preprocessing.scale(mfcc, axis=1)
@@ -81,18 +120,13 @@ def sky_bird():
     result = model.predict(padded_mfcc)
 
     # 판별 완료된 음성 파일 삭제
-    # os.remove(wav_data)
+    os.remove('./audio.wav')
+    os.remove('./audio_output.wav')
 
     # 어떤 결과를 리턴시켜야 하나(까마귀 : 0, 꿩 : 1, 뱁새 : 2, 오리 : 3, 참새 : 4, 황새 : 5)
+    # 뱁새 참새 황새 잘 안됨
+    print('------api return')
     return str(np.argmax(result))
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000",  debug=True)
-
-    # parsed_request = request.files.get('file')
-    # fileName = request.form.get('fileName')
-    # stream = ffmpeg.input(fileName)
-    # stream = ffmpeg.input(fileName, format='m4a')
-    # stream = ffmpeg.output(stream, '출력.wav')
-    # stream = ffmpeg.output(stream, fileName, format='wav')
-    # wav_data = ffmpeg.run(stream)
