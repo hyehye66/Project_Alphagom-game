@@ -20,16 +20,6 @@ def whattime():
   return {"date": now}
   # return jsonify(now)
 
-@app.route("/api/ai/check", methods=["GET"])
-def index():
-    transcript = ''
-    while not transcript:
-        with sr.Microphone() as source:
-          r.adjust_for_ambient_noise(source)
-          audio=r.listen(source)
-          transcript=r.recognize_google(audio, language="ko-KR")
-        
-    return str(transcript)   
 
 
      
