@@ -122,30 +122,14 @@ aside {
   // 바 접힘
   .menu-toggle-wrap {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-start;
     margin-bottom: 1rem;
 
     position: relative;
     top: 0;
     transition: 0.2s ease-out;
 
-    .user-info {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-      .user-img {
-        margin-top: 4.7px;
-        margin-right: 6px;
-      }
-      .user-name {
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: -1px;
-        margin-top: 5.5px;
-      }
-    }
     .menu-toggle {
       transition: 0.2s ease-out;
 
@@ -164,7 +148,7 @@ aside {
     }
   }
   
-  h3, .button, .text, .user-name {
+  h3, .button, .text, .user-info {
     opacity: 0;
     transition: 0.3s ease-out;
   }
@@ -173,6 +157,9 @@ aside {
     font-size: 0.875rem;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
+  }
+  .user-info {
+    top: -100px;
   }
   .menu {
     margin: 0 -1rem;
@@ -219,11 +206,32 @@ aside {
 
     .menu-toggle-wrap {
       // top: -3rem;
+      display: flex;
+      justify-content: space-between;
+      
+      .user-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        top: 0px;
+      
+      .user-img {
+        margin-top: 2px;
+        margin-right: 6px;
+      }
+      .user-name {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: -1px;
+        margin-top: 5.5px;
+      }
+    }
       .menu-toggle {
         transform: rotate(-180deg);
       }
     }
-    h3, .button, .text, .user-name {
+    h3, .button, .text, .user-info {
       opacity: 1;
     }
     .button {
