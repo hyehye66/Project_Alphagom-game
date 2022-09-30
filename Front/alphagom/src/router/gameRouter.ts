@@ -21,7 +21,7 @@ import MapView from "@/views/MapView.vue";
 export default [
   {
     path: "/stage/magicCastle/dialog/:dialogNum",
-    name: "magicCastleDialog",
+    name: "MagicCastleDialogView",
     component: MagicCastleDialogView,
   },
   {
