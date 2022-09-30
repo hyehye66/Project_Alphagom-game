@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="common">
-      <NavBar></NavBar>
       <BackButton></BackButton>
     </div>
     <div class="title">{{ stage.name }}</div>
@@ -32,14 +31,14 @@ export default {
   },
   setup() {
     const game = useGameStore();
-    const stage = reactive({ name: "darkcave" });
+    const stage = reactive({ name: "magicCastle" });
     //reactive : 객체의 반응형 복사본을 반환합니다.
     game.setStage(stage.name);
 
     // 3초 후 다음 뷰로 넘기기
     setTimeout(() => {
       router.push({
-        name: "magicCastleDialog",
+        name: "MagicCastleDialogView",
         params: { dialogNum: 0 },
       });
     }, 3000);
