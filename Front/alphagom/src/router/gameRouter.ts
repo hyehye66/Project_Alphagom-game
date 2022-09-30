@@ -26,12 +26,12 @@ export default [
   },
   {
     path: "/stage/magicCastle/start",
-    name: "magicCastleStart",
+    name: "magicCastleStartView",
     component: MagicCastleStartView,
   },
   {
     path: "/stage/swamp/start",
-    name: "swampStart",
+    name: "swampStartView",
     component: SwampStartView,
   },
   {
