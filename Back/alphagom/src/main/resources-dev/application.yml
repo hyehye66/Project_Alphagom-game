@@ -1,6 +1,7 @@
 spring:
   profiles:
     active: dev
+    include: oauth
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/alphagom?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false
@@ -15,11 +16,22 @@ spring:
       hibernate:
         format_sql: true
         default_batch_fetch_size: 1000
+  redis:
+    host: localhost
+    port: 6379
 
   mvc:
     pathmatch:
       matching-strategy: ant-path-matcher
 
+  devtools:
+    # 코드나 리소스 변경되었을 경우 서버 수동으로 재시작
+    # 1. "Preferences - Build, Execution, Deployment - Compiler"에서 "Build project automatically" 체크
+    # 2. "Preferences - Advanced Settings"에서 Compiler - "Allow auto-make to start even if deployed application is currently running" 체크
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
 springdoc:
   api-docs:
     groups:
