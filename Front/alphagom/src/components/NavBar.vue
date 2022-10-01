@@ -50,22 +50,8 @@
   </div>
 </template>
 
-<script>
+<script setup>`               `
 import { HomeIcon, MapIcon, UserIcon, Cog6ToothIcon, Bars3Icon, ArrowLeftOnRectangleIcon } from '@heroicons/vue/24/outline'
-import { useAuthStore } from "@/stores/auth";
-
-export default {
-  components: { HomeIcon, MapIcon, UserIcon, Cog6ToothIcon, Bars3Icon, ArrowLeftOnRectangleIcon },
-  setup() {
-    const store = useAuthStore();
-    const username = store.username;
-    console.log(username)
-    return {username}
-  }
-}
-</script>
-
-<script setup>
 import { ref } from 'vue'
 import { useAuthStore } from "@/stores/auth";
 
