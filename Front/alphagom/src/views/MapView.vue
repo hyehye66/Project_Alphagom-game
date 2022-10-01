@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <!-- <NavBar></NavBar> -->
     <div class="container-bg"></div>
     <div class="map-road-cont">
       <img class="img-map-road" src="@/assets/image/map-road.svg" alt="지도 도로" />
@@ -47,13 +46,11 @@
   </div>
 </template>
 <script>
-import NavBar from "@/components/NavBar.vue";
 import { useRouter, useRoute } from 'vue-router';
 
 export default {
   name: 'MapView',
   components: {
-    NavBar,
   },
   setup() {
     const router = useRouter();
@@ -88,8 +85,8 @@ export default {
   filter: blur(4px);
   top: 0px;
   left: 0px;
-  width: 100vw;
-  height: 100vh;
+  width: 926px;
+  height: 428px;
 }
 .map-road-cont {
   position: absolute;

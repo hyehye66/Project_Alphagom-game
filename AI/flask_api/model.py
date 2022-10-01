@@ -1,16 +1,11 @@
-import json
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import numpy as np
 import librosa
 import tensorflow as tf
 from flask_cors import CORS, cross_origin
-from flask import Flask, request, Response, jsonify
-import moviepy.editor as moviepy
-import speech_recognition as sr
-# import main
+from flask import Flask, request
 import ffmpeg
-import sklearn
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -26,7 +21,6 @@ def magiccastle_check():
     model = tf.keras.models.load_model('../check_determine_model220927.h5')
 
     file = request.files['audio_data']
-    print(file)
     path='./audio.wav'
     file.save(path)
 
@@ -52,17 +46,19 @@ def magiccastle_check():
     os.remove('./audio_output.wav')
 
     # 어떤 결과를 리턴시켜야 하나(응 : 0, 아니 : 1)
-    return str(np.argmax(result))
+    if np.argmax(result) == 0:
+        return "응"
+    else:
+        return "아니"
 
 @app.route('/api/ai/swamp/word', methods=["POST"])
 @cross_origin()
 def swamp_word():
     
-    model = tf.keras.models.load_model('../word_determine_model220924.h5')
+    model = tf.keras.models.load_model('../word_determine_model221001.h5')
      # 받아온 오디오 데이터
 
     file = request.files['audio_data']
-    print(file)
     path='./audio.wav'
     file.save(path)
 
@@ -88,9 +84,28 @@ def swamp_word():
     os.remove('./audio_output.wav')
 
     # 어떤 결과를 리턴시켜야 하나(냠냠 : 0, 드르륵 : 1, 보글보글 : 2, 사각사각 : 3, 송송 : 4, 주르륵 : 5, 탁탁 : 6, 툭툭 : 7, 팔팔 : 8, 풀풀 : 9, 휘휘 : 10)
-    # 팔팔 풀풀 잘 안됨
-    return str(np.argmax(result))
-
+    if np.argmax(result) == 0:
+        return "냠냠"
+    elif np.argmax(result) == 1:
+        return "드르륵"
+    elif np.argmax(result) == 2:
+        return "보글보글"
+    elif np.argmax(result) == 3:
+        return "사각사각"
+    elif np.argmax(result) == 4:
+        return "송송"
+    elif np.argmax(result) == 5:
+        return "주르륵"
+    elif np.argmax(result) == 6:
+        return "탁탁"
+    elif np.argmax(result) == 7:
+        return "툭툭"
+    elif np.argmax(result) == 8:
+        return "팔팔"
+    elif np.argmax(result) == 9:
+        return "풀풀"
+    elif np.argmax(result) == 10:
+        return "휘휘"
 
 @app.route('/api/ai/sky/bird', methods=["POST"])
 @cross_origin()
@@ -98,7 +113,6 @@ def sky_bird():
     model = tf.keras.models.load_model('../bird_determine_model220928.h5')
     # 받아온 오디오 데이터
     file = request.files['audio_data']
-    print(file)
     path='./audio.wav'
     file.save(path)
 
@@ -124,9 +138,19 @@ def sky_bird():
     os.remove('./audio_output.wav')
 
     # 어떤 결과를 리턴시켜야 하나(까마귀 : 0, 꿩 : 1, 뱁새 : 2, 오리 : 3, 참새 : 4, 황새 : 5)
-    # 뱁새 참새 황새 잘 안됨
-    print('------api return')
-    return str(np.argmax(result))
+    
+    if np.argmax(result) == 0:
+        return "까마귀"
+    elif np.argmax(result) == 1:
+        return "꿩"
+    elif np.argmax(result) == 2:
+        return "뱁새"
+    elif np.argmax(result) == 3:
+        return "오리"
+    elif np.argmax(result) == 4:
+        return "참새"
+    elif np.argmax(result) == 5:
+        return "황새"
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port="5000",  debug=True)
+    app.run(host="0.0.0.0", port="5678",  debug=True)
