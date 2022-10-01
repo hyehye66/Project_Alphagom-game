@@ -1,6 +1,5 @@
 <template>
   <div>
-    <NavBar></NavBar>
     <!-- <h1>{{ dialog }}</h1> -->
     <CommonDialog></CommonDialog>
     <a class="btn btn-primary">앞으로 가기</a>
@@ -9,14 +8,12 @@
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
 import { useGameStore } from "@/stores/game";
 import CommonDialog from "@/components/game/CommonDialog.vue";
 
 export default {
   name: "MagicCastleDialogView",
   components: {
-    NavBar,
     CommonDialog,
   },
   setup() {

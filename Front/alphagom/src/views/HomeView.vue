@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <!-- <NavBar></NavBar> -->
     <div class="home">
-      <p>Home</p>
       <div class="container-bg"></div>
       <div class="item-cont">
         <div class="btn-cont">
@@ -23,12 +21,10 @@
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
 
 export default {
   name: 'HomeView',
   components: {
-    NavBar
   },
   setup() {
     return {
