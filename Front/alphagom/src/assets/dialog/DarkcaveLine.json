@@ -1,6 +1,6 @@
 {
   "stage": "darkcave",
-  "prologue": [
+  "script": [
     {
       "char": "",
       "line1": "......",
@@ -193,9 +193,7 @@
       "line2": "",
       "type": "game",
       "effect": ""
-    }
-  ],
-  "epilogue": [
+    },
     {
       "char": "알파곰",
       "line1": "어때, 인간이 되고 싶은 곰 친구!",

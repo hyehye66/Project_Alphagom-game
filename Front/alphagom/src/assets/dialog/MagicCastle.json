@@ -1,6 +1,6 @@
 {
   "stage": "MagicCastle",
-  "prologue": [
+  "script": [
     {
       "char": "알파곰",
       "line1": "(알 수 없는 외계어를 말하는 중)",
