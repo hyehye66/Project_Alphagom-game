@@ -1,5 +1,5 @@
 <template>
-  <div>{{ SwampScore }}</div>
+  <div class="score">{{ SwampScore }}</div>
 </template>
 
 <script>
@@ -14,4 +14,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  .score {
+    color: var(--light-yellow);
+    font-size: 24px;
+  }
+</style>

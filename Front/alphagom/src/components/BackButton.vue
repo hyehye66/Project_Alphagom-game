@@ -18,7 +18,8 @@ export default {
 </script>
 <style scoped>
 .backicon {
-  width: 3rem;
-  height: 3rem;
+  /* width: 3rem; */
+  height: 1.5rem;
+  color: #fff;
 }
 </style>

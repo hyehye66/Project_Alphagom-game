@@ -1,68 +1,96 @@
 <template>
   <div class="navBar">
     <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
-      sidebar
-      <div class="logo">
+      <!-- sidebar -->
+      <!-- <div class="logo">
         <img src="@/assets/image/알파곰_표정_기본.png" alt="말해봐요 알파곰" /> 
-      </div>
+      </div> -->
 
       <div class="menu-toggle-wrap">
+        <div class="user-info">
+          <img
+            class="user-img"
+            src="@/assets/image/자라_표정_당당.png"
+            alt="프로필 사진"
+            height="20"
+          />
+          <text class="user-name">{{ username }} 님</text>
+        </div>
         <button
           class="menu-toggle"
-          type="button"
-          style="background-color: transparent; border: 0; outline: 0;"
-          @click="ToggleMenu">
-          <img src="@/assets/bars-3.svg" />
+          style="background-color: transparent; border: 0; outline: 0"
+          @click="ToggleMenu"
+        >
+          <Bars3Icon class="material-icons toggle" style="height: 20px" />
         </button>
       </div>
 
-      <!-- <h3>Menu</h3> -->
-      <!-- <div class="menu"> -->
-        <!-- <router-link to="/" class="button">
-          <HomeIcon class="h-6 w-6 text-blue-500 material-icons" />
+      <!-- <h3>메뉴</h3> -->
+      <div class="menu">
+        <router-link to="/" class="button">
+          <HomeIcon class="material-icons" />
           <span class="text">처음으로</span>
         </router-link>
         <router-link to="/map" class="button">
-          <MapIcon class="h-6 w-6 text-blue-500 material-icons" />
+          <MapIcon class="material-icons" />
           <span class="text">탐험하기</span>
         </router-link>
         <router-link to="/myPage" class="button">
-          <UserIcon class="h-6 w-6 text-blue-500 material-icons" />
+          <UserIcon class="material-icons" />
           <span class="text">내 정보</span>
         </router-link>
         <router-link to="/setting" class="button">
-          <Cog6ToothIcon class="h-6 w-6 text-blue-500 material-icons" />
+          <Cog6ToothIcon class="material-icons" />
           <span class="text">설정하기</span>
-        </router-link> -->
+        </router-link>
+
+        <!-- 유저 정보 들어오면 수정하세용 -->
+
         <!-- <router-link to="/logout" class="button">
-          <span class="material-icons">email</span>
+          <ArrowLeftOnRectangleIcon class="material-icons" />
           <span class="text">로그아웃</span>
         </router-link> -->
-      <!-- </div> -->
+      </div>
     </aside>
   </div>
 </template>
 
-<script>
-import { HomeIcon, MapIcon, UserIcon, Cog6ToothIcon, Bars3Icon } from '@heroicons/vue/24/outline'
-
-export default {
-  components: { HomeIcon, MapIcon, UserIcon, Cog6ToothIcon, Bars3Icon }
-}
-</script>
-
 <script setup>
-import { ref } from 'vue'
+import {
+  HomeIcon,
+  MapIcon,
+  UserIcon,
+  Cog6ToothIcon,
+  Bars3Icon,
+  ArrowLeftOnRectangleIcon,
+} from "@heroicons/vue/24/outline";
+import { ref } from "vue";
+import { useAuthStore } from "@/stores/auth";
 
-const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
+const is_expanded = ref(localStorage.getItem("is_expanded") === "true");
 
 const ToggleMenu = () => {
-	is_expanded.value = !is_expanded.value
-	localStorage.setItem("is_expanded", is_expanded.value)
-}
+  console.log("ToggleMenu func start");
+  is_expanded.value = !is_expanded.value;
+  localStorage.setItem("is_expanded", is_expanded.value);
+  console.log(is_expanded.value);
+  console.log("ToggleMenu func end");
+};
+
+const store = useAuthStore();
+const username = store.username;
+console.log(username);
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+:root {
+  --dark-red: #483737;
+  --light-yellow: #fdf8e2;
+  --primary: #94c178;
+  --grey: #5e5e5e;
+  --violet-alt: #7d4d87;
+  --sidebar-width: 170px;
+}
 aside {
   position: absolute;
   z-index: 99;
@@ -74,8 +102,8 @@ aside {
   padding: 1rem;
   margin: 0px;
 
-  background-color: cadetblue;
-  color: beige;
+  background-color: transparent;
+  color: var(--dark-red);
 
   transition: 0.2s ease-out;
 
@@ -91,144 +119,138 @@ aside {
   .menu-toggle-wrap {
     display: flex;
     justify-content: flex-end;
+    align-items: flex-start;
     margin-bottom: 1rem;
 
     position: relative;
     top: 0;
     transition: 0.2s ease-out;
+
+    .menu-toggle {
+      transition: 0.2s ease-out;
+
+      .material-icons {
+        font-size: 2rem;
+        color: var(--light-yellow);
+        transform: 0.2s ease-out;
+      }
+
+      &:hover {
+        .material-icons {
+          color: var(--primary);
+          // transform: translatex(0.5rem);
+        }
+      }
+    }
+  }
+
+  h3,
+  .button,
+  .text,
+  .user-info {
+    opacity: 0;
+    transition: 0.3s ease-out;
+  }
+  h3 {
+    color: var(--grey);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  .user-info {
+    top: -100px;
+  }
+  .menu {
+    margin: 0 -1rem;
+
+    .button {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+
+      padding: 0, 5rem 1rem;
+      transition: 0.2s ease-out;
+
+      .material-icons {
+        font-size: 2rem;
+        height: 1.5rem;
+        color: var(--dark-red);
+        transition: 0.2s ease-out;
+        margin: 0.25rem;
+        margin-left: 1rem;
+      }
+      .text {
+        color: var(--dark-red);
+        transition: 0.2s ease-out;
+        font-size: 0.85rem;
+      }
+
+      &:hover,
+      ~ &.router-link-exact-active {
+        background-color: var(--violet-alt);
+        .material-icons,
+        .text {
+          color: var(--primary);
+        }
+      }
+
+      &.router-link-exact-active {
+        border-right: 5px solid var(--primary);
+      }
+    }
   }
 
   // 바 열림
-  &.is_expanded {
-    widows: var(--sidebar-width);
+  &.is-expanded {
+    width: var(--sidebar-width);
+    background-color: var(--light-yellow);
 
     .menu-toggle-wrap {
-      top: -3rem;
+      // top: -3rem;
+      display: flex;
+      justify-content: space-between;
+
+      .user-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        top: 0px;
+
+        .user-img {
+          margin-top: 2px;
+          margin-right: 6px;
+        }
+        .user-name {
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: -1px;
+          margin-top: 5.5px;
+        }
+      }
+      .menu-toggle {
+        transform: rotate(-180deg);
+        .toggle {
+          color: var(--primary);
+        }
+      }
+    }
+    h3,
+    .button,
+    .text,
+    .user-info {
+      opacity: 1;
+    }
+    .button {
+      .material-icons {
+        margin-right: 1rem;
+      }
     }
   }
 
   @media (max-width: 926px) {
     position: absolute;
     z-index: 99;
-    
   }
 }
-// aside {
-// 	display: flex;
-// 	flex-direction: column;
-// 	background-color: green;
-// 	color: var(--light);
-// 	// width: calc(50px);
-//   width: 40px;
-// 	overflow: hidden;
-// 	min-height: 100vh;
-// 	padding: 1rem;
-// 	transition: 0.2s ease-in-out;
-//   align-items: center;
-// 	.flex {
-// 		flex: 1 1 0%;
-// 	}
-// 	.logo {
-// 		// margin-bottom: 1rem;
-// 		img {
-// 			width: 20px;
-// 		}
-// 	}
-// 	.menu-toggle-wrap {
-// 		display: flex;
-// 		justify-content: flex-end;
-// 		// margin-bottom: 1em;
-// 		position: relative;
-// 		top: 0;
-// 		transition: 0.4s ease-in-out;
-// 		.menu-toggle {
-// 			transition: 0.4s ease-in-out;
-// 			.material-icons {
-// 				font-size: 12px;
-// 				color: var(--light);
-// 				transition: 0.2s ease-out;
-// 			}
-			
-// 			&:hover {
-// 				.material-icons {
-// 					color: var(--primary);
-// 					transform: translateX(0.5rem);
-// 				}
-// 			}
-// 		}
-// 	}
-// 	h3, .button .text {
-// 		opacity: 0;
-// 		transition: opacity 0.3s ease-in-out;
-// 	}
-// 	h3 {
-// 		color: var(--grey);
-// 		font-size: 10px;
-// 		// margin-bottom: 0.5rem;
-// 		text-transform: uppercase;
-// 	}
-// 	.menu {
-// 		margin: 0 -1rem;
-//     align-items: centers;
-// 		.button {
-// 			display: flex;
-// 			align-items: center;
-// 			text-decoration: none;
-// 			transition: 0.2s ease-in-out;
-// 			padding: 0px 0px;
-//       background-color: pink;
-// 			.material-icons {
-// 				font-size: 12px;
-// 				color: var(--light);
-// 				transition: 0.2s ease-in-out;
-// 			}
-// 			.text {
-// 				color: var(--light);
-// 				transition: 0.2s ease-in-out;
-//         font-size: 12px;
-// 			}
-// 			&:hover {
-// 				background-color: var(--dark-alt);
-// 				.material-icons, .text {
-// 					color: var(--primary);
-// 				}
-// 			}
-// 			&.router-link-exact-active {
-// 				background-color: var(--dark-alt);
-// 				border-right: 5px solid var(--primary);
-// 				.material-icons, .text {
-// 					color: var(--primary);
-// 				}
-// 			}
-// 		}
-// 	}
-// 	&.is-expanded {
-// 		// width: var(--sidebar-width);
-//     width: 100px;
-// 		.menu-toggle-wrap {
-// 			// top: -3rems;
-			
-// 			.menu-toggle {
-// 				transform: rotate(-180deg);
-// 			}
-// 		}
-// 		h3, .button .text {
-// 			opacity: 1;
-// 		}
-// 		.button {
-//       background-color: palevioletred;
-// 			.material-icons {
-// 				margin-right: 10px;
-//         width: 20px;
-// 			}
-// 		}
-// 		.footer {
-// 			opacity: 0;
-// 		}
-// 	}
-// 	@media (max-width: 926px) {
-// 		position: absolute;
-// 		z-index: 99;
-// 	}
-// }
 </style>

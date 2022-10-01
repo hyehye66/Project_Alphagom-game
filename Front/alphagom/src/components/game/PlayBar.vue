@@ -18,7 +18,8 @@ export default {
 <style scoped>
 div {
   display: flex;
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
+  color: var(--light-yellow)
 }
 </style>
