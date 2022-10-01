@@ -1,6 +1,7 @@
+/* eslint-disable vue/return-in-computed-property */
 import api from "@/api/api";
 import axios from "axios";
-import { ref, computed } from 'vue';
+import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 
 import DarkcaveLine from "@/assets/dialog/DarkcaveLine.json";
@@ -15,23 +16,25 @@ import router from "@/router";
 // Composition
 export const useGameStore = defineStore("game", () => {
   /* state */
-  const stage = ref(''); // 해당 스테이지 이름
-  const dialog = ref({}); // 
+  const stage = ref(""); // 해당 스테이지 이름
+  const dialog = ref({}); //
   const scriptNum = ref(0); // 현재 스크립트 번호
-  const SwampScore = ref(5000);   // 게임별 점수
+  const SwampScore = ref(5000); // 게임별 점수
   const DarkCaveScore = ref(2500);
   const SkyScore = ref(2500);
-  const dialogList = ref([ // Dialog list
-    DarkcaveLine, 
-    SkyLine, 
-    SwampLine 
+  const dialogList = ref([
+    // Dialog list
+    DarkcaveLine,
+    SkyLine,
+    SwampLine,
   ]);
-  const stageViewDict = ref({ // stage view dict
-    "darkcave" : ["darkCaveStartView"],
-    "sky" : ["birdProverbGameView"],
-    "swamp" : ["kingCureGameView", "chaseGameView"] 
+  const stageViewDict = ref({
+    // stage view dict
+    darkcave: ["darkCaveStartView"],
+    sky: ["birdProverbGameView"],
+    swamp: ["kingCureGameView", "chaseGameView"],
   });
-  const stageGames = ref(['']); // game
+  const stageGames = ref([""]); // game
 
   /* computed */
   // 해당 stage dialog
@@ -45,7 +48,7 @@ export const useGameStore = defineStore("game", () => {
   // });
 
   // 현재 스크립트
-  const script = computed(() => dialog.value.script[scriptNum.value]) 
+  const script = computed(() => dialog.value?.script[scriptNum.value]);
   // 현재 effect
   const effect = computed(() => script.value.effect);
   // 현재 type
@@ -53,19 +56,19 @@ export const useGameStore = defineStore("game", () => {
 
   // 현재 stage 에서 진행할 게임 리스트
   const gameList = computed(() => {
-    switch(stage.value) {
+    switch (stage.value) {
       case "sky":
         return stageViewDict.value.sky;
       case "darkcave":
         return stageViewDict.value.darkcave;
       case "swamp":
-        return  stageViewDict.value.swamp;
+        return stageViewDict.value.swamp;
     }
-  })
+  });
 
   /* actions */
   // start page에서 stage 이름 초기화
-  function setStage(stageStr: string) {  
+  function setStage(stageStr: string) {
     stage.value = stageStr;
 
     // 해당 스테이지의 전체 대화를 가져온다.
@@ -76,11 +79,10 @@ export const useGameStore = defineStore("game", () => {
       }
     });
   }
-  
 
-  return { 
+  return {
     //state
-    stage, 
+    stage,
     scriptNum,
     SwampScore,
     DarkCaveScore,
@@ -88,7 +90,7 @@ export const useGameStore = defineStore("game", () => {
     dialogList,
     stageViewDict,
     stageGames,
-    
+
     //computed
     dialog,
     script,
@@ -101,22 +103,21 @@ export const useGameStore = defineStore("game", () => {
   };
 });
 
-
 // export const useGameStore = defineStore("game", {
 //   actions: {
 //     setStage(stage: string) {
-      
+
 //       // start page에서 stage 이름 초기화
 //       this.stage = stage;
 //     },
-    
+
 //     setType(type: string) {
-      
+
 //       // script의 type로 초기화
 //       this.type = type;
 //     },
 //     setEffect(effect: string) {
-      
+
 //       // script의 effect로 초기화
 //       this.effect = effect;
 //     },
@@ -136,15 +137,15 @@ export const useGameStore = defineStore("game", () => {
 //       }
 //     },
 //     getNextScript() {
-      
+
 //       console.log("클클클릭");
 
 //       // script type이 story일 때 다음 스크립트 호출
 //       if (this.type === "story") {
-        
+
 //         // scriptNum += 1
 //         this.scriptNum++;
-        
+
 //         // 다음 스크립트 호출 & type 및 effect 초기화
 //         const nextScript = this.dialog.script[this.scriptNum];
 //         this.setType(nextScript.type);
