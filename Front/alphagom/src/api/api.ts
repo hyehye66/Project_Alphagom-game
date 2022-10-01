@@ -15,22 +15,25 @@ export default {
   },
   user: {
     // 유저 정보 조회
-    getUser: (userId) => HOST + BE + USER + `${userId}`,
+    getUser: (userId: number) => HOST + BE + USER + `${userId}`,
     // 유저 정보 변경
-    postUserInfo: (userId) => HOST + BE + USER + `${userId}` + `profile`,
+    postUserInfo: (userId: number) =>
+      HOST + BE + USER + `${userId}` + `profile`,
     // 유저 회원 탈퇴
-    deleteUser: (userId) => HOST + BE + USER + `${userId}` + `profile`,
+    deleteUser: (userId: number) => HOST + BE + USER + `${userId}` + `profile`,
     // 유저 게임 로그 조회
-    getUserLog: (userId) => HOST + BE + `log/` + USER + `${userId}`,
+    getUserLog: (userId: number) => HOST + BE + `log/` + USER + `${userId}`,
     // 유저 닉네임 저장
-    postUserNickname: (userId, nickname) =>
+    postUserNickname: (userId: number, nickname: string) =>
       HOST + BE + USER + `${userId}` + nickname + `${nickname}`,
     // 유저 튜토리얼 완료
-    putUserCastle: (userId) => HOST + BE + USER + `${userId}` + `castle`,
+    putUserCastle: (userId: number) =>
+      HOST + BE + USER + `${userId}` + `castle`,
     // 유저 점수 저장
-    postUserScore: (userId) => HOST + BE + `point/` + USER + `${userId}`,
+    postUserScore: (userId: number) =>
+      HOST + BE + `point/` + USER + `${userId}`,
     // 유저 게임 클리어 여부 조회
-    getClearGame: (userId) => HOST + BE + `game/` + USER + `${userId}`,
+    getClearGame: (userId: number) => HOST + BE + `game/` + USER + `${userId}`,
   },
   game: {
     // 늪 의성어/의태어 문제 제공
@@ -49,10 +52,10 @@ export default {
   },
   rank: {
     // 전체 유저 랭크 조회
-    getAllUserRank: ({ tag }) => HOST + BE + RANK + `${{ tag }}`,
+    getAllUserRank: (tag: string) => HOST + BE + RANK + `${tag}`,
     // 해당 유저 랭크 조회
-    getUserRank: (userId, { tag }) =>
-      HOST + BE + RANK + `user/` + `${userId}` + `${{ tag }}`,
+    getUserRank: (userId: number, tag: string) =>
+      HOST + BE + RANK + `user/` + `${userId}` + `${tag}`,
   },
   test: {
     testApi: () => `http://localhost:8080/api/v1/` + `test`,

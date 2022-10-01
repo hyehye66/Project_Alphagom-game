@@ -8,14 +8,20 @@
 
       <div class="menu-toggle-wrap">
         <div class="user-info">
-          <img class="user-img" src="@/assets/image/자라 표정 당당.png" alt="프로필 사진" height="20" />
-          <text class="user-name">{{username}} 님</text>
+          <img
+            class="user-img"
+            src="@/assets/image/자라_표정_당당.png"
+            alt="프로필 사진"
+            height="20"
+          />
+          <text class="user-name">{{ username }} 님</text>
         </div>
         <button
           class="menu-toggle"
-          style="background-color: transparent; border: 0; outline: 0;"
-          @click="ToggleMenu">
-          <Bars3Icon class="material-icons toggle" style="height: 20px;"/>
+          style="background-color: transparent; border: 0; outline: 0"
+          @click="ToggleMenu"
+        >
+          <Bars3Icon class="material-icons toggle" style="height: 20px" />
         </button>
       </div>
 
@@ -38,7 +44,6 @@
           <span class="text">설정하기</span>
         </router-link>
 
-
         <!-- 유저 정보 들어오면 수정하세용 -->
 
         <!-- <router-link to="/logout" class="button">
@@ -50,36 +55,41 @@
   </div>
 </template>
 
-<script setup>`               `
-import { HomeIcon, MapIcon, UserIcon, Cog6ToothIcon, Bars3Icon, ArrowLeftOnRectangleIcon } from '@heroicons/vue/24/outline'
-import { ref } from 'vue'
+<script setup>
+import {
+  HomeIcon,
+  MapIcon,
+  UserIcon,
+  Cog6ToothIcon,
+  Bars3Icon,
+  ArrowLeftOnRectangleIcon,
+} from "@heroicons/vue/24/outline";
+import { ref } from "vue";
 import { useAuthStore } from "@/stores/auth";
 
-const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
+const is_expanded = ref(localStorage.getItem("is_expanded") === "true");
 
 const ToggleMenu = () => {
-  console.log('ToggleMenu func start')
-	is_expanded.value = !is_expanded.value
-	localStorage.setItem("is_expanded", is_expanded.value)
-  console.log(is_expanded.value)
-  console.log('ToggleMenu func end')
-}
+  console.log("ToggleMenu func start");
+  is_expanded.value = !is_expanded.value;
+  localStorage.setItem("is_expanded", is_expanded.value);
+  console.log(is_expanded.value);
+  console.log("ToggleMenu func end");
+};
 
 const store = useAuthStore();
 const username = store.username;
-console.log(username)
-
+console.log(username);
 </script>
 
 <style lang="scss">
 :root {
   --dark-red: #483737;
-  --light-yellow: #FDF8E2;
-  --primary: #94C178;
-  --grey: #5E5E5E;
-  --violet-alt: #7D4D87;
+  --light-yellow: #fdf8e2;
+  --primary: #94c178;
+  --grey: #5e5e5e;
+  --violet-alt: #7d4d87;
   --sidebar-width: 170px;
-
 }
 aside {
   position: absolute;
@@ -133,8 +143,11 @@ aside {
       }
     }
   }
-  
-  h3, .button, .text, .user-info {
+
+  h3,
+  .button,
+  .text,
+  .user-info {
     opacity: 0;
     transition: 0.3s ease-out;
   }
@@ -155,7 +168,7 @@ aside {
       align-items: center;
       text-decoration: none;
 
-      padding: 0,5rem 1rem;
+      padding: 0, 5rem 1rem;
       transition: 0.2s ease-out;
 
       .material-icons {
@@ -172,9 +185,11 @@ aside {
         font-size: 0.85rem;
       }
 
-      &:hover, ~&.router-link-exact-active {
+      &:hover,
+      ~ &.router-link-exact-active {
         background-color: var(--violet-alt);
-        .material-icons, .text {
+        .material-icons,
+        .text {
           color: var(--primary);
         }
       }
@@ -194,25 +209,25 @@ aside {
       // top: -3rem;
       display: flex;
       justify-content: space-between;
-      
+
       .user-info {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
         top: 0px;
-      
-      .user-img {
-        margin-top: 2px;
-        margin-right: 6px;
+
+        .user-img {
+          margin-top: 2px;
+          margin-right: 6px;
+        }
+        .user-name {
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: -1px;
+          margin-top: 5.5px;
+        }
       }
-      .user-name {
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: -1px;
-        margin-top: 5.5px;
-      }
-    }
       .menu-toggle {
         transform: rotate(-180deg);
         .toggle {
@@ -220,7 +235,10 @@ aside {
         }
       }
     }
-    h3, .button, .text, .user-info {
+    h3,
+    .button,
+    .text,
+    .user-info {
       opacity: 1;
     }
     .button {
@@ -233,7 +251,6 @@ aside {
   @media (max-width: 926px) {
     position: absolute;
     z-index: 99;
-    
   }
 }
 </style>
