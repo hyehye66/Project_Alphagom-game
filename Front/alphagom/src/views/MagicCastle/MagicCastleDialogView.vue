@@ -1,9 +1,6 @@
 <template>
   <div>
-    <!-- <h1>{{ dialog }}</h1> -->
     <CommonDialog></CommonDialog>
-    <a class="btn btn-primary">앞으로 가기</a>
-    <a class="btn btn-primary">뒤로 가기</a>
   </div>
 </template>
 
@@ -18,11 +15,9 @@ export default {
   },
   setup() {
     const game = useGameStore();
-    game.getDialog();
-    const dialog = game.dialog;
-    game.getMaxNum();
+    game.setStage("darkcave");
 
-    return { dialog };
+    return {};
   },
 };
 </script>

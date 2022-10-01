@@ -1,5 +1,6 @@
 import api from "@/api/api";
 import axios from "axios";
+import { ref, computed } from 'vue';
 import { defineStore } from "pinia";
 
 import DarkcaveLine from "@/assets/dialog/DarkcaveLine.json";
@@ -11,70 +12,186 @@ import router from "@/router";
 // pinia는 index.js 없이 모듈화 된 파일만 있으면 된다.
 
 // 이름을 가지는 내보내기를 할 때 보통 이름 앞에 use를 붙여 사용한다.
-export const useGameStore = defineStore("game", {
-  state: () => ({
-    // stage 이름
-    stage: "",
-    // 다음에 올 동작 타입
-    nextType: "",
-    // 해당 stage dialog
-    dialog: {},
-    // 스크립트 넘버
-    scriptNum: 0,
-    // 게임별 점수
-    SwampScore: 5000,
-    DarkCaveScore: 2500,
-    SkyScore: 2500,
-    // stage list
-    dialogList: [DarkcaveLine, SkyLine, SwampLine],
-  }),
-  actions: {
-    setStage(stage: string) {
-      // start page에서 stage 이름 초기화
-      this.stage = stage;
-    },
-    nextScript() {
-      // 다음 스크립트로
-      this.scriptNum++;
-    },
-    beforeScript() {
-      // 이전 스크립트로
-      this.scriptNum--;
-    },
-    nextStage() {},
-    getDialog() {
-      // 해당 스테이지의 전체 대화를 가져오는 함수
-      this.dialogList.forEach((element) => {
-        if (element.stage == this.stage) {
-          this.dialog = element;
-        }
-      });
-    },
-    getMaxNum() {
-      // prologue 와 epilogue 대화 길이를 저장하는 함수
-      this.prologueMaxNum = this.dialog.prologue.length;
-      this.epilogueMaxNum = this.dialog.epilogue.length;
-    },
-    getScript() {
-      // 현재 인덱스의 스크립트 내용을 리턴하는 함수
-      if (this.stageStatus === 0 && this.scriptNum >= this.prologueMaxNum) {
-        this.scriptNum = 0;
-        this.stageStatus++;
-      }
+// Composition
+export const useGameStore = defineStore("game", () => {
+  /* state */
+  const stage = ref(''); // 해당 스테이지 이름
+  const dialog = ref({}); // 
+  const scriptNum = ref(0); // 현재 스크립트 번호
+  const SwampScore = ref(5000);   // 게임별 점수
+  const DarkCaveScore = ref(2500);
+  const SkyScore = ref(2500);
+  const dialogList = ref([ // Dialog list
+    DarkcaveLine, 
+    SkyLine, 
+    SwampLine 
+  ]);
+  const stageViewDict = ref({ // stage view dict
+    "darkcave" : ["darkCaveStartView"],
+    "sky" : ["birdProverbGameView"],
+    "swamp" : ["kingCureGameView", "chaseGameView"] 
+  });
+  const stageGames = ref(['']); // game
 
-      if (this.stageStatus === 1) {
-        router.push("");
-      }
+  /* computed */
+  // 해당 stage dialog
+  // const dialog = computed(() => {
+  //   // 해당 스테이지의 전체 대화를 가져온다.
+  //   dialogList.value.forEach((element) => {
+  //     if (element.stage == stage.value) {
+  //       return element;
+  //     }
+  //   });
+  // });
 
-      if (this.stageStatus === 2 && this.scriptNum >= this.epilogueMaxNum) {
-        this.scriptNum = 0;
-        this.stageStatus++;
-        // stage 끝
+  // 현재 스크립트
+  const script = computed(() => dialog.value.script[scriptNum.value]) 
+  // 현재 effect
+  const effect = computed(() => script.value.effect);
+  // 현재 type
+  const type = computed(() => script.value.type);
 
-        router.push("stageChangeView");
-        return;
+  // 현재 stage 에서 진행할 게임 리스트
+  const gameList = computed(() => {
+    switch(stage.value) {
+      case "sky":
+        return stageViewDict.value.sky;
+      case "darkcave":
+        return stageViewDict.value.darkcave;
+      case "swamp":
+        return  stageViewDict.value.swamp;
+    }
+  })
+
+  /* actions */
+  // start page에서 stage 이름 초기화
+  function setStage(stageStr: string) {  
+    stage.value = stageStr;
+
+    // 해당 스테이지의 전체 대화를 가져온다.
+    dialogList.value.forEach((element) => {
+      if (element.stage == stage.value) {
+        dialog.value = element;
+        console.log(dialog.value);
       }
-      return this.dialog[this.stageStatus][this.scriptNum];
-    },
-  },
+    });
+  }
+  
+
+  return { 
+    //state
+    stage, 
+    scriptNum,
+    SwampScore,
+    DarkCaveScore,
+    SkyScore,
+    dialogList,
+    stageViewDict,
+    stageGames,
+    
+    //computed
+    dialog,
+    script,
+    effect,
+    type,
+    gameList,
+
+    //action
+    setStage,
+  };
 });
+
+
+// export const useGameStore = defineStore("game", {
+//   actions: {
+//     setStage(stage: string) {
+      
+//       // start page에서 stage 이름 초기화
+//       this.stage = stage;
+//     },
+    
+//     setType(type: string) {
+      
+//       // script의 type로 초기화
+//       this.type = type;
+//     },
+//     setEffect(effect: string) {
+      
+//       // script의 effect로 초기화
+//       this.effect = effect;
+//     },
+//     setGameList(stage: string) {
+
+//       // gameList set
+//       switch(stage) {
+//         case "sky":
+//           this.stageGames = this.dialogDict.sky;
+//           break;
+//         case "darkcave":
+//           this.stageGames = this.dialogDict.darkcave;
+//           break;
+//         case "swamp":
+//           this.stageGames = this.dialogDict.swamp;
+//           break;
+//       }
+//     },
+//     getNextScript() {
+      
+//       console.log("클클클릭");
+
+//       // script type이 story일 때 다음 스크립트 호출
+//       if (this.type === "story") {
+        
+//         // scriptNum += 1
+//         this.scriptNum++;
+        
+//         // 다음 스크립트 호출 & type 및 effect 초기화
+//         const nextScript = this.dialog.script[this.scriptNum];
+//         this.setType(nextScript.type);
+//         this.setEffect(nextScript.effect);
+//       }
+
+//       // 게임 route
+//       if (this.type === "game") {
+
+//         // scriptNum += 1
+//         this.scriptNum++;
+
+//         // 다음 스크립트 호출 & type 및 effect 초기화
+//         const nextScript = this.dialog.script[this.scriptNum];
+//         this.setType(nextScript.type);
+//         this.setEffect(nextScript.effect);
+
+//         const gameType = this.stageGames[0];
+//         this.stageGames.pop();
+//         router.push(gameType);
+//       }
+
+//       if (this.type === "question") {
+
+//       }
+
+//       if (this.type === "end") {
+
+//       }
+//     },
+//     beforeScript() {
+//       // 이전 스크립트로
+//       this.scriptNum--;
+//     },
+//     nextStage() {},
+//     getDialog() {
+//       // 해당 스테이지의 전체 대화를 가져오는 함수
+//       this.dialogList.forEach((element) => {
+//         if (element.stage == this.stage) {
+//           this.dialog = element;
+//         }
+//       });
+//     },
+//       //   router.push("stageChangeView");
+//       //   return;
+//       // }
+//       // return this.dialog[this.stageStatus][this.scriptNum];
+//     // },
+//   },
+// });

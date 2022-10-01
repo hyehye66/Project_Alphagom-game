@@ -1,6 +1,6 @@
 {
   "stage": "swamp",
-  "prologue": [
+  "script": [
     {
       "char": "토끼",
       "line1": "헉..헉...",
@@ -98,9 +98,7 @@
       "line2": "우리, 토끼를 도와주러 가자!",
       "type": "game",
       "effect": ""
-    }
-  ],
-  "middle": [
+    },
     {
       "char": "토끼",
       "line1": "자라를 따돌렸어!",
@@ -205,9 +203,7 @@
       "line2": "얼른 도와줘!",
       "type": "game",
       "effect": ""
-    }
-  ],
-  "epilogue": [
+    },
     {
       "char": "용왕",
       "line1": "이제 기침이 나질 않는구나!",
