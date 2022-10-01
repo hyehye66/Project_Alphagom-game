@@ -1,26 +1,19 @@
 <template>
-  <div>
+  <div class="container">
     <p>내 정보</p>
-    {{ testMyPage() }}
+    {{ testFunc() }}
   </div>
 </template>
 
-<script>
-import { mapState } from "pinia";
-import { useMyPageStore } from "@/stores/mypage";
+<script setup>
+import { useAuthStore } from "@/stores/auth";
 
-export default {
-  name: 'MyPageView',
-  components: {
-  },
-  computed: {
-    ...mapState(useMyPageStore, ["testMyPage"]),
-  },
-  setup() {
-      
-  },
-
+const store = useAuthStore();
+function testFunc() {
+  this.store.fetchUserInfo()
+  console.log('testFunc 잘 가져왔나요?')
 }
+
 </script>
 
 
