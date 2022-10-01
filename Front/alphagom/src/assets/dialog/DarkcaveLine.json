@@ -191,6 +191,13 @@
       "char": "알파곰",
       "line1": "좋아, 마늘을 구우러 가볼까!",
       "line2": "",
+      "type": "story",
+      "effect": ""
+    },
+    {
+      "char": "",
+      "line1": "",
+      "line2": "",
       "type": "game",
       "effect": ""
     },
@@ -289,6 +296,13 @@
       "char": "알파곰",
       "line1": "오, 좋아요!",
       "line2": "저는 항상 구름 위를 걸어보고 싶었어요!",
+      "type": "story",
+      "effect": ""
+    },
+    {
+      "char": "알파곰",
+      "line1": "우리 같이 가자!",
+      "line2": "",
       "type": "story",
       "effect": ""
     },

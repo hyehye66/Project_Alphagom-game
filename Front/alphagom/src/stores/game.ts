@@ -16,7 +16,7 @@ import router from "@/router";
 export const useGameStore = defineStore("game", () => {
   /* state */
   const stage = ref(''); // 해당 스테이지 이름
-  const dialog = ref({}); // 
+  const dialog = ref(); // 해당 스테이지 dialog 
   const scriptNum = ref(0); // 현재 스크립트 번호
   const SwampScore = ref(5000);   // 게임별 점수
   const DarkCaveScore = ref(2500);
@@ -31,20 +31,8 @@ export const useGameStore = defineStore("game", () => {
     "sky" : ["birdProverbGameView"],
     "swamp" : ["kingCureGameView", "chaseGameView"] 
   });
-  const stageGames = ref(['']); // game
 
-  /* computed */
-  // 해당 stage dialog
-  // const dialog = computed(() => {
-  //   // 해당 스테이지의 전체 대화를 가져온다.
-  //   dialogList.value.forEach((element) => {
-  //     if (element.stage == stage.value) {
-  //       return element;
-  //     }
-  //   });
-  // });
-
-  // 현재 스크립트
+  // 현재 스크립트 
   const script = computed(() => dialog.value.script[scriptNum.value]) 
   // 현재 effect
   const effect = computed(() => script.value.effect);
@@ -76,8 +64,43 @@ export const useGameStore = defineStore("game", () => {
       }
     });
   }
-  
 
+  function plusNum() {
+    scriptNum.value++
+
+    if (type.value == "game") {
+      
+      const gameType = gameList.value[0];
+      console.log(gameList.value[0]);
+      gameList.value.pop();
+      router.push({name : gameType});
+
+    }
+
+    // if (type.value == "question") {
+
+    //   const 
+    // }
+
+  }
+
+  function skip() {
+
+    dialog.value.script.forEach((element: any)=> {
+
+      scriptNum.value++
+      
+      if (element.type == "game") {
+        
+        const gameType = gameList.value[0];
+        console.log(gameList.value[0]);
+        gameList.value.pop();
+        router.push({name : gameType});
+      }
+
+    })
+  }
+  
   return { 
     //state
     stage, 
@@ -87,7 +110,6 @@ export const useGameStore = defineStore("game", () => {
     SkyScore,
     dialogList,
     stageViewDict,
-    stageGames,
     
     //computed
     dialog,
@@ -98,6 +120,8 @@ export const useGameStore = defineStore("game", () => {
 
     //action
     setStage,
+    plusNum,
+    skip,
   };
 });
 
