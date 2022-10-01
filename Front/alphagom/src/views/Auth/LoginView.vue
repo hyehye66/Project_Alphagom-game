@@ -3,7 +3,6 @@
     <div class="userInfo">
       <p>로그인</p>
       {{ username }}
-      {{ login() }}
     </div>
   </div>
 </template>
@@ -16,7 +15,7 @@ export default {
   name: "LoginView",
   components: {},
   computed: {
-    ...mapState(useAuthStore, ["username", "login"]),
+    ...mapState(useAuthStore, ["username"]),
   },
   setup() {},
 };
