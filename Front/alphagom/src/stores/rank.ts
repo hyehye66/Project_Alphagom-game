@@ -11,7 +11,7 @@ export const useRankStore = defineStore("rank", {
     //state
   }),
   actions: {
-    setRank(rank) {
+    setRank(rank: number) {
       console.log(rank);
     },
   },
