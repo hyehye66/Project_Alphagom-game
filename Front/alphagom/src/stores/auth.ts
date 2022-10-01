@@ -1,6 +1,6 @@
 import api from "@/api/api";
 import axios from "axios";
-import { ref, computed } from 'vue';
+import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 
 // vuex 를 사용할 대는 store/index.js 파일이 필요했지만,
@@ -10,13 +10,14 @@ import { defineStore } from "pinia";
 export const useAuthStore = defineStore("auth", () => {
   // state
   const userInfo = ref(null); // 사용자 정보
-  const token = ref(localStorage.getItem('token') || '');
+  const token = ref(localStorage.getItem("token") || "");
 
   // getters
   const recentUserInfo = computed(() => userInfo);
   const recentToken = computed(() => token);
-  const isLoggedIn = computed(() => !!token);
-  const authHeader = computed(() => token ? { Authorization: `Bearer ${token}` } : '');
+  // const isLoggedIn = computed(() => !!token.value);
+  const isLoggedIn = true;
+  const authHeader = computed(() => token.value ? { Authorization: `Bearer ${token.value}` } : "");
 
   // actions
   function fetchUserInfo() {
@@ -26,12 +27,13 @@ export const useAuthStore = defineStore("auth", () => {
 
     console.log('prototype: ' + authHeader.value.valueOf.prototype)
     console.log('toString: ' + authHeader.value.toString)
-    console.log('authHeader: ' + authHeader)
+    console.log('authHeader: ' + authHeader.value)
 
     axios({
-      // url: api.user.getUser(userInfo.value.userId),
-      url: "http://localhost:8080/api/be/user/1234",
+      url: api.user.getUser(userInfo.value.userId),
+      // url: "http://localhost:8080/api/be/user/1234",
       method: 'get',
+      // headers: authHeader
       headers: authHeader.value.valueOf.prototype,
     })
       .then(res => {
