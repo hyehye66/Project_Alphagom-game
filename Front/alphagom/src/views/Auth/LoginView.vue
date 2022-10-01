@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <NavBar></NavBar>
     <div class="userInfo">
       <p>로그인</p>
       {{ username }}
@@ -10,13 +9,12 @@
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
 import { mapState } from "pinia";
 import { useAuthStore } from "@/stores/auth";
 
 export default {
   name: "LoginView",
-  components: { NavBar },
+  components: {},
   computed: {
     ...mapState(useAuthStore, ["username", "login"]),
   },

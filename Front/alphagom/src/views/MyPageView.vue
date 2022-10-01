@@ -1,15 +1,20 @@
 <template>
   <div>
-    <!-- <NavBar></NavBar> -->
+    <p>내 정보</p>
+    {{ testMyPage() }}
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue';
+import { mapState } from "pinia";
+import { useMyPageStore } from "@/stores/mypage";
+
 export default {
   name: 'MyPageView',
   components: {
-    NavBar,
+  },
+  computed: {
+    ...mapState(useMyPageStore, ["testMyPage"]),
   },
   setup() {
       
