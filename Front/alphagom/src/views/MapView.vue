@@ -11,7 +11,7 @@
           @click="clickMapItem('magicCastleStartView')"
         >
           <img class="img-magic-castle" src="@/assets/image/마법의_성.png" alt="마법의 성"/>
-          <text style="marginTop: -30px; marginLeft: -30px;">마법의 성</text>
+          <text style="marginTop: -30px; marginLeft: -30px; color: black;">마법의 성</text>
         </button>
       </div>
       <div class="dark-cave">
