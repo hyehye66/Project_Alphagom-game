@@ -1,5 +1,6 @@
 <template>
     <div>
+        <modal></modal>
         <h1>{{ game.script.char }}</h1>
         <p>{{ game.script.line1 }}</p>
         <p>{{ game.script.line2 }}</p>
@@ -10,6 +11,7 @@
 
 <script setup>
     import { useRouter } from 'vue-router';
+    import modal from "@/views/Modal/YesOrNoModal.vue";
     // import { defineStore } from 'pinia';
     import { computed, ref } from 'vue';
     import DarkcaveLine from '@/assets/dialog/DarkcaveLine.json';

@@ -80,10 +80,18 @@ export const useGameStore = defineStore("game", () => {
 
     }
 
-    // if (type.value == "question") {
+    if (type.value == "question") {
+      // 모달 실행
 
-    //   const 
-    // }
+      // yes 응답 => pass
+      
+      // no 응답 => scriptNum.value++
+    }
+
+    if (type.value == "yes") {
+      scriptNum.value++
+    }
+
 
   }
 
