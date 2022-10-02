@@ -45,42 +45,36 @@
     
   </div>
 </template>
-<script>
+<script setup>
 import { useRouter, useRoute } from 'vue-router';
 
-export default {
-  name: 'MapView',
-  components: {
-  },
-  setup() {
-    const router = useRouter();
-    const route = useRoute();
-    const clickMapItem = name => {
-      switch (name) {
-        case 'magicCastleStartView':
-        case 'swampStartView':
-        case 'darkCaveStartView':
-        case 'skyStartView':
-          router.push({ name });
-          break;
-        default:
-          break;
-      }
-    }
-    return {
-      clickMapItem
-    }
-    
+const router = useRouter();
+const route = useRoute();
+const clickMapItem = name => {
+  switch (name) {
+    case 'magicCastleStartView':
+    case 'swampStartView':
+    case 'darkCaveStartView':
+    case 'skyStartView':
+      router.push({ name });
+      break;
+    default:
+      break;
   }
-};
+}
+
 </script>
 
 <style scoped>
 .container-bg {
   position: absolute;
+<<<<<<< HEAD
   background-image: url("@/assets/image/map_bg_picture_filter_low.png");
+=======
+  /* background-image: url("@/assets/image/지도_배경_사진_필터_low.png");
+>>>>>>> develop
   background-repeat: no-repeat;
-  background-size: inherit;
+  background-size: inherit; */
   /* Add the blur effect */
   filter: blur(4px);
   top: 0px;
