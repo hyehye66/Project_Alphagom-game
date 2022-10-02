@@ -7,8 +7,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_happy"
     },
     {
       "char": "견우",
@@ -16,7 +15,6 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -25,8 +23,7 @@
       "line2": "이번엔 누구려나!",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_surpise"
     },
     {
       "char": "알파곰",
@@ -34,8 +31,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_flustered"
     },
     {
       "char": "견우",
@@ -43,7 +39,6 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -52,8 +47,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_flustered"
     },
     {
       "char": "견우",
@@ -61,7 +55,6 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -70,7 +63,6 @@
       "line2": "이번에 알아서 만나라며 가버렸지 뭐야..",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -79,8 +71,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_normal"
     },
     {
       "char": "견우",
@@ -88,7 +79,6 @@
       "line2": "너희가 불러줄 수 있겠니?",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -97,8 +87,7 @@
       "line2": "우리 같이 다리 놓으러 가보자!",
       "type": "game",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_happy"
     },
     {
       "char": "견우",
@@ -106,7 +95,6 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -115,7 +103,6 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -124,8 +111,7 @@
       "line2": "도움이 돼서 기분이 좋네.",
       "type": "end",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_happy"
     }
   ]
 }

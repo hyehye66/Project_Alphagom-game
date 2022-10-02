@@ -7,7 +7,6 @@
       "line2": "",
       "type": "story",
       "effect": "black",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -16,8 +15,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_flustered"
       
     },
     {
@@ -26,7 +24,6 @@
       "line2": "",
       "type": "stroy",
       "effect": "white",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -35,8 +32,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_suprise"
     },
     {
       "char": "알파곰",
@@ -44,8 +40,7 @@
       "line2": "어때, 몸은 괜찮아?",
       "type": "question",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_flustered"
     },
     {
       "char": "알파곰",
@@ -53,8 +48,7 @@
       "line2": "그러면 우리 여기 나가는 길을 찾아보자!",
       "type": "yes",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_normal"
     },
     {
       "char": "알파곰",
@@ -62,8 +56,7 @@
       "line2": "같이 찾으러 가보자!",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_normal"
     },
     {
       "char": "알파곰",
@@ -71,8 +64,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_happy"
     },
     {
       "char": "???",
@@ -80,7 +72,6 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -89,8 +80,7 @@
       "line2": "이 동굴 안에 누가 있나 봐!",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_suprise"
     },
     {
       "char": "???",
@@ -98,7 +88,6 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -107,8 +96,7 @@
       "line2": "얼른 가보자!",
       "type": "stroy",
       "effect": "black",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_flustered"
     },
     {
       "char": "곰",
@@ -116,8 +104,7 @@
       "line2": "",
       "type": "story",
       "effect": "white",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "bear_look_cry"
     },
     {
       "char": "알파곰",
@@ -125,8 +112,7 @@
       "line2": "친구야, 반갑다!",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_happy"
     },
     {
       "char": "곰",
@@ -134,8 +120,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "bear_look_cry"
     },
     {
       "char": "알파곰",
@@ -143,8 +128,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_suprise"
     },
     {
       "char": "곰",
@@ -152,8 +136,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "bear_look_cry"
     },
     {
       "char": "알파곰",
@@ -161,8 +144,7 @@
       "line2": "이걸 왜 먹고 있는거야?",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_suprise"
     },
     {
       "char": "곰",
@@ -170,8 +152,7 @@
       "line2": "인간이 될 수 있다고 해서...",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "bear_look_normal"
     },
     {
       "char": "곰",
@@ -179,8 +160,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "bear_look_happy"
     },
     {
       "char": "알파곰",
@@ -188,8 +168,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_normal"
     },
     {
       "char": "알파곰",
@@ -197,8 +176,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_happy"
     },
     {
       "char": "곰",
@@ -206,8 +184,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "bear_look_normal"
     },
     {
       "char": "알파곰",
@@ -215,8 +192,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_happy"
     },
     {
       "char": "곰",
@@ -224,8 +200,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "bear_look_normal"
     },
     {
       "char": "알파곰",
@@ -233,8 +208,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_normal"
     },
     {
       "char": "알파곰",
@@ -242,8 +216,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_normal"
     },
     {
       "char": "",
@@ -251,7 +224,6 @@
       "line2": "",
       "type": "game",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -260,8 +232,7 @@
       "line2": "구운 마늘은 먹을만하지?",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_normal"
     },
     {
       "char": "곰",
@@ -269,8 +240,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "bear_look_cry"
     },
     {
       "char": "???",
@@ -278,7 +248,6 @@
       "line2": "",
       "type": "stroy",
       "effect": "motion",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -287,8 +256,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_flustered"
     },
     {
       "char": "환웅",
@@ -296,7 +264,6 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -305,8 +272,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_suprise"
     },
     {
       "char": "곰",
@@ -314,8 +280,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "bear_look_happy"
     },
     {
       "char": "환웅",
@@ -323,7 +288,6 @@
       "line2": "그래도 인간이 되고 싶으냐.",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -332,8 +296,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "bear_look_normal"
     },
     {
       "char": "",
@@ -341,7 +304,6 @@
       "line2": "",
       "type": "story",
       "effect": "light",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -350,7 +312,6 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -359,7 +320,6 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -368,7 +328,6 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
       "imgFace": ""
     },
     {
@@ -377,8 +336,7 @@
       "line2": "저는 항상 구름 위를 걸어보고 싶었어요!",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_happy"
     },
     {
       "char": "알파곰",
@@ -386,8 +344,7 @@
       "line2": "",
       "type": "story",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_normal"
     },
     {
       "char": "알파곰",
@@ -395,8 +352,7 @@
       "line2": "",
       "type": "end",
       "effect": "",
-      "imgBody": "",
-      "imgFace": ""
+      "imgFace": "alphagom_look_normal"
     }
   ]
 }
