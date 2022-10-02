@@ -13,7 +13,7 @@ import NavBar from "./components/NavBar.vue";
 // Get the root element
 var r = document.querySelector(':root');
 var rs = getComputedStyle(r);
-const bgUrl = 'url("/src/assets/image/bg_map.png")'
+const bgUrl = 'url("/assets/image/bg_map.png")'
 
 // Create a function for getting a variable value
 function myFunction_get() {
@@ -28,6 +28,7 @@ function myFunction_set() {
   // r.style.setProperty('--bg-url', bgUrl);
   r.style.setProperty('--bg-url', bgUrl);
   console.log(rs.getPropertyValue('--bg-url'))
+  console.log("경로를 /assets/~~ 로 변경")
 }
 </script>
 
