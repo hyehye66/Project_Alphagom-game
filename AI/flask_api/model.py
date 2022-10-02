@@ -152,5 +152,62 @@ def sky_bird():
     elif np.argmax(result) == 5:
         return "황새"
 
+@app.route('/api/ai/test', methods=["GET"])
+@cross_origin()
+def kingcure():
+    test_result = [
+  {
+    "answer": "팔팔",
+    "example": [
+      "팔팔",
+      "풀풀",
+      "턱턱",
+      "송송"
+    ],
+    "sentance": "물을 ** 끓여 손질된 닭을 넣어요"
+  },
+  {
+    "answer": "탁탁",
+    "example": [
+      "탁탁",
+      "팔팔",
+      "턱턱",
+      "사각사각"
+    ],
+    "sentance": "갖가지 재료를 ** 썰어 넣어요"
+  },
+  {
+    "answer": "보글보글",
+    "example": [
+      "보글보글",
+      "사각사각",
+      "드르륵",
+      "풀풀"
+    ],
+    "sentance": "삼계탕이 ** 끓고 있어요"
+  },
+  {
+    "answer": "송송",
+    "example": [
+      "송송",
+      "턱턱",
+      "사각사각",
+      "주르륵"
+    ],
+    "sentance": "대추를 ** 썰어 올려요"
+  },
+  {
+    "answer": "휘휘",
+    "example": [
+      "휘휘",
+      "주르륵",
+      "팔팔",
+      "보글보글"
+    ],
+    "sentance": "잘 익도록 국자로 ** 저어서 완성해요"
+  }
+]
+    return test_result
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000",  debug=True)

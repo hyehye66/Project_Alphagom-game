@@ -36,6 +36,15 @@ export const useGameStore = defineStore("game", () => {
     swamp: ["kingCureGameView", "chaseGameView"],
   });
   const stageGames = ref([""]); // game
+  // 늪 의성어, 의태어 게임 관련 state
+  const KingCureGameList = ref()
+  // AI 게임 answer state
+  const AIAnswer = ref()
+  // 녹음기능 켜고 끄는 state
+  const VoiceOnOff = ref()
+  // AI 게임 끝났을 때 점수 창
+  const AIGameScore = ref(false)
+  
 
   /* computed */
   // 해당 stage dialog
@@ -81,6 +90,24 @@ export const useGameStore = defineStore("game", () => {
     });
   }
 
+  async function getKingGame () {
+    await axios ({
+      url: api.test.testAI(),
+      method: 'GET',
+    })
+    .then((response) => {KingCureGameList.value = response.data})
+  }
+
+  async function getKingAI (payload) {
+    await axios ({
+      url: api.game.aiSwampWord(),
+      method: 'POST',
+      headers: { "Content-Type": "multipart/form-data" },
+      data: payload
+    })
+    .then((response) => { AIAnswer.value = response.data })
+  }
+
   return {
     //state
     stage,
@@ -91,6 +118,10 @@ export const useGameStore = defineStore("game", () => {
     dialogList,
     stageViewDict,
     stageGames,
+    KingCureGameList,
+    AIAnswer,
+    VoiceOnOff,
+    AIGameScore,
 
     //computed
     dialog,
@@ -101,5 +132,7 @@ export const useGameStore = defineStore("game", () => {
 
     //action
     setStage,
+    getKingGame,
+    getKingAI,
   };
 });

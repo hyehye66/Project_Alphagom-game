@@ -1,4 +1,5 @@
 const HOST = "http://localhost:8080/api/";
+const HOSTAI = "http://127.0.0.1:5000/api/"
 
 const BE = "be/";
 const AI = "ai/";
@@ -44,11 +45,11 @@ export default {
     getSkyBird: () => HOST + BE + GAME + `sky/` + `bird`,
 
     // 응, 아니 인식
-    yesOrNo: () => HOST + AI + `magiccastle/` + `check`,
+    yesOrNo: () => HOSTAI + AI + `check`,
     // 의성어 / 의태어 인식
-    aiSwampWord: () => HOST + AI + `swamp/` + `word`,
+    aiSwampWord: () => HOSTAI + AI + `swamp/` + `word`,
     // 새 이름 인식
-    aiSkyBird: () => HOST + AI + `sky/` + `bird`,
+    aiSkyBird: () => HOSTAI + AI + `sky/` + `bird`,
   },
   rank: {
     // 전체 유저 랭크 조회
@@ -59,5 +60,6 @@ export default {
   },
   test: {
     testApi: () => `http://localhost:8080/api/v1/` + `test`,
+    testAI: () => HOSTAI + AI + `test`
   },
 };
