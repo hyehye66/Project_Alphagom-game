@@ -84,7 +84,6 @@ export const useGameStore = defineStore("game", () => {
 
   // 이미지 url
   const getImgUrl = (img: String) => {
-    console.log(`/image/${img}.png`)
     return new URL(`/image/${img}.png`, import.meta.url).href;
 }
 
