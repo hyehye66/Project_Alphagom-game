@@ -13,7 +13,7 @@ import NavBar from "./components/NavBar.vue";
 // Get the root element
 var r = document.querySelector(':root');
 var rs = getComputedStyle(r);
-const bgUrl = ""
+const bgUrl = 'url("/src/assets/image/bg_map.png")'
 
 // Create a function for getting a variable value
 function myFunction_get() {
@@ -26,7 +26,7 @@ function myFunction_get() {
 function myFunction_set() {
   // Set the value of variable --blue to another value (in this case "lightblue")
   // r.style.setProperty('--bg-url', bgUrl);
-  r.style.setProperty('--bg-url', 'url("/src/assets/image/bg_map.png")');
+  r.style.setProperty('--bg-url', bgUrl);
   console.log(rs.getPropertyValue('--bg-url'))
 }
 </script>
