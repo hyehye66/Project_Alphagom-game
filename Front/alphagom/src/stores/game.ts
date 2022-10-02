@@ -34,14 +34,47 @@ export const useGameStore = defineStore("game", () => {
     // stage view dict
     darkcave: ["darkCaveStartView"],
     sky: ["birdProverbGameView"],
-    swamp: ["kingCureGameView", "chaseGameView"],
+    swamp: ["kingCureGameView"],
   });
-  // 현재 스크립트 
-  const script = computed(() => dialog.value.script[scriptNum.value]) 
+
   // 현재 effect
   const effect = computed(() => script.value.effect);
   // 현재 type
   const type = computed(() => script.value.type);
+  // 현재 char
+  const char = computed(() => script.value.char);
+  // 현재 스크립트 
+  const script = computed(() => dialog.value.script[scriptNum.value]);
+  // 현재 표정 이미지 
+  const faceImg = computed(() => dialog.value.script[scriptNum.value].imgFace);
+
+
+  // 현재 전신 이미지
+  const imgBody = computed(() => {
+    switch (char.value) {
+      case "알파곰":
+        return "alphagom_stand";
+      case "곰":
+        return "bear_stand";
+      case "견우":
+        return "gyeonu_stand";
+      case "직녀":
+        return "jiknyeo_side";
+      case "토끼":
+        return "rabbit_stand";
+      case "자라":
+        return "jara_stand";
+      case "용왕":
+        return "dragonKing_stand";
+      default:
+        return ""
+    }
+  });
+
+  // 이미지 url
+  const getImgUrl = (img: String) => {
+    return new URL(`./../assets/image/${img}.png`, import.meta.url).href;
+}
 
   // 현재 stage 에서 진행할 게임 리스트
   const gameList = computed(() => {
@@ -56,6 +89,7 @@ export const useGameStore = defineStore("game", () => {
   });
 
   /* actions */
+  
   // start page에서 stage 이름 초기화
   function setStage(stageStr: string) {
     stage.value = stageStr;
@@ -72,11 +106,10 @@ export const useGameStore = defineStore("game", () => {
   function plusNum() {
     scriptNum.value++
     isActive.value = false;
+
     if (type.value == "game") {
       
       const gameType = gameList.value[0];
-      console.log(gameList.value[0]);
-      gameList.value.pop();
       router.push({name : gameType});
 
     }
@@ -106,8 +139,6 @@ export const useGameStore = defineStore("game", () => {
       if (element.type == "game") {
         
         const gameType = gameList.value[0];
-        console.log(gameList.value[0]);
-        gameList.value.pop();
         router.push({name : gameType});
       }
 
@@ -132,10 +163,14 @@ export const useGameStore = defineStore("game", () => {
     effect,
     type,
     gameList,
+    char,
+    imgBody,
+    faceImg,
 
     //action
     setStage,
     plusNum,
     skip,
+    getImgUrl,
   };
 });
