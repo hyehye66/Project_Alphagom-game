@@ -1,17 +1,17 @@
 <template>
     <div>
-        <modal></modal>
+        <img src="@/assets/image/알파곰_전신.png" width="50">
         <h1>{{ game.script.char }}</h1>
         <p>{{ game.script.line1 }}</p>
         <p>{{ game.script.line2 }}</p>
         <button @click="game.plusNum()">다음으로오오오오오</button>
         <button @click="game.skip()">스으으으으으킵</button>
+        <button v-if="game.isActive" @click="game.plusNum()">버튼트튼</button>
     </div>
 </template>
 
 <script setup>
     import { useRouter } from 'vue-router';
-    import modal from "@/views/Modal/YesOrNoModal.vue";
     // import { defineStore } from 'pinia';
     import { computed, ref } from 'vue';
     import DarkcaveLine from '@/assets/dialog/DarkcaveLine.json';

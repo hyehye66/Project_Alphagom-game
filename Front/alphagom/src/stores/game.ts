@@ -23,6 +23,7 @@ export const useGameStore = defineStore("game", () => {
   const SwampScore = ref(5000); // 게임별 점수
   const DarkCaveScore = ref(2500);
   const SkyScore = ref(2500);
+  const isActive = ref(false); // 응아니 버튼
   const dialogList = ref([
     // Dialog list
     DarkcaveLine,
@@ -70,7 +71,7 @@ export const useGameStore = defineStore("game", () => {
 
   function plusNum() {
     scriptNum.value++
-
+    isActive.value = false;
     if (type.value == "game") {
       
       const gameType = gameList.value[0];
@@ -81,8 +82,9 @@ export const useGameStore = defineStore("game", () => {
     }
 
     if (type.value == "question") {
-      // 모달 실행
-
+      // 버튼 실행
+      isActive.value = true;
+      
       // yes 응답 => pass
       
       // no 응답 => scriptNum.value++
@@ -122,6 +124,7 @@ export const useGameStore = defineStore("game", () => {
     SkyScore,
     dialogList,
     stageViewDict,
+    isActive,
 
     //computed
     dialog,
