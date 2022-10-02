@@ -1,3 +1,4 @@
+// 배포 전까지 임시 로컬 호스트
 const HOST = "http://localhost:8080/api/";
 const HOSTAI = "http://127.0.0.1:5000/api/"
 
@@ -60,6 +61,7 @@ export default {
   },
   test: {
     testApi: () => `http://localhost:8080/api/v1/` + `test`,
-    testAI: () => HOSTAI + AI + `test`
+    testKingAI: () => HOSTAI + AI + `king`,
+    testBirdAI: () => HOSTAI + AI + `bird`,
   },
 };
