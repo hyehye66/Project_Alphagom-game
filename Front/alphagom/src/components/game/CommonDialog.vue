@@ -17,6 +17,7 @@
         <button @click="store.skip()">건너뛰기</button>
         </div>
         <button v-if="store.isActive" @click="getRecord()">대답하기!</button>
+    </div>
 </template>
 
 <script setup>
