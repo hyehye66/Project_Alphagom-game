@@ -17,7 +17,6 @@
         <button @click="store.skip()">건너뛰기</button>
         </div>
         <button v-if="store.isActive" @click="getRecord()">대답하기!</button>
-    </div>
 </template>
 
 <script setup>
@@ -48,16 +47,17 @@ watch(recordfile, () => store.getCheckAI(store.VoiceFile))
 // watch 로 answer 들어오는지 확인 후 바로 checkyesorno (대사 넘기기) 함수 실행
 watch(answer, () => store.checkyesorno())
 
+const game = useGameStore();
 </script>
 
 <style>
 .common {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .scriptText {
-    color: black;
+  color: black;
 }
 </style>
