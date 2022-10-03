@@ -33,9 +33,9 @@ import rabbit_stand from "/assets/image/rabbit_stand.png";
 import dragonKing_stand from "/assets/image/dragonKing_stand.png";
 // gyeonu
 import gyeonu_stand from "/assets/image/gyeonu_stand.png";
-// import gyeonu_side from "/assets/image/gyeonu_side.png";
+import gyeonu_side from "/assets/image/gyeonu_side.png";
 // jiknyeo
-import jiknyeo_side from "/assets/image/jiknyeo_side.png";
+import Jiknyeo_side from "/assets/image/Jiknyeo_side.png";
 // textbox
 import dark_cave_textbox from "/assets/image/dark_cave_textbox.png";
 import swamp_textbox from "/assets/image/swamp_textbox.png";
@@ -101,7 +101,7 @@ export const useGameStore = defineStore("game", () => {
       case "견우":
         return gyeonu_stand;
       case "직녀":
-        return jiknyeo_side;
+        return Jiknyeo_side;
       case "토끼":
         return rabbit_stand;
       case "자라":
