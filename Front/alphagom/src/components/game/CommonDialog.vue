@@ -4,21 +4,20 @@
     <!-- <img v-if="store.imgBody" :src="store.getImgUrl(store.imgBody)" width="50">
         <img v-if="store.faceImg" :src="store.getImgUrl(store.faceImg)" width="50"> -->
         <!-- <img class="character-body-img" v-if="store.imgBody" :src="store.imgBody" alt="캐릭터 전신"> -->
-        <div class="scriptText">
-            <!-- <h1>{{ store.getImgUrl(game.textboxImg) }}</h1> -->
-            <img class="character-body-img" v-if="store.imgBody" :src="store.imgBody" alt="캐릭터 전신">
-            <img class="text-box-img" :src="store.textboxImg" width="656" alt="대화상자">
-            <h1 class="script-char-name">{{ store.script.char }}</h1>
-            <p class="script-line1">{{ store.script.line1 }}</p>
-            <p class="script-line2">{{ store.script.line2 }}</p>
-            <img class="character-face-img" v-if="store.imgFace" :src="store.imgFace" alt="캐릭터 표정">
-        </div>
-        <div v-if="!store.isActive">
-            <button class="script-btn" @click="store.plusNum()">다음대화</button>
-            <button class="script-btn pass-btn" @click="store.skip()">건너뛰기</button>
-        </div>
-        <button class="script-btn answer-btn" v-if="store.isActive" @click="getRecord()">대답하기</button>
+    <div class="scriptText">
+        <!-- <h1>{{ store.getImgUrl(game.textboxImg) }}</h1> -->
+        <img class="character-body-img" v-if="store.imgBody" :src="store.imgBody" alt="캐릭터 전신">
+        <img class="text-box-img" :src="store.textboxImg" width="656" alt="대화상자">
+        <h1 class="script-char-name">{{ store.script.char }}</h1>
+        <p class="script-line1">{{ store.script.line1 }}</p>
+        <p class="script-line2">{{ store.script.line2 }}</p>
+        <img class="character-face-img" v-if="store.imgFace" :src="store.imgFace" alt="캐릭터 표정">
     </div>
+    <div v-if="!store.isActive">
+        <button class="script-btn" @click="store.plusNum()">다음대화</button>
+        <button class="script-btn pass-btn" @click="store.skip()">건너뛰기</button>
+    </div>
+    <button class="script-btn answer-btn" v-if="store.isActive" @click="getRecord()">대답하기</button>
     <div v-if="!store.isActive">
       <button @click="store.plusNum()">다음으로!</button>
       <button @click="store.skip()">건너뛰기</button>
