@@ -14,7 +14,7 @@ import { stringLiteral } from "@babel/types";
 // image import
 // alphagom
 import alphagom_stand from "/assets/image/alphagom_stand.png";
-import alphagom_hello from "/assets/image/alphagom_hello.png";
+// import alphagom_hello from "/assets/image/alphagom_hello.png";
 import alphagom_look_happy from "/assets/image/alphagom_look_happy.png";
 import alphagom_look_normal from "/assets/image/alphagom_look_normal.png";
 import alphagom_look_suprise from "/assets/image/alphagom_look_suprise.png";
@@ -33,7 +33,7 @@ import rabbit_stand from "/assets/image/rabbit_stand.png";
 import dragonKing_stand from "/assets/image/dragonKing_stand.png";
 // gyeonu
 import gyeonu_stand from "/assets/image/gyeonu_stand.png";
-import gyeonu_side from "/assets/image/gyeonu_side.png";
+// import gyeonu_side from "/assets/image/gyeonu_side.png";
 // jiknyeo
 import jiknyeo_side from "/assets/image/jiknyeo_side.png";
 // textbox
