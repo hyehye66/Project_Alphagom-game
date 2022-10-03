@@ -1,8 +1,10 @@
 <template>
     <div class="common">
-        <img v-if="game.imgBody" :src="game.getImgUrl(game.imgBody)" width="50">
-        <img v-if="game.faceImg" :src="game.getImgUrl(game.faceImg)" width="50">
+        <!-- <img v-if="game.imgBody" :src="game.getImgUrl(game.imgBody)" width="50">
+        <img v-if="game.faceImg" :src="game.getImgUrl(game.faceImg)" width="50"> -->
         <img :src="game.getImgUrl(game.textboxImg)" width="500">
+        <img :src="`/assets/image/${game.script.imgFace}.jpg`" width="50">
+        <img :src="imageTest" width="50">
         <div class="scriptText">
             <h1>{{ game.getImgUrl(game.faceImg) }}</h1>
             <h1>{{ game.script.char }}</h1>
@@ -23,8 +25,10 @@
     import { useGameStore } from "@/stores/game";
     // import { skyDialog } from '@/assets/dialog/SkyLine.json';
     // import { swampDialog } from '@/assets/dialog/SwampLine.json';
+    import testImg from "/assets/image/alphagom_look_happy.png";
     
     const game = useGameStore();
+    const imageTest = testImg;
 
 </script>
 
