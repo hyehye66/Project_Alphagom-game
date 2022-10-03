@@ -18,11 +18,6 @@
         <button class="script-btn pass-btn" @click="store.skip()">건너뛰기</button>
     </div>
     <button class="script-btn answer-btn" v-if="store.isActive" @click="getRecord()">대답하기</button>
-    <div v-if="!store.isActive">
-      <button @click="store.plusNum()">다음으로!</button>
-      <button @click="store.skip()">건너뛰기</button>
-    </div>
-    <button v-if="store.isActive" @click="getRecord()">대답하기!</button>
   </div>
 </template>
 
