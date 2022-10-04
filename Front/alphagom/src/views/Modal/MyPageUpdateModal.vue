@@ -8,7 +8,7 @@
         <div class="modal__modal-header">
           <!-- <h5 class="modal-title"></h5> -->
           <button
-            @click="$emit('update:updateModalOpen', !updateModalOpen)" 
+            @click="gameStore.updateModal()" 
             class="modal__btn-close" data-bs-dismiss="modal"
             aria-label="Close">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +25,8 @@
               type="email"
               v-model="nick"
               placeholder="10자 이하로 입력해주세요."
-              @keyup="setNick">
+              @change="setNick"
+            >
             <button class="modal__update-btn" @click="updateNick">수정하기</button>
           </div>
         </div>
@@ -36,14 +37,18 @@
 </template>
 
 <script setup>
-import { reactive } from '@vue/reactivity'
+import { reactive, ref } from '@vue/reactivity'
 import { useAuthStore } from "@/stores/auth";
+import { useGameStore } from "@/stores/game";
+import { storeToRefs } from "pinia";
 // import { ref, computed } from 'vue';
 
 const store = useAuthStore();
-const state = reactive({
-  nick: "",
-})
+const gameStore = useGameStore();
+// const Modal = computed(() => gameStore.Modal)
+
+const nick = ref('')
+let inputText = ref('')
 
 const UpdateMyPageClose = () => {
   console.log(this.updateModalOpen)
@@ -52,13 +57,17 @@ const UpdateMyPageClose = () => {
 }
 
 const setNick = (e) => {
-    nick = e.target.value
+    // nick = e.target.value
+    inputText = e.target.value
 }
 
-const updateNick = (nick) => {
-  store.updateUserInfo(nick)
-  console.log(nick)
-  console.log(userInfo.value.username)
+const { userInfo } = storeToRefs(store);
+const updateNick = () => {
+  // store.updateUserInfo(inputText)
+  userInfo.userNickname = inputText
+  console.log(inputText)
+  console.log(userInfo.userNickname)
+  // console.log(userInfo.value.username)
 }
 
 </script>

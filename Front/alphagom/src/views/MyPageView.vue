@@ -6,7 +6,7 @@
       <div class="box-header">
         <button
           class="btn-edit"
-          @click="openUpdateMypage"
+          @click="gameStore.updateModal()"
           style="cursor: pointer"
         >
           <svg
@@ -49,13 +49,15 @@
       </button>
     </div>
 
-    <MyPageUpdateModal v-model:updateModalOpen="updateModalOpen" />
+    <!-- <MyPageUpdateModal v-model:updateModalOpen="updateModalOpen" /> -->
+    <MyPageUpdateModal v-if="gameStore.Modal" />
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useAuthStore } from "@/stores/auth";
+import { useGameStore } from "@/stores/game";
 import { storeToRefs } from "pinia";
 
 import MyPageUpdateModal from "@/views/Modal/MyPageUpdateModal.vue";
@@ -67,14 +69,21 @@ onMounted(() => {
   // store의 bgUrlState 값을 직접 변경
   bgStore.bgUrlState = 'url("/map_bg_picture_filter_low.png")';
   console.log(bgStore.bgUrlState.value);
+  gameStore.updateModal()
 });
+
+// store 가져오기
 const bgStore = useBgStore();
+const gameStore = useGameStore();
+const store = useAuthStore();
+
 // state 감시자
 const bgwatching = computed(() => bgStore.bgUrlState);
 
-const store = useAuthStore();
-const updateModalOpen = ref(false);
-console.log('오픈 전: updateModalOpen.value: ' + updateModalOpen.value)
+// modal 띄우는 state
+// const updateModalOpen = ref(false);
+// console.log('오픈 전: updateModalOpen.value: ' + updateModalOpen.value)
+// const Modal = computed(() => gameStore.Modal)
 
 function openUpdateMypage() {
   // if (this.isLoggedIn){
