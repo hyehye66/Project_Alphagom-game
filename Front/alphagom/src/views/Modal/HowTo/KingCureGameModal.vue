@@ -30,8 +30,7 @@ const gotoGame = () => {
   
 <style scoped>
 .score-modal {
-width: 60vw;
-height: 70vh;
+height: 50vh;
 border-radius: 18px;
 border: 18px dashed #FAF4BD;
 background-color: #94C178;

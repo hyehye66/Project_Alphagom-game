@@ -52,9 +52,7 @@ export const useGameStore = defineStore("game", () => {
   const stage = ref(""); // 해당 스테이지 이름
   const dialog = ref(); // 해당 스테이지 dialog
   const scriptNum = ref(0); // 현재 스크립트 번호
-  const SwampScore = ref(5000); // 게임별 점수
-  const DarkCaveScore = ref(2500);
-  const SkyScore = ref(2500);
+  const score = ref(3000); // 게임별 점수
   const isActive = ref(false); //  Dialog 에서 '대답하기!' 버튼 활성화 (true)
   const Nickname = ref(); // user 가 magiccastle 에서 설정한 닉네임 (초기화 시켜야하나?) 
   const dialogList = ref([
@@ -301,30 +299,35 @@ export const useGameStore = defineStore("game", () => {
       scriptNum.value--
     }
     else if (type.value == scriptType.SENTANCE) {
-      if (Answer.value == "이제 나의 손을 잡아보아요"
+      if (Answer.value == "이제 나의 손을 잡아 보아요"
       || Answer.value == "안녕은 영원한 헤어짐은 아니겠지요") {
         PassFail.value = false
         const gameType = stageGame.value[0];
         router.push({ name: gameType });
       } else {
-        // 다시 문장 말하라고 PassorFail 모달 창 추가
         PassFail.value = true
       }
-    }
-    
+    }  
   }
 
+  // Dialog 끝나고 게임으로 넘어갈 때와 점수 창으로 넘어갈 때 route 함수
+  // forEach 기능은 break가 따로 없어서 throw error 로 해결
   function skip() {
-    dialog.value.script.forEach((element: any) => {
+    const length = dialog.value.script.length
+    try {
+      dialog.value.script.slice(scriptNum.value, length + 1).forEach((element: any) => {
       scriptNum.value++;
-      if (element.type == "game") {
+      if (element.type === "game") {
         const gameType = stageGame.value[0];
         router.push({ name: gameType });
-      }
+        throw new Error("End Loop!")}
+      else if (element.type === "end") {
+        router.push({name: "stageChangeView" })
+        throw new Error("End Loop!")}
     });
-  }
+  } catch(e) {
+  }};
   
-
   /* 
    * AI api 요청
    */
@@ -367,7 +370,7 @@ export const useGameStore = defineStore("game", () => {
   // Flask 에서 STT 결과값 갖고 오는 API
   async function getSTTAI(payload: any) {
     await axios({
-      url: api.test.testNicknameAI(),
+      url: api.game.aiStt(),
       // url: api.game.aiStt(),
       method: "POST",
       headers: { "Content-Type": "multipart/form-data" },
@@ -393,7 +396,6 @@ export const useGameStore = defineStore("game", () => {
     await axios({
       url: api.game.getSkyBird(),
       method: "GET",
-
     }).then((response) => {
       GameList.value = response.data;
     });
@@ -403,7 +405,6 @@ export const useGameStore = defineStore("game", () => {
     await axios({
       url: api.game.getCaveTongue(),
       method: "GET",
-
     }).then((response) => {
       GameList.value = response.data;
     });
@@ -416,9 +417,7 @@ export const useGameStore = defineStore("game", () => {
     scriptNum,
     Nickname,
     PassFail,
-    SwampScore,
-    DarkCaveScore,
-    SkyScore,
+    score,
     dialogList,
     stageViewDict,
     isActive,
