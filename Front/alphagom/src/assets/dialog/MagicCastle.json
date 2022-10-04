@@ -96,6 +96,14 @@
       "type": "sentance",
       "effect": "",
       "imgFace": "alphagom_look_happy"
-    }   
+    },
+    {
+      "char": "",
+      "line1": "",
+      "line2": "",
+      "type": "game",
+      "effect": "",
+      "imgFace": ""
+    }
   ]
 }

@@ -1,7 +1,4 @@
 const HOST = "https://j7d210.p.ssafy.io/api/";
-// 닉네임 테스트 호스트
-const TESTHOST = "http://127.0.0.1:5678/api/"
-
 
 const BE = "be/";
 const AI = "ai/";
@@ -61,9 +58,5 @@ export default {
     // 해당 유저 랭크 조회
     getUserRank: (userId: number, tag: string) =>
       HOST + BE + RANK + `user/` + `${userId}` + `${tag}`,
-  },
-  // 닉네임 테스트
-  test: {
-    testNicknameAI: () => TESTHOST + AI + `stt`,
   },
 };
