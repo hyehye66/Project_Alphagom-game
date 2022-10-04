@@ -1,6 +1,15 @@
 <template>
-  <MicRecord v-if="recordcall" />
-  <div v-if="!recordcall" class="common">
+
+<!--마이크 컴포넌트-->
+  <MicRecord v-if="VoiceOnOff" />
+  <!--문장 못맞췄을 때 오답이야 뜨도록!-->
+  <PassorFail v-if="PassFail" />
+  <div v-if="PassFail === 'failbutton'">
+    <button @click="getRecord()">다시 해보자!</button>
+    </div>
+    <!---->
+
+  <div v-if="!VoiceOnOff" class="common">
     <!-- <img v-if="store.imgBody" :src="store.getImgUrl(store.imgBody)" width="50">
         <img v-if="store.faceImg" :src="store.getImgUrl(store.faceImg)" width="50"> -->
         <!-- <img class="character-body-img" v-if="store.imgBody" :src="store.imgBody" alt="캐릭터 전신"> -->
@@ -10,8 +19,7 @@
         <img class="text-box-img" :src="store.textboxImg" width="656" alt="대화상자">
         <h1 class="script-char-name">{{ store.script.char }}</h1>
         <!--조건 줘서 필요할 때만 이름 호출-->
-        <p>{{ Nickname }}</p>
-        <p class="script-line1">{{ store.script.line1 }}</p>
+        <p class="script-line1">{{ Nickname }} {{ store.script.line1 }}</p>
         <p class="script-line2">{{ store.script.line2 }}</p>
         <img class="character-face-img" v-if="store.imgFace" :src="store.imgFace" alt="캐릭터 표정">
     </div>
@@ -24,14 +32,12 @@
 </template>
 
 <script setup>
-// import { defineStore } from 'pinia';
-// import { skyDialog } from '@/assets/dialog/SkyLine.json';
-// import { swampDialog } from '@/assets/dialog/SwampLine.json';
 import { useRouter } from "vue-router";
 import { computed, ref, watch } from "vue";
 import DarkcaveLine from "@/assets/dialog/DarkcaveLine.json";
 import { useGameStore } from "@/stores/game";
 import MicRecord from "@/components/game/MicRecord.vue";
+import PassorFail from "@/components/game/PassorFail.vue";
 
 const store = useGameStore();
 
@@ -39,6 +45,7 @@ const VoiceOnOff = computed(() => store.VoiceOnOff); // 녹음기능 켜고(true
 const VoiceFile = computed(() => store.VoiceFile); // 녹음된 파일 들고오기
 const Answer = computed(() => store.Answer); // Flask 에서 들고 온 플레이어의 답 저장
 const Nickname = computed(() => store.Nickname) // 별명 store 에 저장
+const PassFail = computed(() => store.PassFail) // 정답인지 아닌지 판별 (MagicCastle 마지막 문장)
 
 // true 값이면 녹음기가 켜진다 (MicRecord.Vue)
 const getRecord = () => {
@@ -46,11 +53,10 @@ const getRecord = () => {
 };
 
 // watch 로 녹음 파일 들어오는지 확인 후 바로 API 함수 실행
-watch(recordfile, () => store.sendAIAPI(store.VoiceFile));
+watch(VoiceFile, () => store.sendAIAPI(store.VoiceFile));
 // watch 로 answer 들어오는지 확인 후 바로 대사 넘기기 함수 실행
-watch(answer, () => store.checkindex());
+watch(Answer, () => store.checkindex());
 
-const game = useGameStore();
 </script>
 
 <style>

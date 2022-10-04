@@ -8,13 +8,13 @@
     <!--버튼-->
     <div>
       <div v-if="PassFail === 'passbutton'">
-        <button v-if="!nextpage" @click="getProb()">
+        <button v-if="!GameEnd" @click="getProb()">
           다음 문제로 가보자구!
         </button>
-        <button v-else @click="getNextPage()">전부 통과! 축하해!</button>
+        <button v-if="GameEnd" @click="getNextPage()">전부 통과! 축하해!</button>
       </div>
       <div v-if="PassFail === 'failbutton'">
-        <button @click="getRecord()">다시 해보자dkkdkkkkkk!</button>
+        <button @click="getRecord()">다시 해보자!</button>
       </div>
     </div>
   </div>
@@ -50,7 +50,10 @@
           보기 중 정답을 골라 말해줘!
         </div>
       </div>
-      <MicRecord class="game-count" v-if="recordcall" />
+      <MicRecord class="game-count" v-if="VoiceOnOff" />
+      <!--게임 그냥 넘어가는 디버깅 용도입니다~~~ 나중에 지우세요-->
+      <button @click="getNextPage()">게임 스킵 버튼</button>
+      <!---->
     </div>
     <div class="bottom-items">
       <PlayBar></PlayBar>
@@ -79,7 +82,6 @@ onMounted(() => {
   bgStore.bgUrlState = 'url("/assets/image/chase_bg_picture_filter_low.png")';
   console.log(bgStore.bgUrlState.value);
 });
-
 // 스토어 가져오기
 const store = useGameStore();
 const bgStore = useBgStore();
@@ -96,7 +98,7 @@ const GameList = computed(() => store.GameList); // 의성어/의태어 구성 �
 const VoiceOnOff = computed(() => store.VoiceOnOff); // 녹음기능 켜고(true) 끄는(false) 값 저장
 const VoiceFile = computed(() => store.VoiceFile); // 녹음된 파일 들고오기
 const Answer = computed(() => store.Answer); // Flask 에서 들고 온 플레이어의 답 저장
-const SwampScore = computed(() => store.SwampScore); // 늪에서의 게임 점수 저장
+const score = computed(() => store.score); // 게임 점수 저장
 const PassFail = computed(() => store.PassFail); // 정답, 오답 아이콘 띄우는 용, 초기화 필수
 const probidx = ref(0); // BE 에서 받아온 문제들의 인덱스값
 
@@ -107,8 +109,10 @@ const GameEnd = computed(() => store.GameEnd);
 const bgwatching = computed(() => bgStore.bgUrlState);
 
 // true 값이면 녹음기가 켜진다 (MicRecord.Vue)
+// 녹음 시간 주기
 // Answer 다시 초기화
 const getRecord = () => {
+  store.RecordTime = 1000;
   store.VoiceOnOff = true;
   store.Answer = null;
   store.PassFail = null;
@@ -120,10 +124,12 @@ watch(Answer, () => compareAnswer());
 
 // 정답비교하는 함수
 const compareAnswer = () => {
-  if (store.GameList[probidx.value].Answer === store.Answer && store.Answer) {
+  console.log(store.Answer)
+  console.log(store.GameList[probidx.value].answer)
+  if (store.GameList[probidx.value].answer === store.Answer && store.Answer) {
     store.PassFail = "pass";
   } else if (
-    store.GameList[probidx.value].Answer !== store.Answer &&
+    store.GameList[probidx.value].answer !== store.Answer &&
     store.Answer
   ) {
     store.PassFail = "fail";
@@ -146,18 +152,14 @@ const getProb = () => {
   }
 };
 
-// 점수 1초당 10점씩 깎기
-const interval = setInterval(() => {
-  if (store.SwampScore === 0) clearInterval(interval);
-  else store.SwampScore = store.SwampScore - 10;
-}, 1000);
-
-// 다시 에필로그 페이지로 렌더링 (라우터 재설정 필요! 에필로그 페이지로 렌더링 되도록)
+// 다시 에필로그 페이지로 렌더링 
 const getNextPage = () => {
-  router.push("KingCureGame");
   store.PassFail = null;
-};
-
+  router.push({
+    name: "swampDialog",
+    params: { scriptNum: store.scriptNum },
+  })
+}
 </script>
 
 <style scoped>
