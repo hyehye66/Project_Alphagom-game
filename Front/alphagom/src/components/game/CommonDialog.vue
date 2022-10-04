@@ -9,6 +9,8 @@
         <img class="character-body-img" v-if="store.imgBody" :src="store.imgBody" alt="캐릭터 전신">
         <img class="text-box-img" :src="store.textboxImg" width="656" alt="대화상자">
         <h1 class="script-char-name">{{ store.script.char }}</h1>
+        <!--조건 줘서 필요할 때만 이름 호출-->
+        <p>{{ Nickname }}</p>
         <p class="script-line1">{{ store.script.line1 }}</p>
         <p class="script-line2">{{ store.script.line2 }}</p>
         <img class="character-face-img" v-if="store.imgFace" :src="store.imgFace" alt="캐릭터 표정">
@@ -33,9 +35,10 @@ import MicRecord from "@/components/game/MicRecord.vue";
 
 const store = useGameStore();
 
-const recordcall = computed(() => store.VoiceOnOff); // 녹음기능 켜고(true) 끄는(false) 값 저장
-const recordfile = computed(() => store.VoiceFile); // 녹음된 파일 들고오기
-const answer = computed(() => store.Answer); // Flask 에서 들고 온 플레이어의 답 저장
+const VoiceOnOff = computed(() => store.VoiceOnOff); // 녹음기능 켜고(true) 끄는(false) 값 저장
+const VoiceFile = computed(() => store.VoiceFile); // 녹음된 파일 들고오기
+const Answer = computed(() => store.Answer); // Flask 에서 들고 온 플레이어의 답 저장
+const Nickname = computed(() => store.Nickname) // 별명 store 에 저장
 
 // true 값이면 녹음기가 켜진다 (MicRecord.Vue)
 const getRecord = () => {
@@ -43,9 +46,9 @@ const getRecord = () => {
 };
 
 // watch 로 녹음 파일 들어오는지 확인 후 바로 API 함수 실행
-watch(recordfile, () => store.getCheckAI(store.VoiceFile));
-// watch 로 answer 들어오는지 확인 후 바로 checkyesorno (대사 넘기기) 함수 실행
-watch(answer, () => store.checkyesorno());
+watch(recordfile, () => store.sendAIAPI(store.VoiceFile));
+// watch 로 answer 들어오는지 확인 후 바로 대사 넘기기 함수 실행
+watch(answer, () => store.checkindex());
 
 const game = useGameStore();
 </script>
