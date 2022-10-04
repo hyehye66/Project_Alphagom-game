@@ -81,6 +81,7 @@ export const useGameStore = defineStore("game", () => {
   const Modal = ref(true); // 게임 시작할 때, 게임 끝났을 때 모달 창 (키는 것 true)
   const PassFail = ref(null); // 정답, 오답 구분 짓는 state, 항상 초기화
   const GameEnd = ref(false); // 게임 끝났을 때 점수 창 (임시)
+  // BE API 요청 성공할 때까지 잰말놀이 데이터 (임시)
 
   // 현재 effect
   const effect = computed(() => script.value.effect);
