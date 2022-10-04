@@ -411,6 +411,17 @@ export const useGameStore = defineStore("game", () => {
   }
 
 
+  // modal 상태 변경 함수
+  function updateModal() {
+    if (Modal.value) {
+      Modal.value = false;
+      console.log('modal false로 바꿈: ' + Modal.value);
+    } else if (!Modal.value) {
+      Modal.value = true;
+      console.log('modal true로 바꿈: ' + Modal.value);
+    }
+  }
+
   return {
     //state
     stage,
