@@ -466,5 +466,6 @@ export const useGameStore = defineStore("game", () => {
     getTongueGame,
     getSTTAI,
     sendAIAPI,
+    updateModal,
   };
 });
