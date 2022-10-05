@@ -205,7 +205,8 @@ export const useGameStore = defineStore("game", () => {
       stage.value === "MagicCastle" &&
       (type.value == scriptType.NICKNAME ||
         type.value == scriptType.SENTANCE ||
-        type.value == scriptType.NICKNAMEAGAIN)
+        type.value == scriptType.NICKNAMEAGAIN ||
+        type.value == scriptType.FAIL)
     ) {
       getSTTAI(payload);
     } else if (stage.value === "sky") {
@@ -226,6 +227,7 @@ export const useGameStore = defineStore("game", () => {
     NICKNAME: "nickname",
     SENTANCE: "sentance",
     CHECK: "check",
+    FAIL: "fail",
     NICKNAMEAGAIN: "nicknameAgain",
   };
   Object.freeze(scriptType); // 한번 선언된 객체의 값 변경 못하도록 고정 => enum 처럼 사용
@@ -256,14 +258,14 @@ export const useGameStore = defineStore("game", () => {
       RecordTime.value = 5000;
     }
   }
-
+  
   // Dialog 에서 API 요청 후 대화로그 인덱스 지정
   function checkindex() {
     if (type.value == scriptType.GAME) {
       const gameType = stageGame.value[0];
       router.push({ name: gameType });
     } else if (type.value == scriptType.QUESTION) {
-      if (Answer.value === "응") {
+      if (Answer.value.answer === "응") {
         scriptNum.value++;
         isActive.value = false;
       } else {
@@ -271,13 +273,17 @@ export const useGameStore = defineStore("game", () => {
         isActive.value = false;
       }
     } else if (type.value == scriptType.NICKNAME) {
-      Nickname.value = Answer.value;
-      scriptNum.value++;
-      RecordTime.value = 1000;
+      Nickname.value = Answer.value.answer;
+      if (Nickname.value == "failed") {
+        scriptNum.value++;
+      } else {
+        scriptNum.value = scriptNum.value + 2;
+        RecordTime.value = 1000;
+      }
     }
     // nickname 응아니 체크
     else if (type.value == scriptType.CHECK) {
-      if (Answer.value === "응") {
+      if (Answer.value.answer === "응") {
         scriptNum.value = scriptNum.value + 2;
         isActive.value = false;
       } else {
@@ -285,13 +291,22 @@ export const useGameStore = defineStore("game", () => {
         isActive.value = true;
         RecordTime.value = 3000;
       }
+    } else if (type.value == scriptType.FAIL) {
+      Nickname.value = Answer.value.answer;
+      if (Nickname.value != "failed") {
+        scriptNum.value++;
+      }
     } else if (type.value == scriptType.NICKNAMEAGAIN) {
-      Nickname.value = Answer.value;
-      scriptNum.value--;
+      Nickname.value = Answer.value.answer;
+      if (Nickname.value == "failed") {
+        scriptNum.value = scriptNum.value - 2;
+      } else {
+        scriptNum.value--;
+      }
     } else if (type.value == scriptType.SENTANCE) {
       if (
-        Answer.value == "이제 나의 손을 잡아 보아요" ||
-        Answer.value == "안녕은 영원한 헤어짐은 아니겠지요"
+        Answer.value.answer == "이제 나의 손을 잡아 보아요" ||
+        Answer.value.answer == "안녕은 영원한 헤어짐은 아니겠지요"
       ) {
         PassFail.value = false;
         const gameType = stageGame.value[0];
@@ -378,6 +393,7 @@ export const useGameStore = defineStore("game", () => {
   /*
    * BE api 요청
    */
+  // 의성어 / 의태어 게임 목록 요청하는 함수
   async function getKingGame() {
     await axios({
       url: api.game.getSwampWord(),
@@ -386,16 +402,17 @@ export const useGameStore = defineStore("game", () => {
       GameList.value = response.data;
     });
   }
-
+  // 새 속담 게임 목록 요청하는 함수
   async function getBirdGame() {
     await axios({
       url: api.game.getSkyBird(),
       method: "GET",
     }).then((response) => {
+      console.log(GameList)
       GameList.value = response.data;
     });
   }
-
+  // 잰말놀이 게임 목록 요청하는 함수
   async function getTongueGame() {
     await axios({
       url: api.game.getCaveTongue(),
@@ -415,6 +432,7 @@ export const useGameStore = defineStore("game", () => {
       console.log("modal true로 바꿈: " + Modal.value);
     }
   }
+  // 닉네임 저장 시키는 함수 axios 요청 보내기
 
   return {
     //state
