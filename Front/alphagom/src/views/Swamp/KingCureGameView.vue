@@ -2,7 +2,8 @@
   <div>
     <div class="container-bg"></div>
     <KingCureGameModal v-if="Modal" />
-    <PassorFail v-if="PassFail" />
+    <!-- <PassorFail v-if="PassFail" /> -->
+    <PassorFail />
     <BackButton class="back-btn" />
     <Score class="bottom-score"></Score>
     <div class="score--">점</div>
@@ -13,13 +14,13 @@
     <!--버튼-->
     <div>
       <div v-if="PassFail === 'passbutton'">
-        <button class="" v-if="!GameEnd" @click="getProb()">
-          다음 문제로 가보자구!
+        <button class="game-skip-btn again-btn" v-if="!GameEnd" @click="getProb()">
+          다음문제
         </button>
-        <button class="" v-if="GameEnd" @click="getNextPage()">전부 통과! 축하해!</button>
+        <button class="game-skip-btn again-btn" v-if="GameEnd" @click="getNextPage()">전부통과</button>
       </div>
       <div v-if="PassFail === 'failbutton'">
-        <button class="" @click="getRecord()">다시 해보자!</button>
+        <button class="game-skip-btn again-btn" @click="getRecord()">다시하기</button>
       </div>
     </div>
   </div>
@@ -334,5 +335,16 @@ const getNextPage = () => {
   font-weight: 700;
   white-space: nowrap;
   color: #484E23;
+}
+.again-btn {
+  position: absolute;
+  top: 342px;
+  left: 387px;
+  width: 149.17px;
+  height: 48px;
+
+  border: 5px solid #94C178;
+  background-color: #FAF4BD;
+  color: #594640;
 }
 </style>
