@@ -2,8 +2,7 @@
   <div>
     <div class="container-bg"></div>
     <KingCureGameModal v-if="Modal" />
-    <!-- <PassorFail v-if="PassFail" /> -->
-    <PassorFail />
+    <PassorFail v-if="PassFail" />
     <BackButton class="back-btn" />
     <Score class="bottom-score"></Score>
     <div class="score--">점</div>
