@@ -408,6 +408,7 @@ export const useGameStore = defineStore("game", () => {
       url: api.game.getSkyBird(),
       method: "GET",
     }).then((response) => {
+      console.log(GameList)
       GameList.value = response.data;
     });
   }
