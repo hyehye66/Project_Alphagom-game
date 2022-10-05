@@ -1,13 +1,11 @@
 <template>
   <div class="score-modal" tabindex="-1">
     <div class="modal-content">
-      <br />
+      <br>
       <div class="modal-body">
-        <ul>
-          <li>축하합니다!</li>
-          <!-- 점수 받아와야 됨 -->
-          <li>{{ score }} 점입니다!</li>
-        </ul>
+        <div>축하합니다!</div>
+        <!-- 점수 받아와야 됨 -->
+        <div>{{ score }} 점입니다!</div>
       </div>
       <div class="modal-footer">
         <button
@@ -32,11 +30,13 @@
 </template>
 
 <script setup>
+import { useAuthStore } from "@/stores/auth";
 import { useGameStore } from "@/stores/game";
 import { useRouter, useRoute } from "vue-router";
 
 // store 사용
 const store = useGameStore();
+const authStore = useAuthStore();
 
 // 점수 불러오기
 const score = store.score;
@@ -48,19 +48,16 @@ const router = useRouter();
 // 다음 스테이지로 넘어가기
 // BE 에 점수 저장하는 API 호출
 const getNextStage = () => {
-  console.log(store.stage);
+  store.saveScore(authStore.userInfo.userId, score, store.stage);
   if (store.stage === "swamp") {
-    // Swamp 점수 저장
     store.score = 3000;
     store.scriptNum = 0;
     router.push({ name: "darkCaveStartView" });
   } else if (store.stage === "darkcave") {
-    // darkcave 점수 저장
     store.score = 3000;
     store.scriptNum = 0;
     router.push({ name: "skyStartView" });
   } else if (store.stage === "sky") {
-    // sky 점수저장
     store.score = 3000;
     store.scriptNum = 0;
     router.push({ name: "rank" });

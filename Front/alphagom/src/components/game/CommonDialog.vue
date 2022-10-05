@@ -3,10 +3,6 @@
   <MicRecord v-if="VoiceOnOff" />
   <!--문장 못맞췄을 때 오답이야 뜨도록!-->
   <PassorFail v-if="PassFail" />
-  <div v-if="PassFail === 'failbutton'">
-    <button @click="getRecord()">다시 해보자!</button>
-  </div>
-  <!---->
 
   <div v-if="!VoiceOnOff" class="common">
     <!-- <img v-if="store.imgBody" :src="store.getImgUrl(store.imgBody)" width="50">
@@ -28,7 +24,12 @@
       />
       <h1 class="script-char-name">{{ store.script.char }}</h1>
       <!--조건 줘서 필요할 때만 이름 호출-->
-      <p class="script-line1">{{ Nickname }} {{ store.script.line1 }}</p>
+      <p class="script-line1" v-if="store.script.type == 'check'">
+        {{ Nickname }}!!
+      </p>
+      <p class="script-line1" v-if="store.script.type != 'check'">
+        {{ store.script.line1 }}
+      </p>
       <p class="script-line2">{{ store.script.line2 }}</p>
       <img
         class="character-face-img"
@@ -90,6 +91,28 @@ watch(Answer, () => store.checkindex());
   position: absolute;
   top: 231px;
   left: 135px;
+}
+.game-skip-btn {
+  position: absolute;
+  top: 0px;
+  left: 700px;
+  width: 112px;
+  height: 40px;
+
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  background-color: #94C178;
+  cursor: pointer;
+
+  font-size: 16px;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+  "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+  "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #484E23;
 }
 /* .character-body-img {
     position: absolute;

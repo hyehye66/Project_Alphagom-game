@@ -54,20 +54,23 @@
 </template>
 
 <script setup>
+import { useAuthStore } from "@/stores/auth";
 import { useGameStore } from "@/stores/game";
 import { useRouter, useRoute } from "vue-router";
 
 // store 가져오기
 const store = useGameStore();
+const authStore = useAuthStore();
 
 const route = useRoute();
 const router = useRouter();
-
+console.log(store.Nickname);
 // Modal 창 끄고 게임으로 넘어가기
 const gotoGame = () => {
   store.scriptNum = 0;
   router.push({ name: "swampStartView" });
   // 닉네임 저장 axios 함수 호출
+  store.saveNickname(authStore.userInfo.userId, store.Nickname);
 };
 </script>
 
@@ -111,7 +114,7 @@ const gotoGame = () => {
 
     position: absolute;
     top: -235px;
-    left: 158px;
+    left: 203px;
   }
   &__howto-content {
     font-size: 20px;
@@ -127,7 +130,7 @@ const gotoGame = () => {
 
     position: absolute;
     top: -175px;
-    left: 158px;
+    left: 135px;
   }
   &__howto-content-bold {
     font-weight: 800;
