@@ -78,7 +78,7 @@ import { useBgStore } from "@/stores/bg";
 import Score from "@/components/game/Score.vue";
 import PlayBar from "@/components/game/PlayBar.vue";
 import BackButton from "@/components/BackButton.vue";
-import KingCureGameModal from "@/views/Modal/HowTo/KingCureGameModal.vue"
+import KingCureGameModal from "@/views/Modal/HowTo/KingCureGameModal.vue";
 import PassorFail from "@/components/game/PassorFail.vue";
 
 // 페이지가 렌더링 되자마자 마운트한다 (게임 받아오기)
@@ -94,11 +94,11 @@ const store = useGameStore();
 const bgStore = useBgStore();
 
 // 라우터 사용
-const route = useRoute()
-const router = useRouter()
+const route = useRoute();
+const router = useRouter();
 
 // 진입할 때 모달 창 띄우는 state
-const Modal = computed(() => store.Modal)
+const Modal = computed(() => store.Modal);
 
 // 내부 요소들 선언
 const GameList = computed(() => store.GameList); // 의성어/의태어 구성 요소 (문제, 답) 저장
@@ -126,13 +126,13 @@ const getRecord = () => {
 };
 // watch 로 녹음 파일 들어오는지 확인 후 바로 API 함수 실행
 // Answer 값이 들어왔을 때 비교해서 정답 확인 함수 (view 내부에 작성) 실행
-watch(VoiceFile, () => store.getKingAI(store.VoiceFile));
+watch(VoiceFile, () => store.sendAIAPI(store.VoiceFile));
 watch(Answer, () => compareAnswer());
 
 // 정답비교하는 함수
 const compareAnswer = () => {
-  console.log(store.Answer)
-  console.log(store.GameList[probidx.value].answer)
+  console.log(store.Answer);
+  console.log(store.GameList[probidx.value].answer);
   if (store.GameList[probidx.value].answer === store.Answer && store.Answer) {
     store.PassFail = "pass";
   } else if (
@@ -159,14 +159,14 @@ const getProb = () => {
   }
 };
 
-// 다시 에필로그 페이지로 렌더링 
+// 다시 에필로그 페이지로 렌더링
 const getNextPage = () => {
   store.PassFail = null;
   router.push({
     name: "swampDialog",
     params: { scriptNum: store.scriptNum },
-  })
-}
+  });
+};
 </script>
 
 <style scoped>

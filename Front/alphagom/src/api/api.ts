@@ -49,7 +49,7 @@ export default {
     aiSwampWord: () => HOST + AI + `swamp/` + `word`,
     // 새 이름 인식
     aiSkyBird: () => HOST + AI + `sky/` + `bird`,
-    // stt 
+    // stt
     aiStt: () => HOST + AI + `stt`,
   },
   rank: {
@@ -57,6 +57,6 @@ export default {
     getAllUserRank: (tag: string) => HOST + BE + RANK + `${tag}`,
     // 해당 유저 랭크 조회
     getUserRank: (userId: number, tag: string) =>
-      HOST + BE + RANK + `user/` + `${userId}` + `${tag}`,
+      HOST + BE + RANK + `user/` + `${userId}/` + `${tag}`,
   },
 };
