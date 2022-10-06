@@ -59,7 +59,7 @@
             class="manul"
             src="/assets/image/manul_tan.png"
             width="113"
-            v-if="!PassFail || PassFail == 'otherpicture'"
+            v-if="PassFail == 'otherpicture'"
           />
           <div v-show="!Answer" class="game-howto">
             마늘을 누르고<br />
