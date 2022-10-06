@@ -14,8 +14,9 @@
             :src="userInfo.profile"
             alt="프로필 사진"
             height="20"
+            v-if="userInfo"
           />
-          <text class="user-name">{{ userInfo.userNickname }} 님</text>
+          <text class="user-name" v-if="userInfo">{{ userInfo.userNickname }} 님</text>
         </div>
         <button
           class="menu-toggle"
