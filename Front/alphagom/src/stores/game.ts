@@ -28,6 +28,7 @@ import bear_look_normal from "/assets/image/bear_look_normal.png";
 // jara
 import jara_stand from "/assets/image/jara_stand.png";
 import jara_look_openly from "/assets/image/jara_look_openly.png";
+import jara_look_sad from "/assets/image/jara_look_sad.png";
 // rabbit
 import rabbit_stand from "/assets/image/rabbit_stand.png";
 // dragonKing
@@ -39,6 +40,9 @@ import gyeonu_side from "/assets/image/gyeonu_side.png";
 import Jiknyeo_side from "/assets/image/Jiknyeo_side.png";
 //hwan_woong
 import hwan_woong from "/assets/image/hwan_woong.png";
+// woong_girl
+import woong_girl from "/assets/image/woong_girl.png";
+
 // textbox
 import dark_cave_textbox from "/assets/image/dark_cave_textbox.png";
 import swamp_textbox from "/assets/image/swamp_textbox.png";
@@ -109,6 +113,8 @@ export const useGameStore = defineStore("game", () => {
         return dragonKing_stand;
       case "환웅":
         return hwan_woong;
+      case "웅녀":
+        return woong_girl;
       default:
         return "";
     }
@@ -165,6 +171,8 @@ export const useGameStore = defineStore("game", () => {
         return bear_look_normal;
       case "jara_look_openly":
         return jara_look_openly;
+      case "jara_look_sad":
+        return jara_look_sad;
       default:
         return "";
     }
