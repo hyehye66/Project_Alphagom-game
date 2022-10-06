@@ -36,7 +36,6 @@
         </button>
       </div>
     </div>
-  </div>
 
     <!--문제 템플릿-->
     <div v-if="GameList">
