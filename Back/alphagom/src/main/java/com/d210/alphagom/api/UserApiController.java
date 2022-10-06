@@ -86,6 +86,7 @@ public class UserApiController {
                     .authProvider(AuthProvider.KAKAO)
                     .build();
             userService.joinMember(tmpuser);
+            user = userService.findByEmail(tmpuser.getEmail());
         }
 
         // 회원가입 했으면
