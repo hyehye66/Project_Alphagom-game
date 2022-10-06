@@ -9,17 +9,17 @@ import { defineStore } from "pinia";
 // 이름을 가지는 내보내기를 할 때 보통 이름 앞에 use를 붙여 사용한다.
 export const useAuthStore = defineStore("auth", () => {
   // state
-  // const userInfo = ref(null); // 사용자 정보
-  const userInfo = reactive({
-    // 더미 데이터~~
-    userId: parseInt(localStorage.getItem("userId")) || 0,
-    username: "",
-    userNickname: "",
-    email: "",
-    profile:
-      "https://item.kakaocdn.net/do/862539f7f2171437385154b3b749990f7154249a3890514a43687a85e6b6cc82",
-    rank: 0,
-  });
+  const userInfo = ref({}); // 사용자 정보
+  // const userInfo = reactive({
+  //   // 더미 데이터~~
+  //   userId: parseInt(localStorage.getItem("userId")) || 0,
+  //   username: "",
+  //   userNickname: "",
+  //   email: "",
+  //   profile:
+  //     "https://item.kakaocdn.net/do/862539f7f2171437385154b3b749990f7154249a3890514a43687a85e6b6cc82",
+  //   rank: 0,
+  // });
   const token = ref(localStorage.getItem("token") || "");
   const refreshToken = ref("");
 
@@ -38,12 +38,12 @@ export const useAuthStore = defineStore("auth", () => {
     token.value = mytoken;
     refreshToken.value = myefreshToken;
     localStorage.setItem("token", token.value);
-    localStorage.setItem("userId", userInfo.userId.toString());
+    localStorage.setItem("userId", userInfo.value.userId.toString());
   }
   // 사용자 정보 가져오기
   function fetchUserInfo() {
     axios({
-      url: api.user.getUser(userInfo.userId),
+      url: api.user.getUser(userInfo.value.userId),
       // url: "http://localhost:8080/api/be/user/" + `${userInfo.userId}`,
       method: "get",
       // headers: authHeader
@@ -51,15 +51,15 @@ export const useAuthStore = defineStore("auth", () => {
     })
       .then((res) => {
         console.log(res.data);
-        userInfo.email = res.data.email;
-        userInfo.profile = res.data.picture;
-        userInfo.username = res.data.name;
-        userInfo.userId = res.data.id;
+        userInfo.value.email = res.data.email;
+        userInfo.value.profile = res.data.picture;
+        userInfo.value.username = res.data.name;
+        userInfo.value.userId = res.data.id;
         if (res.data.nickname) {
-          userInfo.userNickname = res.data.nickname;
+          userInfo.value.userNickname = res.data.nickname;
           console.log("res.data.nickname: " + res.data.nickname);
         } else {
-          userInfo.userNickname = res.data.name;
+          userInfo.value.userNickname = res.data.name;
           console.log("res.data.name: " + res.data.name);
         }
       })
@@ -71,14 +71,14 @@ export const useAuthStore = defineStore("auth", () => {
   // 사용자 정보 수정 (일단 닉네임 인자만 수정해볼게용)
   function updateUserInfo(payload: string) {
     axios({
-      url: api.user.postUserInfo(userInfo.userId),
+      url: api.user.postUserInfo(userInfo.value.userId),
       method: "post",
       // headers: authHeader
       // headers: authHeader.value.valueOf.prototype,
       data: payload,
     })
       .then((res) => {
-        userInfo.username = res.data.body.data;
+        userInfo.value.username = res.data.body.data;
         console.log("auth.ts의 사용자 정보 수정 함수" + res.data.body.data);
       })
       .catch((err) => {
@@ -89,7 +89,7 @@ export const useAuthStore = defineStore("auth", () => {
   function updateUserNickname(userId: number, nickname: string) {
     if (nickname) {
       axios({
-        url: api.user.postUserNickname(userInfo.userId, nickname),
+        url: api.user.postUserNickname(userInfo.value.userId, nickname),
         method: "post",
         // headers: authHeader
         data: nickname,

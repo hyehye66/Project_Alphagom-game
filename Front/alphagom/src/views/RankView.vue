@@ -256,7 +256,7 @@ function setTabstage(data) {
   background: rgba(255, 255, 255, 0.4);
 }
 .rank-data-table {
-  top: 13px;
+  top: 17px;
   left: 21px;
 }
 .rank-data-text {

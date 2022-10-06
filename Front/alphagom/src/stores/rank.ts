@@ -23,37 +23,37 @@ export const useRankStore = defineStore("rank", () => {
   // 기본 탭의 스테이지 이름
   const tabStage = ref("all")
 
-  // const AllRankList = ref(); // 모든 유저 랭크 받아오는 state
-  // const AllMyRank = ref(null); // 나의 랭크 받아오는 state
+  const AllRankList = ref([]); // 모든 유저 랭크 받아오는 state
+  const AllMyRank = ref({}); // 나의 랭크 받아오는 state
   
   // 모든 유저 랭크 받아오는 state (API 연결 전까지 임시 데이터)
-  const AllRankList = ref([
-    {
-      gameTag: "cave",
-      nickName: "깡총이",
-      score: 800,
-      rank: 1,
-    },
-    {
-      gameTag: "cave",
-      nickName: "거북이",
-      score: 700,
-      rank: 2,
-    },
-    {
-      gameTag: "cave",
-      nickName: "자라",
-      score: 570,
-      rank: 3,
-    }
-  ]);
+  // const AllRankList = ref([
+  //   {
+  //     gameTag: "cave",
+  //     nickName: "깡총이",
+  //     score: 800,
+  //     rank: 1,
+  //   },
+  //   {
+  //     gameTag: "cave",
+  //     nickName: "거북이",
+  //     score: 700,
+  //     rank: 2,
+  //   },
+  //   {
+  //     gameTag: "cave",
+  //     nickName: "자라",
+  //     score: 570,
+  //     rank: 3,
+  //   }
+  // ]);
   // 나의 랭크 받아오는 state 
-  const AllMyRank = ref({
-    gameTag: "cave",
-    nickName: "깡총이",
-    score: 800,
-    rank: 1
-  }); 
+  // const AllMyRank = ref({
+  //   gameTag: "cave",
+  //   nickName: "깡총이",
+  //   score: 800,
+  //   rank: 1
+  // }); 
 
   // function setRank(rank: number) {
   //   console.log(rank);

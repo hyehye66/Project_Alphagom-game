@@ -30,8 +30,8 @@
           계속하기
         </button>
       </div>
-      <div v-if="PassFail === 'failbutton'">
-        <h1 class="my-answer" v-if="store.Answer.answer != 'failed'">내 대답 {{ store.Answer.answer }}</h1>
+      <div class="my-answer-box" v-if="PassFail === 'failbutton'">
+        <h1 class="my-answer" v-if="store.Answer.answer != 'failed'">내 대답: {{ store.Answer.answer }}</h1>
         <h1 class="my-answer" v-if="store.Answer.answer == 'failed'">다시 말해주세요!</h1>
         <button class="game-skip-btn again-btn" @click="getRecord()">
           다시하기
@@ -271,7 +271,7 @@ const getNextPage = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  top: 62px;
+  top: 58px;
   left: 266px;
   width: 393px;
   height: 77px;
@@ -295,8 +295,42 @@ const getNextPage = () => {
   text-align: center;
   line-height: 120%;
 }
+
+.my-answer-box {
+  top: 151px;
+  left: 0px;
+  /* left: 100px; */
+  width: 926px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+}
 .my-answer {
   color: #F2F9FF;
+  font-size: 16px;
+  /* top: 151px; */
+  /* left: 260px; */
+  /* margin: auto; */
+  /* display: flex; */
+  /* flex-flow: row; */
+  /* justify-content: center;
+  align-items: center;
+  align-content: center; */
+  /* position: absolute; */
+  white-space: nowrap;
+  /* width: 80vw; */
+  width: 926px;
+  text-align: center;
+
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+  "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+  "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  sans-serif;
+
+
 }
 .game-ex {
   font-size: 20px;
@@ -407,7 +441,7 @@ const getNextPage = () => {
 }
 .again-btn {
   position: absolute;
-  top: 342px;
+  top: 190px;
   left: 387px;
   width: 149.17px;
   height: 48px;
