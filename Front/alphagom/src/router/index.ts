@@ -37,6 +37,7 @@ const router = createRouter({
   ],
 });
 
+
 // router.beforeEach((to, from, next) => {
 //   const authStore = useAuthStore();
 //   const isLoggedIn = computed(() => authStore.isLoggedIn);
