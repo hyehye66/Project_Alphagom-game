@@ -87,18 +87,20 @@ export const useAuthStore = defineStore("auth", () => {
   }
   // 사용자 닉네임 수정
   function updateUserNickname(userId: number, nickname: string) {
-    axios({
-      url: api.user.postUserNickname(userInfo.userId, nickname),
-      method: "post",
-      // headers: authHeader
-      data: nickname,
-    })
-      .then((response) => {
-        console.log("auth.ts의 닉네임 수정 함수" + response.data);
+    if (nickname) {
+      axios({
+        url: api.user.postUserNickname(userInfo.userId, nickname),
+        method: "post",
+        // headers: authHeader
+        data: nickname,
       })
-      .catch((err) => {
-        console.error(err.response);
-      });
+        .then((response) => {
+          console.log("auth.ts의 닉네임 수정 함수" + response.data);
+        })
+        .catch((err) => {
+          console.error(err.response);
+        });
+    }
   }
 
   // 로그아웃
