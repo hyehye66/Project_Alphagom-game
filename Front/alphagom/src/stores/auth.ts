@@ -9,7 +9,7 @@ import { defineStore } from "pinia";
 // 이름을 가지는 내보내기를 할 때 보통 이름 앞에 use를 붙여 사용한다.
 export const useAuthStore = defineStore("auth", () => {
   // state
-  const userInfo = ref(null); // 사용자 정보
+  const userInfo = ref({}); // 사용자 정보
   // const userInfo = reactive({
   //   // 더미 데이터~~
   //   userId: parseInt(localStorage.getItem("userId")) || 0,
