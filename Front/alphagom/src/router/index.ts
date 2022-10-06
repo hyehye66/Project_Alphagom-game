@@ -41,7 +41,11 @@ router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
   const isLoggedIn = computed(() => authStore.isLoggedIn);
   // 로그인되어 있지 않으면
-  if (!isLoggedIn.value && to.name !== "login") {
+  if (
+    !isLoggedIn.value &&
+    to.name !== "login" &&
+    to.name !== "OAuthRedirectView"
+  ) {
     console.log("isLoggedIn", isLoggedIn.value, "to.name", to.name);
     next({ name: "login" });
   } else {
