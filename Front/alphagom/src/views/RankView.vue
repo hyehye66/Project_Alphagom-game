@@ -8,38 +8,38 @@
         <button class="tab-btn tab-swamp" @click="setTabstage('swamp')">늪 순위</button>
         <button class="tab-btn tab-cave" @click="setTabstage('cave')">동굴 순위</button>
         <button class="tab-btn tab-sky" @click="setTabstage('sky')">하늘 순위</button>
-          <div class="box-body-left">
-            <!-- 유저 사진 -->
-            <div class="my-avatar">
-              <img :src="user.userInfo.profile" alt="" class="myphoto" />
-              <!-- <img src="@/assets/image/alphagom_look_normal.png" alt="프사" class="myimg"> -->
-            </div>
-            <!-- 유저 랭크 -->
-            <div class="my-rank">
-              <div class="my-rank-text"><span class="my-rank-text-bold">{{ user.userInfo.userNickname }}</span>
-              님의 순위는</div>
-              <div class="my-rank-text"><span class="my-rank-text-bold">{{ AllMyRank.rank }}</span>위입니다.</div>
-            </div>
+        <div class="box-body-left">
+          <!-- 유저 사진 -->
+          <div class="my-avatar">
+            <img :src="user.userInfo.profile" alt="" class="myphoto" />
+            <!-- <img src="@/assets/image/alphagom_look_normal.png" alt="프사" class="myimg"> -->
           </div>
-          <div class="box-body-right">
-            <!-- 1,2,3순위 보여주기 -->
-            <table>
-              <tbody>
-                <tr class="rank-data-table" v-for="rankData in AllRankList" :key="rankData.nickName">
-                  <th class="rank-data-text rank-data-rank">{{ rankData.rank }}위</th>
-                  <tb class="rank-data-profile-img">
-                    <div class="rank-data-avatar">
-                      <!-- <img :src="user.userInfo.profile" alt="" class="rank-data-photo" /> -->
-                      <!-- 백에서 프사까지 넘겨주면 소스 수정 -->
-                      <img :src="rankData.picture" alt="해당 랭크 프사" class="rank-data-photo" />
-                    </div>
-                  </tb>
-                  <td class="rank-data-text rank-data-nickname">{{ rankData.nickName }}</td>
-                  <td class="rank-data-text rank-data-score">{{ rankData.score }}</td>
-                </tr>
-              </tbody>
-            </table>
+          <!-- 유저 랭크 -->
+          <div class="my-rank">
+            <div class="my-rank-text"><span class="my-rank-text-bold">{{ user.userInfo.userNickname }}</span>
+            님의 순위는</div>
+            <div class="my-rank-text"><span class="my-rank-text-bold">{{ AllMyRank.rank }}</span>위입니다.</div>
           </div>
+        </div>
+        <div class="box-body-right">
+          <!-- 1,2,3순위 보여주기 -->
+          <table>
+            <tbody>
+              <tr class="rank-data-table" v-for="rankData in AllRankList" :key="rankData.nickName">
+                <th class="rank-data-text rank-data-rank">{{ rankData.rank }}위</th>
+                <tb class="rank-data-profile-img">
+                  <div class="rank-data-avatar">
+                    <!-- <img :src="user.userInfo.profile" alt="" class="rank-data-photo" /> -->
+                    <!-- 백에서 프사까지 넘겨주면 소스 수정 -->
+                    <img :src="rankData.picture" alt="해당 랭크 프사" class="rank-data-photo" />
+                  </div>
+                </tb>
+                <td class="rank-data-text rank-data-nickname">{{ rankData.nickName }}</td>
+                <td class="rank-data-text rank-data-score">{{ rankData.score }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
 
       </div>

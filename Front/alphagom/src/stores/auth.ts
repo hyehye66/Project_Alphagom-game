@@ -91,12 +91,10 @@ export const useAuthStore = defineStore("auth", () => {
       url: api.user.postUserNickname(userInfo.userId, nickname),
       method: "post",
       // headers: authHeader
-      headers: authHeader.value.valueOf.prototype,
       data: nickname,
     })
-      .then((res) => {
-        userInfo.username = res.data.body.data;
-        console.log("auth.ts의 닉네임 수정 함수" + res.data.body.data);
+      .then((response) => {
+        console.log("auth.ts의 닉네임 수정 함수" + response.data);
       })
       .catch((err) => {
         console.error(err.response);
