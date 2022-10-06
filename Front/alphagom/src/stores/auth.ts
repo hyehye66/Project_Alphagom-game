@@ -12,7 +12,7 @@ export const useAuthStore = defineStore("auth", () => {
   // const userInfo = ref(null); // 사용자 정보
   const userInfo = reactive({
     // 더미 데이터~~
-    userId: localStorage.getItem("userId") || 0,
+    userId: parseInt(localStorage.getItem("userId")) || 0,
     username: "",
     userNickname: "",
     email: "",
