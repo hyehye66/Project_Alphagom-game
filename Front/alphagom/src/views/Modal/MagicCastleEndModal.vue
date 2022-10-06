@@ -67,6 +67,7 @@ const router = useRouter();
 console.log(store.Nickname);
 // Modal 창 끄고 게임으로 넘어가기
 const gotoGame = () => {
+  store.PassFail = null;
   store.scriptNum = 0;
   router.push({ name: "swampStartView" });
   // 닉네임 저장 axios 함수 호출
