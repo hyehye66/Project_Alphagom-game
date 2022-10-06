@@ -4,7 +4,7 @@
     <!-- <div class="top-title">{{ stage.name }}</div> -->
     <div class="top-title">하늘</div>
     <BirdProverbGameModal v-if="Modal" />
-    <PassorFail v-if="PassFail !='birdpicture' && PassFail" />
+    <PassorFail v-if="PassFail !='otherpicture' && PassFail" />
     <BackButton class="back-btn" />
     <Score class="bottom-score"></Score>
     <div class="score--">점</div>
@@ -14,7 +14,7 @@
 
     <!--버튼-->
     <div>
-      <div v-if="PassFail === 'passbutton' || PassFail == 'birdpicture'">
+      <div v-if="PassFail === 'passbutton' || PassFail == 'otherpicture'">
         <button
           class="game-skip-btn again-btn"
           v-if="!GameEnd"
@@ -27,7 +27,7 @@
           v-if="GameEnd"
           @click="getNextPage()"
         >
-          전부통과
+          계속하기
         </button>
       </div>
       <div v-if="PassFail === 'failbutton'">
@@ -76,32 +76,25 @@
     </div>
     <div class="game">
       <div v-if="!VoiceOnOff" @click="getRecord()">
-        <!--물음표 넣기!!-->
-        <!--CSS 수정 부타케-->
-        <!-- <img
-          class="samgyetang"
-          src="/assets/image/chicken_soup.png"
-          width="152"
-          v-if="!PassFail || PassFail == 'failbutton'"
-        /> -->
+        
         <div class="question-mark" v-if="!PassFail || PassFail == 'failbutton'">?</div>
         <img
           class="sparrow"
           src="/assets/image/sparrow.png"
           width="152"
-          v-if="PassFail == 'birdpicture' && GameList[probidx].answer == '참새'"
+          v-if="PassFail == 'otherpicture' && GameList[probidx].answer == '참새'"
         />
         <img
           class="pheasant"
           src="/assets/image/pheasant.png"
           width="152"
-          v-if="PassFail == 'birdpicture' && GameList[probidx].answer == '꿩'"
+          v-if="PassFail == 'otherpicture' && GameList[probidx].answer == '꿩'"
         />
         <img
           class="crow"
           src="/assets/image/crow.png"
           width="152"
-          v-if="PassFail == 'birdpicture' && GameList[probidx].answer == '까마귀'"
+          v-if="PassFail == 'otherpicture' && GameList[probidx].answer == '까마귀'"
         />
         <div v-show="!Answer" class="game-howto">
           물음표를 누르고<br />
@@ -114,7 +107,7 @@
       <MicRecord class="game-count" v-if="VoiceOnOff" />
     </div>
     <!--게임 그냥 넘어가는 디버깅 용도입니다~~~ 나중에 지우세요-->
-    <button class="game-skip-btn" @click="getNextPage()">게임 스킵 버튼</button>
+    <button class="game-skip-btn real-skip-btn" @click="getNextPage()">건너뛰기</button>
     <!---->
   </div>
 </template>
@@ -216,6 +209,7 @@ const getProb = () => {
 // 다시 에필로그 페이지로 렌더링
 const getNextPage = () => {
   store.PassFail = null;
+  store.scriptNum++
   router.push({
     name: "skyDialogView",
     params: { scriptNum: store.scriptNum },
@@ -370,7 +364,10 @@ const getNextPage = () => {
   line-height: 29px;
 }
 .samgyetang,
-.dwenjangjjigae {
+.dwenjangjjigae,
+.sparrow,
+.pheasant,
+.crow {
   position: absolute;
   top: 183px;
   left: 388px;
@@ -434,7 +431,22 @@ const getNextPage = () => {
   height: 48px;
 
   border: 5px solid #94c178;
+  border-radius: 30px;
   background-color: #faf4bd;
   color: #594640;
+  font-size: 20px;
+}
+.real-skip-btn {
+  position: absolute;
+  top: 340px;
+  left: 815px;
+  width: 86px;
+  height: 29px;
+
+  background-color: #FAF4BD;
+  font-size: 14px;
+  font-weight: 700;
+  color: #594640;
+  text-align: center;
 }
 </style>
