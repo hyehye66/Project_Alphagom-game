@@ -31,6 +31,8 @@
         </button>
       </div>
       <div v-if="PassFail === 'failbutton'">
+        <h1 class="my-answer" v-if="store.Answer.answer != 'failed'">내 대답 {{ store.Answer.answer }}</h1>
+        <h1 class="my-answer" v-if="store.Answer.answer == 'failed'">다시 말해주세요!</h1>
         <button class="game-skip-btn again-btn" @click="getRecord()">
           다시하기
         </button>
@@ -292,6 +294,9 @@ const getNextPage = () => {
   word-break: keep-all;
   text-align: center;
   line-height: 120%;
+}
+.my-answer {
+  color: #F2F9FF;
 }
 .game-ex {
   font-size: 20px;

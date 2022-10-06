@@ -8,7 +8,7 @@ import DarkcaveLine from "@/assets/dialog/DarkcaveLine.json";
 import SkyLine from "@/assets/dialog/SkyLine.json";
 import SwampLine from "@/assets/dialog/SwampLine.json";
 import MagicCastle from "@/assets/dialog/MagicCastle.json";
-import Epilogue from '@/assets/dialog/Epilogue.json'
+import Epilogue from "@/assets/dialog/Epilogue.json";
 import router from "@/router";
 import { stringLiteral } from "@babel/types";
 
@@ -82,7 +82,7 @@ export const useGameStore = defineStore("game", () => {
     darkcave: ["TongueTwisterGameView"],
     sky: ["birdProverbGameView"],
     swamp: ["kingCureGameView"],
-    epilogue:["EpilogueEndView"]
+    epilogue: ["EpilogueEndView"],
   });
 
   // 현재 effect
@@ -133,7 +133,7 @@ export const useGameStore = defineStore("game", () => {
         return stageViewDict.value.swamp;
       case "MagicCastle":
         return stageViewDict.value.MagicCastle;
-      case 'epilogue':
+      case "epilogue":
         return stageViewDict.value.epilogue;
     }
   });
@@ -150,7 +150,7 @@ export const useGameStore = defineStore("game", () => {
       case "MagicCastle":
         return magic_castle_textbox;
       case "epilogue":
-        return epilogue_textbox
+        return epilogue_textbox;
     }
   });
 
@@ -236,10 +236,9 @@ export const useGameStore = defineStore("game", () => {
         type.value == scriptType.FAIL)
     ) {
       getSTTAI(payload);
-    } else if (stage.value === 'epilogue') {
+    } else if (stage.value === "epilogue") {
       getSTTAI(payload);
-    }
-    else if (stage.value === "sky") {
+    } else if (stage.value === "sky") {
       getBirdAI(payload);
     } else if (stage.value === "swamp") {
       getKingAI(payload);
@@ -259,7 +258,7 @@ export const useGameStore = defineStore("game", () => {
     CHECK: "check",
     FAIL: "fail",
     NICKNAMEAGAIN: "nicknameAgain",
-    END: "end"
+    END: "end",
   };
   Object.freeze(scriptType); // 한번 선언된 객체의 값 변경 못하도록 고정 => enum 처럼 사용
 
@@ -337,7 +336,7 @@ export const useGameStore = defineStore("game", () => {
         scriptNum.value--;
       }
     } else if (type.value == scriptType.SENTANCE) {
-      console.log(Answer.value)
+      console.log(Answer.value);
       if (
         Answer.value.answer == "이제 나의 손을 잡아 보아요" ||
         Answer.value.answer == "안녕은 영원한 헤어짐은 아니겠지요"
@@ -372,19 +371,21 @@ export const useGameStore = defineStore("game", () => {
     } catch (e) {}
   }
 
-// 점수 1초당 10점씩 깎기
-// 게임 진행 시에만 깎도록 조정해야 한다
-function minusScore() {
-  if (score.value === 0) {
-    return;
-  } 
-  if (window.location.pathname === "/stage/swamp/game/kingCureGame"
- || window.location.pathname === "/stage/darkCave/game/tongueTwisterGame" 
- || window.location.pathname === "/stage/sky/game/birdProverbGame") {
-    score.value -= 10;
-    setTimeout(minusScore, 1000);
+  // 점수 1초당 10점씩 깎기
+  // 게임 진행 시에만 깎도록 조정해야 한다
+  function minusScore() {
+    if (score.value === 0) {
+      return;
+    }
+    if (
+      window.location.pathname === "/stage/swamp/game/kingCureGame" ||
+      window.location.pathname === "/stage/darkCave/game/tongueTwisterGame" ||
+      window.location.pathname === "/stage/sky/game/birdProverbGame"
+    ) {
+      score.value -= 10;
+      setTimeout(minusScore, 1000);
+    }
   }
-}
 
   /*
    * AI api 요청
@@ -480,16 +481,19 @@ function minusScore() {
       console.log("modal true로 바꿈: " + Modal.value);
     }
   }
-  
+
   // 닉네임 저장 시키는 함수 axios 요청 보내기
   async function saveNickname(userId: number, nickname: string) {
-    await axios({
-      url: api.user.postUserNickname(userId, nickname),
-      method: "POST",
-      data: nickname,
-    }).then((response) => {
-      console.log('game.ts의 닉네임 수정 함수' + response.data);
-    });
+    if (nickname) {
+      console.log(nickname);
+      await axios({
+        url: api.user.postUserNickname(userId, nickname),
+        method: "POST",
+        data: nickname,
+      }).then((response) => {
+        console.log("game.ts의 닉네임 수정 함수" + response.data);
+      });
+    }
   }
 
   //점수 저장하는 함수 axios 요청 보내기

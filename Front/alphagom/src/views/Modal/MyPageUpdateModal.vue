@@ -28,9 +28,9 @@
               v-model="nick"
               placeholder="10자 이하로 입력해주세요."
               maxlength="10"
-              @change="setNick"
+              @change="setNick()"
             >
-            <button class="modal__update-btn" @click="updateNick">수정하기</button>
+            <button class="modal__update-btn" @click="updateNick()">수정하기</button>
           </div>
         </div>
       </div>
@@ -70,6 +70,7 @@ const updateNick = () => {
   userInfo.userNickname = inputText
   console.log(inputText)
   console.log(userInfo.userNickname)
+  store.updateUserNickname(store.userInfo.userId, store.userInfo.userNickname)
   // console.log(userInfo.value.username)
 }
 
