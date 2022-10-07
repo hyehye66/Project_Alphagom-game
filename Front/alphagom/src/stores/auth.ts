@@ -84,7 +84,7 @@ export const useAuthStore = defineStore("auth", () => {
   function updateUserNickname(userId: number, nickname: string) {
     if (nickname) {
       axios({
-        url: api.user.postUserNickname(userInfo.value.userId, nickname),
+        url: api.user.postUserNickname(userInfo.userId, nickname),
         method: "post",
         // headers: authHeader
         data: nickname,
