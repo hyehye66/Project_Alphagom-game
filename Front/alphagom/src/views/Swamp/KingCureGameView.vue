@@ -172,7 +172,6 @@ watch(Answer, () => compareAnswer());
 
 // 정답비교하는 함수
 const compareAnswer = () => {
-  console.log(store.Answer)
   if (store.Answer) {
     if (
       store.GameList[probidx.value].answer === store.Answer.answer &&
@@ -183,7 +182,9 @@ const compareAnswer = () => {
       store.GameList[probidx.value].answer !== store.Answer.answer &&
       store.Answer
     ) {
-      store.PassFail = "fail";
+      store.PassFail = "pass";  
+      // 여기서 오답일 경우 "오답!" 띄우는 것
+      // store.PassFail = "fail"; 
     } else {
       store.PassFail = null;
     }
