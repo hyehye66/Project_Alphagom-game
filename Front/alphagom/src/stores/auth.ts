@@ -9,14 +9,13 @@ import { defineStore } from "pinia";
 // 이름을 가지는 내보내기를 할 때 보통 이름 앞에 use를 붙여 사용한다.
 export const useAuthStore = defineStore("auth", () => {
   // state
-  // const userInfo = ref(null); // 사용자 정보
-  const userInfo = reactive({
-    // 더미 데이터~~
-    userId: 0,
+    const userInfo = reactive({
+    userId: parseInt(localStorage.getItem("userId")) || 0,
     username: "",
     userNickname: "",
     email: "",
-    profile:"",
+    profile:
+      "https://item.kakaocdn.net/do/862539f7f2171437385154b3b749990f7154249a3890514a43687a85e6b6cc82",
     rank: 0,
   });
   const token = ref(localStorage.getItem("token") || "");
@@ -25,8 +24,7 @@ export const useAuthStore = defineStore("auth", () => {
   // getters
   const recentUserInfo = computed(() => userInfo);
   const recentToken = computed(() => token);
-  // const isLoggedIn = computed(() => !!token.value);
-  const isLoggedIn = true;
+  const isLoggedIn = computed(() => !!token.value);
   const authHeader = computed(() =>
     token.value ? { Authorization: `Bearer ${token.value}` } : ""
   );
@@ -37,6 +35,7 @@ export const useAuthStore = defineStore("auth", () => {
     token.value = mytoken;
     refreshToken.value = myefreshToken;
     localStorage.setItem("token", token.value);
+    localStorage.setItem("userId", userInfo.userId.toString());
   }
   // 사용자 정보 가져오기
   function fetchUserInfo() {
@@ -68,7 +67,7 @@ export const useAuthStore = defineStore("auth", () => {
   function updateUserInfo(payload: string) {
     axios({
       url: api.user.postUserInfo(userInfo.userId),
-      method: "put",
+      method: "post",
       // headers: authHeader
       headers: authHeader.value.valueOf.prototype,
       data: payload,
@@ -79,6 +78,24 @@ export const useAuthStore = defineStore("auth", () => {
       .catch((err) => {
         console.error(err.response);
       });
+  }
+
+  // 사용자 닉네임 수정
+  function updateUserNickname(userId: number, nickname: string) {
+    if (nickname) {
+      axios({
+        url: api.user.postUserNickname(userInfo.value.userId, nickname),
+        method: "post",
+        // headers: authHeader
+        data: nickname,
+      })
+        .then((response) => {
+          console.log("auth.ts의 닉네임 수정 함수" + response.data);
+        })
+        .catch((err) => {
+          console.error(err.response);
+        });
+    }
   }
 
   // 로그아웃
@@ -103,6 +120,7 @@ export const useAuthStore = defineStore("auth", () => {
     saveToken,
     fetchUserInfo,
     updateUserInfo,
+    updateUserNickname,
     logout,
   };
 });
