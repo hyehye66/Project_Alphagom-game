@@ -16,14 +16,14 @@
     <div>
       <div v-if="PassFail === 'passbutton' || PassFail == 'otherpicture'">
         <button
-          class="game-skip-btn again-btn"
+          class="game-skip-btn again-btn other-btn"
           v-if="!GameEnd"
           @click="getProb()"
         >
           다음문제
         </button>
         <button
-          class="game-skip-btn again-btn"
+          class="game-skip-btn again-btn other-btn"
           v-if="GameEnd"
           @click="getNextPage()"
         >
@@ -464,5 +464,10 @@ const getNextPage = () => {
   font-weight: 700;
   color: #594640;
   text-align: center;
+}
+.other-btn {
+  position: absolute;
+  top: 342px;
+  left: 387px;
 }
 </style>
