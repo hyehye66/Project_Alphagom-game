@@ -37,31 +37,156 @@
 - GitLab
 - Mattermost
 
+## 아키텍쳐
+![architecture](README/architecture.png)
+
+## 프론트 구조
+```
+src/
+├── App.vue
+├── api
+│   └── api.ts
+├── assets
+├── components
+│   ├── BackButton.vue
+│   ├── BackGroundMusic.vue
+│   ├── NavBar.vue
+│   ├── TopViewTitle.vue
+│   └── game
+│       ├── BGDarkCave.vue
+│       ├── BGMagicCastle.vue
+│       ├── BGSky.vue
+│       ├── BGSwamp.vue
+│       ├── CommonDialog.vue
+│       ├── MicRecord.vue
+│       ├── PassorFail.vue
+│       ├── PlayBar.vue
+│       └── Score.vue
+├── main.ts
+├── router
+│   ├── authRouter.ts
+│   ├── gameRouter.ts
+│   └── index.ts
+├── stores
+│   ├── auth.ts
+│   ├── bg.ts
+│   ├── game.ts
+│   ├── modal.ts
+│   ├── rank.ts
+│   ├── setting.ts
+│   └── tutorial.ts
+├── utils.js
+└── views
+    ├── Auth
+    │   ├── LoginView.vue
+    │   └── OAuthRedirectView.vue
+    ├── DarkCave
+    │   ├── DarkCaveDialogView.vue
+    │   ├── DarkCaveStartView.vue
+    │   └── TongueTwisterGameView.vue
+    ├── Epilogue
+    │   ├── EpilogueDialogView.vue
+    │   └── EpilogueEndView.vue
+    ├── HomeView.vue
+    ├── MagicCastle
+    │   ├── MagicCastleDialogView.vue
+    │   ├── MagicCastleStartView.vue
+    │   └── MagicCastleTutorialView.vue
+    ├── MapView.vue
+    ├── Modal
+    │   ├── EpilogueModal.vue
+    │   ├── GameScoreModal.vue
+    │   ├── HowTo
+    │   │   ├── BirdProverbGameModal.vue
+    │   │   ├── KingCureGameModal.vue
+    │   │   └── TongueTwisterGameModal.vue
+    │   ├── MagicCastleEndModal.vue
+    │   ├── MyPageUpdateModal.vue
+    │   └── SettingModal.vue
+    ├── MyPageView.vue
+    ├── NotFound404.vue
+    ├── RankView.vue
+    ├── SettingView.vue
+    ├── Sky
+    │   ├── BirdProverbGameView.vue
+    │   ├── SkyDialogView.vue
+    │   └── SkyStartView.vue
+    ├── StageChangeView.vue
+    └── Swamp
+        ├── ChaseGameView.vue
+        ├── KingCureGameView.vue
+        ├── SwampDialogView.vue
+        └── SwampStartView.vue
+```
 
 ## 개발 기간 및 팀원 역할 소개
 
 ### 개발 기간
-2022-08-22 ~ 2022-10-07 (약 6주)
+2022-08-22 ~ 2022-10-07 (약 7주)
 ### 팀원
-| 최혁주 | 이미현 | 이현정 | 박경열 | 배근혜 | 김수빈 |
-|--|--|--|--|--|--|
-| 팀장/AI | 팀원/Back-End | 팀원/Front-End | 팀원/Back-End | 팀원/AI | 팀원/Front-End |
-
+<table>
+    <tr>
+        <td height="140px" align="center"> <a href="https://github.com/spaceforvincent">
+            <img src="https://avatars.githubusercontent.com/u/77443446?v=4" width="140px" /> <br>최혁주</a> <br>
+        </td>
+        <td height="140px" align="center"> <a href="https://github.com/hyehye66">
+            <img src="https://avatars.githubusercontent.com/u/97655755?v=4" width="140px" /> <br>배근혜</a> <br>
+        </td>
+        <td height="140px" align="center"> <a href="https://github.com/mhlee21">
+            <img src="https://avatars.githubusercontent.com/u/79842676?v=4" width="140px" /> <br>이미현</a> <br>
+        </td>
+        <td height="140px" align="center"> <a href="https://github.com/Gyeong10">
+            <img src="https://avatars.githubusercontent.com/u/97589661?v=4" width="140px" /> <br>박경열</a> <br>
+        </td>
+        <td height="140px" align="center"> <a href="https://github.com/Hyunbird">
+            <img src="https://avatars.githubusercontent.com/u/97654804?v=4" width="140px" /> <br>이현정</a> <br>
+        </td>
+        <td height="140px" align="center"> <a href="https://github.com/kettle4ot">
+            <img src="https://avatars.githubusercontent.com/u/66373647?v=4" width="140px" /> <br>김수빈</a> <br>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+        팀장/AI
+        </td>
+        <td align="center">
+        팀원/AI
+        </td>
+        <td align="center">
+        팀원/Back-End
+        </td>
+        <td align="center">
+        팀원/Back-End
+        </td>
+        <td align="center">
+        팀원/Front-End
+        </td>
+        <td align="center">
+        팀원/Front-End
+        </td>
+    </tr>
+</table>
 
 ### 역할분담
 
-최혁주
-이미현
-이현정
-박경열
-배근혜
-김수빈
+[![title](https://img.shields.io/badge/DEVLOPER-최혁주-00BFFF)](https://github.com/spaceforvincent)
+
+[![title](https://img.shields.io/badge/DEVLOPER-배근혜-FFA500)](https://github.com/hyehye66)
+
+[![title](https://img.shields.io/badge/DEVLOPER-이미현-8FBC8F)](https://github.com/mhlee21)
+
+[![title](https://img.shields.io/badge/DEVLOPER-박경열-7FFFD4)](https://github.com/Gyeong10)
+
+[![title](https://img.shields.io/badge/DEVLOPER-이현정-FFFAFA)](https://github.com/Hyunbird)
+
+[![title](https://img.shields.io/badge/DEVLOPER-김수빈-006400)](https://github.com/kettle4ot)
+
 
 ## 프로젝트 산출물
 ### Notion
-
 ['말해봐요 알파곰' 노션 바로가기](https://aboutvincent.notion.site/by-Alphagom-4fa3f449533243bca058a64bd3925011)
 
-### Mockup
+![노션](README/notion.png)
 
-### ERD
+### Mockup
+![목업](README/figma.png)
