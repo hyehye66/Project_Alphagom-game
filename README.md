@@ -34,7 +34,8 @@
 
 ## 주요 기술 스택
 ### Frontend
-- vue3
+- Vue3
+- Pinia
 - html5
 - css3
 
@@ -45,14 +46,18 @@
 - Spring Security
 - JWT
 - JPA
+
+### AI
 - Flask
+- Tensorflow
+- Librosa
+- FFMPEG
 
 ### Infra
 - AWS EC2
 - Jenkins
 - Nginx
 - Docker
-- FFMPEG
 
 ### ETC
 - Figma
