@@ -176,7 +176,9 @@ src/
 [![title](https://img.shields.io/badge/DEVLOPER-이미현-8FBC8F)](https://github.com/mhlee21)
 
 [![title](https://img.shields.io/badge/DEVLOPER-박경열-7FFFD4)](https://github.com/Gyeong10)
-
+- DB 설계 및 구축 / JPA 도메인 설계
+- 게임 API 개발
+- 랭킹 API 개발 (Redis)
 [![title](https://img.shields.io/badge/DEVLOPER-이현정-FFFAFA)](https://github.com/Hyunbird)
 
 [![title](https://img.shields.io/badge/DEVLOPER-김수빈-006400)](https://github.com/kettle4ot)
