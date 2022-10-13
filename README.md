@@ -8,6 +8,30 @@
 게임은 주로 음성을 활용한 게임 캐릭터와의 대화를 통해 진행이 되고, 이를 통해 어휘구사 및 이해 능력 향상과 함께 아이들의 학습에 적합한 쉽고 재미있는 방식으로 한국 문화에 대한 이해도 증진 또한 도모할 수 있습니다.
 
 ## 주요 서비스 화면
+### 🔑로그인
+![로그인](README/%EB%A1%9C%EA%B7%B8%EC%9D%B8.PNG)
+
+### 🎞메인 페이지
+![메인페이지](README/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%83%90%ED%97%98%ED%95%98%EA%B8%B0.PNG)
+
+### 🛕마법의 성
+![마법의성](README/%EB%A7%88%EB%B2%95%EC%9D%98%EC%84%B1.PNG)
+
+### 🍃늪
+![늪](README/%EB%8A%AA.PNG)
+
+### 🌚어둠의 동굴
+![어둠의동굴](README/%EC%96%B4%EB%91%A0%EC%9D%98%EB%8F%99%EA%B5%B4.PNG)
+
+### ☁하늘
+![하늘](README/%ED%95%98%EB%8A%98.PNG)
+
+### 🎬에필로그
+![에필로그](README/%EC%97%90%ED%95%84%EB%A1%9C%EA%B7%B8.PNG)
+
+### 🙋‍♀️내 정보 & 설정하기
+![내정보](README/%EB%82%B4%20%EC%A0%95%EB%B3%B4-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0.PNG)
+
 ## 주요 기술 스택
 ### Frontend
 - vue3
@@ -22,7 +46,7 @@
 - JWT
 - JPA
 - Flask
-- 
+
 ### Infra
 - AWS EC2
 - Jenkins
@@ -170,19 +194,41 @@ src/
 ### 역할분담
 
 [![title](https://img.shields.io/badge/DEVLOPER-최혁주-00BFFF)](https://github.com/spaceforvincent)
+- 팀장
+- 음성 데이터 특징 추출 및 음성인식 CNN 딥러닝 모델 개발 (Tensorflow, Librosa)
+- 음성인식 Classification, STT 게임 API 개발 (Flask)
+- 기타 FE 기능 구현 (Game score, Nickname 저장)
 
 [![title](https://img.shields.io/badge/DEVLOPER-배근혜-FFA500)](https://github.com/hyehye66)
+- Flask 서버 구축
+- 어둠의 동굴 잰말놀이(TTS) 구현
+- 내 정보 페이지(MyPageView) 구현
+- CSS
 
 [![title](https://img.shields.io/badge/DEVLOPER-이미현-8FBC8F)](https://github.com/mhlee21)
+- PM
+- DB 설계 및 구축
+- 소셜로그인 구현
+- Jenkins, Docker 를 이용한 배포 환경 구축
 
 [![title](https://img.shields.io/badge/DEVLOPER-박경열-7FFFD4)](https://github.com/Gyeong10)
-- DB 설계 및 구축 / JPA 도메인 설계
-- 게임 API 개발
+- JPA 도메인 설계
+- REST API 구현
 - 랭킹 API 개발 (Redis)
+- 소셜로그인 구현
+- Jenkins, Docker 를 이용한 배포 환경 구축
 
 [![title](https://img.shields.io/badge/DEVLOPER-이현정-FFFAFA)](https://github.com/Hyunbird)
+- 게임 시나리오 구성
+- 게임 스테이지 설계 및 구현 (마법의 성/늪/어둠의 동굴/하늘/에필로그)
+- Flask/Springboot API 연동
 
 [![title](https://img.shields.io/badge/DEVLOPER-김수빈-006400)](https://github.com/kettle4ot)
+- 캐릭터 및 UI 디자인
+- 와이어프레임 제작
+- 주요 CSS
+- 홈 화면 (HomeView) 구현
+- 네브바 (NavBar.vue) 구현
 
 
 ## 프로젝트 산출물
