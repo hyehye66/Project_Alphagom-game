@@ -236,7 +236,6 @@ function setTabstage(data) {
   "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
   "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
   sans-serif;
-  color: #483737;
   font-size: 20px;
   font-weight: 400;
   line-height: 140%;
@@ -265,7 +264,6 @@ function setTabstage(data) {
   "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
   "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
   sans-serif;
-  color: #483737;
   font-size: 14px;
   font-weight: 700;
   white-space: nowrap;}
